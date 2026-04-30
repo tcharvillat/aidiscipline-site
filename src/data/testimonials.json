@@ -6,7 +6,7 @@
       "role": "Global Head of Design",
       "company": "Carrefour",
       "photo": "/images/testimonials/julien-clement.jpg",
-      "companyLogo": "/images/logos/carrefour.png"
+      "companyLogo": null
     },
     {
       "quote": "Une formation captivante, à la fois théorique et opérationnelle. Tristan est très pédagogue. Je recommande.",
@@ -14,7 +14,7 @@
       "role": "UX Research",
       "company": "Litchee",
       "photo": "/images/testimonials/audeline-maire.jpg",
-      "companyLogo": "/images/logos/litchee.png"
+      "companyLogo": null
     },
     {
       "quote": "Ça faisait longtemps que je n'avais pas suivi une formation où j'avais vraiment l'impression d'apprendre quelque chose d'utile et, surtout, de pouvoir l'appliquer immédiatement. C'était top.",
@@ -22,7 +22,7 @@
       "role": "Product Manager",
       "company": "Meetic",
       "photo": "/images/testimonials/meriem-oheix.webp",
-      "companyLogo": "/images/logos/meetic.png"
+      "companyLogo": null
     },
     {
       "quote": "Excellente formation, très claire, structurée et concrète. Les sessions du lundi midi en petit groupe étaient bien rythmées et faciles à intégrer. Chaque semaine, un devoir pratique corrigé. Je repars avec des méthodes et des outils mieux ficelés et face à moi un immense terrain de jeux. Merci.",
@@ -30,7 +30,7 @@
       "role": "Senior Product Manager",
       "company": "ADEO",
       "photo": "/images/testimonials/hassen-taourirt.jpeg",
-      "companyLogo": "/images/logos/adeo.png"
+      "companyLogo": null
     },
     {
       "quote": "Un grand merci à Tristan & Rémi pour cette formation complète et efficace. C'est une belle prise de conscience quant à l'importance de l'IA comme levier de productivité dans son quotidien, et aussi aux opportunités futures qu'elle offre pour booster sa carrière. Bref, je recommande.",
@@ -38,7 +38,7 @@
       "role": "Lead PM",
       "company": "Gens de Confiance",
       "photo": "/images/testimonials/christophe-delalande.webp",
-      "companyLogo": "/images/logos/gens-de-confiance.png"
+      "companyLogo": null
     },
     {
       "quote": "La pédagogie Tristan et Remi est excellente. La formation GenAI m'a ouvert les yeux et m'a donnée confiance en ma capacité de maîtriser l'IA pour un usage professionnel. Maintenant il n'y a plus qu'à pratiquer et itérer. Je recommande sans hésitation.",
@@ -46,7 +46,7 @@
       "role": "Design Director",
       "company": "ex Datadog & PayFit",
       "photo": "/images/testimonials/eleonore-de-lusignan.webp",
-      "companyLogo": "/images/logos/payfit.png"
+      "companyLogo": null
     },
     {
       "quote": "Tristan et Rémi ont créé une formation professionnelle avec le nécessaire de théorie et de pratique pour pouvoir monter en compétence rapidement sur l'utilisation de l'IA dans notre métier.",
@@ -94,7 +94,7 @@
       "role": "Head of Product",
       "company": "Carrefour",
       "photo": "/images/testimonials/benoit-plomion.webp",
-      "companyLogo": "/images/logos/carrefour.png"
+      "companyLogo": null
     },
     {
       "quote": "Cette formation c'est une manière de se mettre dans la seringue pour mettre les mains dans l'outil et aller chercher un niveau d'exigence professionnel. Je recommande à ceux qui sont prêts à s'investir pour progresser.",
@@ -102,7 +102,7 @@
       "role": "Senior PM Payment",
       "company": "Betclic",
       "photo": "/images/testimonials/patricia-marques.webp",
-      "companyLogo": "/images/logos/betclic.png"
+      "companyLogo": null
     }
   ]
 }
