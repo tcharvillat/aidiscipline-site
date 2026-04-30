@@ -1,0 +1,108 @@
+{
+  "testimonials": [
+    {
+      "quote": "Une formation sans langue de bois, qui délivre du concret et de la valeur.",
+      "author": "Julien Clément",
+      "role": "Global Head of Design",
+      "company": "Carrefour",
+      "photo": "/images/testimonials/julien-clement.jpg",
+      "companyLogo": "/images/logos/carrefour.png"
+    },
+    {
+      "quote": "Une formation captivante, à la fois théorique et opérationnelle. Tristan est très pédagogue. Je recommande.",
+      "author": "Audeline Maire",
+      "role": "UX Research",
+      "company": "Litchee",
+      "photo": "/images/testimonials/audeline-maire.jpg",
+      "companyLogo": "/images/logos/litchee.png"
+    },
+    {
+      "quote": "Ça faisait longtemps que je n'avais pas suivi une formation où j'avais vraiment l'impression d'apprendre quelque chose d'utile et, surtout, de pouvoir l'appliquer immédiatement. C'était top.",
+      "author": "Meriem Oheix",
+      "role": "Product Manager",
+      "company": "Meetic",
+      "photo": "/images/testimonials/meriem-oheix.webp",
+      "companyLogo": "/images/logos/meetic.png"
+    },
+    {
+      "quote": "Excellente formation, très claire, structurée et concrète. Les sessions du lundi midi en petit groupe étaient bien rythmées et faciles à intégrer. Chaque semaine, un devoir pratique corrigé. Je repars avec des méthodes et des outils mieux ficelés et face à moi un immense terrain de jeux. Merci.",
+      "author": "Hassen Taourirt",
+      "role": "Senior Product Manager",
+      "company": "ADEO",
+      "photo": "/images/testimonials/hassen-taourirt.jpeg",
+      "companyLogo": "/images/logos/adeo.png"
+    },
+    {
+      "quote": "Un grand merci à Tristan & Rémi pour cette formation complète et efficace. C'est une belle prise de conscience quant à l'importance de l'IA comme levier de productivité dans son quotidien, et aussi aux opportunités futures qu'elle offre pour booster sa carrière. Bref, je recommande.",
+      "author": "Christophe Delalande",
+      "role": "Lead PM",
+      "company": "Gens de Confiance",
+      "photo": "/images/testimonials/christophe-delalande.webp",
+      "companyLogo": "/images/logos/gens-de-confiance.png"
+    },
+    {
+      "quote": "La pédagogie Tristan et Remi est excellente. La formation GenAI m'a ouvert les yeux et m'a donnée confiance en ma capacité de maîtriser l'IA pour un usage professionnel. Maintenant il n'y a plus qu'à pratiquer et itérer. Je recommande sans hésitation.",
+      "author": "Eleonore de Lusignan",
+      "role": "Design Director",
+      "company": "ex Datadog & PayFit",
+      "photo": "/images/testimonials/eleonore-de-lusignan.webp",
+      "companyLogo": "/images/logos/payfit.png"
+    },
+    {
+      "quote": "Tristan et Rémi ont créé une formation professionnelle avec le nécessaire de théorie et de pratique pour pouvoir monter en compétence rapidement sur l'utilisation de l'IA dans notre métier.",
+      "author": "Joffrey Mougel",
+      "role": "Product Designer & Instructor",
+      "company": "Freelance",
+      "photo": "/images/testimonials/joffrey-mougel.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Format très dynamique, formateur très intéressant, on a envie de l'écouter. Très bon mix entre théorie et mise en pratique.",
+      "author": "Agathe Lecoq",
+      "role": "Co-fondatrice",
+      "company": "Mindology.fr",
+      "photo": "/images/testimonials/agathe-lecoq.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "J'ai mieux compris le fonctionnement des LLMs et leur utilisation dans mon quotidien, pris conscience du champ des possibles grâce aux nombreux cas d'usage illustrés et expérimenté des cas pratiques. Parfait.",
+      "author": "Adrien Subitte",
+      "role": "Senior Product Manager",
+      "company": "Wefiit",
+      "photo": "/images/testimonials/adrien-subitte.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Du concret : une formation IA qui permet d'expérimenter et monter en compétences à son rythme sur des cas d'usage pertinents pour son quotidien. Je recommande à tout PM qui veut s'emparer de l'IA pour décupler sa productivité.",
+      "author": "Marion Hurel",
+      "role": "Practice Leader",
+      "company": "5 Degrés",
+      "photo": "/images/testimonials/marion-hurel.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Les sessions sur l'heure du déjeuner sont super pratiques pour apprendre sans perturber son agenda, et le contenu est à la fois concret, inspirant et immédiatement actionnable. Je recommande vivement à tous les product managers curieux d'explorer le potentiel de l'IA générative dans leurs produits.",
+      "author": "Camille Lehurt",
+      "role": "Lead Product Manager",
+      "company": "RCA",
+      "photo": "/images/testimonials/camille-lehurt.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Avec cette formation, j'ai compris comment vraiment utiliser l'IA dans mon domaine et toutes les possibilités qui existent. Cette formation est pour moi un breaking change dans ma carrière. Merci.",
+      "author": "Benoît Plomion",
+      "role": "Head of Product",
+      "company": "Carrefour",
+      "photo": "/images/testimonials/benoit-plomion.webp",
+      "companyLogo": "/images/logos/carrefour.png"
+    },
+    {
+      "quote": "Cette formation c'est une manière de se mettre dans la seringue pour mettre les mains dans l'outil et aller chercher un niveau d'exigence professionnel. Je recommande à ceux qui sont prêts à s'investir pour progresser.",
+      "author": "Patricia Marques",
+      "role": "Senior PM Payment",
+      "company": "Betclic",
+      "photo": "/images/testimonials/patricia-marques.webp",
+      "companyLogo": "/images/logos/betclic.png"
+    }
+  ]
+}

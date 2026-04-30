@@ -1,0 +1,40 @@
+{
+  "faq": [
+    {
+      "question": "Comment fonctionne une intelligence artificielle ?",
+      "answer": "Une IA repose sur des modèles capables d'analyser des données, de reconnaître des schémas et de produire des réponses ou actions. Les IA génératives comme ChatGPT utilisent des LLM (Large Language Models) entraînés sur des milliards de textes pour générer du contenu cohérent et pertinent."
+    },
+    {
+      "question": "Comment utiliser l'intelligence artificielle dans mon métier ?",
+      "answer": "Dans les équipes Produit, l'IA permet de résumer du feedback utilisateur, générer des idées de solutions, créer du contenu marketing ou produit, synthétiser des entretiens utilisateurs, et automatiser la documentation produit. On vous montre exactement comment faire, avec des outils et cas d'usage concrets de l'IA."
+    },
+    {
+      "question": "Comment se former à l'intelligence artificielle ?",
+      "answer": "Il existe plusieurs façons de se former à l'IA : via des formations en ligne, des MOOC, des cours en présentiel, ou des formations certifiantes. Pour bien démarrer, privilégiez une formation IA pour débutants qui explique les bases : machine learning, IA générative, et utilisation d'outils comme ChatGPT."
+    },
+    {
+      "question": "Quelle formation IA choisir quand on débute ?",
+      "answer": "Si vous débutez, optez pour une formation IA accessible sans prérequis, qui propose des projets pratiques, des vidéos pédagogiques et un accompagnement. Des formations IA no-code ou centrées sur des outils concrets (comme Notion AI, Midjourney, etc.) sont idéales pour les profils non techniques."
+    },
+    {
+      "question": "Peut-on apprendre à créer une intelligence artificielle sans être développeur ?",
+      "answer": "Oui. Grâce à certaines formations IA no-code, il est aujourd'hui possible de comprendre les bases de l'IA et de créer des modèles simples sans coder. Vous apprendrez par exemple à utiliser des générateurs de texte, des outils d'automatisation ou à construire un assistant intelligent."
+    },
+    {
+      "question": "Comment créer ou utiliser l'intelligence artificielle dans son métier ?",
+      "answer": "Nos formations IA vous apprennent à intégrer concrètement l'IA dans vos processus : créer des workflows avec GPT-4 ou Claude, utiliser des outils no-code pour automatiser des tâches, exploiter les IA génératives pour vos users tests, benchmarks, contenus, etc."
+    },
+    {
+      "question": "Existe-t-il des formations IA gratuites ou financées ?",
+      "answer": "L'inscription à la communauté AI Discipline (1500+ membres) donne accès à des contenus gratuits, ressources et webinaires. Nos formations payantes sont finançables dans certaines entreprises (par les plans de formation internes, OPCO, etc.)."
+    },
+    {
+      "question": "Par où commencer pour se former à l'intelligence artificielle ?",
+      "answer": "Commencez par rejoindre la communauté AI Discipline : vous y trouverez des retours d'expérience, des cas concrets, et des recommandations de parcours selon votre métier. Ensuite, choisissez la formation IA adaptée à votre besoin : montée en compétences individuelle, ou transformation d'équipe."
+    },
+    {
+      "question": "Faut-il savoir coder pour suivre une formation IA ?",
+      "answer": "Pas du tout. Nos formations en intelligence artificielle sont pensées pour des profils non techniques. Nous vous apprenons à dialoguer avec l'IA, à en comprendre les logiques, et à les intégrer dans vos outils métier, sans code."
+    }
+  ]
+}

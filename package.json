@@ -1,0 +1,23 @@
+{
+  "name": "aidiscipline-site",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Site AI Discipline — formations IA pour équipes Produit & Design",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.1.10"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/vite": "^4.2.4",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+/* Design tokens — mirrored as CSS custom properties for use outside Tailwind utilities. */
+:root {
+  --color-brand-primary: #6B4EFF;
+  --color-brand-primary-dark: #4A2FE5;
+  --color-brand-primary-light: #E8E2FF;
+
+  --color-text-primary: #0F0F1A;
+  --color-text-secondary: #4A4A5C;
+  --color-text-muted: #8A8A9E;
+
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F5FF;
+  --color-bg-dark: #0F0F1A;
+
+  --color-border: #E5E5EE;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+}

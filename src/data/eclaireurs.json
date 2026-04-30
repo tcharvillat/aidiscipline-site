@@ -1,0 +1,94 @@
+{
+  "eclaireurs": [
+    {
+      "name": "Marion Jachimski",
+      "role": "Senior Product Manager",
+      "bio": "8+ ans d'expérience en SaaS, B2B et B2C – de l'assurance à la civic tech –, j'aide les équipes à transformer leurs idées en produits utiles et scalables. Animée par le partage entre pairs, j'adore échanger et apprendre en permanence au contact des autres.",
+      "photo": "/images/eclaireurs/marion-jachimski.png"
+    },
+    {
+      "name": "Geraldine Corrales",
+      "role": "Freelance PM",
+      "bio": "20+ ans d'expérience internationale, j'expérimente quotidiennement avec les outils émergents comme vibecoding et les agents pour réinventer les méthodes de développement produit.",
+      "photo": "/images/eclaireurs/geraldine-corrales.png"
+    },
+    {
+      "name": "Vincent Gadanho",
+      "role": "Freelance",
+      "bio": "J'aide mes clients à automatiser leurs process, créer des MVPs No-Code Full-Stack et comprendre les technologies IA les plus avancées afin de définir une stratégie IT alignée sur le monde de demain.",
+      "photo": "/images/eclaireurs/vincent-gadanho.png"
+    },
+    {
+      "name": "Pantéa Négui",
+      "role": "Product Design Lead",
+      "bio": "Après dix ans chez PayPal, BlaBlaCar, Hopper et Swile, je conçois aujourd'hui chez Beside des comportements, émotions et services qui rendent l'intelligence artificielle profondément humaine.",
+      "photo": "/images/eclaireurs/pantea-negui.png"
+    },
+    {
+      "name": "Katia Cadet",
+      "role": "Lead Product Designer",
+      "bio": "En tant qu'éclaireuse au sein de la communauté, Katia explore au quotidien le potentiel de l'intelligence artificielle dans le design. Elle identifie des opportunités pour améliorer les pratiques de son équipe et concevoir des logiciels qui libèrent du temps aux professionnels de santé pour se concentrer sur le soin.",
+      "photo": "/images/eclaireurs/katia-cadet.png"
+    },
+    {
+      "name": "Nicola Carli",
+      "role": "AI Ops",
+      "bio": "J'accompagne l'adoption de l'IA à l'échelle de l'entreprise pour améliorer l'efficacité interne. Mon parcours de Product Manager combiné à mes 6 années d'expérience en software engineering me permet de comprendre les enjeux techniques et produit de l'implémentation IA.",
+      "photo": "/images/eclaireurs/nicola-carli.png"
+    },
+    {
+      "name": "Cécile Poulélaouen",
+      "role": "UX Writer",
+      "bio": "Depuis 2021, j'accompagne les équipes produits afin d'optimiser les parcours utilisateurs. En tant qu'UX Writer, je cherche au quotidien à améliorer la documentation des LLM tout en expérimentant l'automatisation de process de travail.",
+      "photo": "/images/eclaireurs/cecile-poulelaouen.png"
+    },
+    {
+      "name": "Julie Robles",
+      "role": "Lead Product Ops",
+      "bio": "Convaincue que l'IA redéfinit fondamentalement nos métiers et nos méthodes de collaboration, j'expérimente avec des outils comme Dust, Zapier, Lovable, N8N, pour anticiper et façonner notre organisation de demain.",
+      "photo": "/images/eclaireurs/julie-robles.png"
+    },
+    {
+      "name": "Laurent Billon",
+      "role": "CPO",
+      "bio": "J'accompagne les SaaS B2B en tant que fractional PM et mentor. Passionné d'IA, j'ai fondé PeerPanda, la plateforme de veille concurrentielle qui aide les équipes produit et marketing à garder toujours un coup d'avance.",
+      "photo": "/images/eclaireurs/laurent-billon.png"
+    },
+    {
+      "name": "Terry Michel",
+      "role": "Entrepreneur",
+      "bio": "Fort de plus de 10 ans d'expérience dans des fonctions tech et produit. Il est aussi le créateur du podcast français Just a Click dans lequel vous trouverez des interviews sans langue de bois autour de l'IA générative, du Produit, du Design et du Business.",
+      "photo": "/images/eclaireurs/terry-michel.png"
+    },
+    {
+      "name": "Hugo Huet-Leroy",
+      "role": "PM & Vibe Coder",
+      "bio": "J'accompagne aujourd'hui Bpifrance. J'explore l'IA pour créer des MVPs, prototyper rapidement et lancer des produits utiles avec un focus business value, UX moderne et exécution rapide.",
+      "photo": "/images/eclaireurs/hugo-huet-leroy.png"
+    },
+    {
+      "name": "Sébastien Merle",
+      "role": "Head of Product",
+      "bio": "J'aime transformer des problèmes complexes en solutions simples et concrètes. Passionné par le potentiel de l'IA, je cherche toujours à identifier ce qui peut être amplifié et déployé à grande échelle.",
+      "photo": "/images/eclaireurs/sebastien-merle.png"
+    },
+    {
+      "name": "Patricia Marques",
+      "role": "Product Manager",
+      "bio": "Experte en produit paiement et early adopteuse d'IA générative, j'ai libéré 70h/mois à une équipe de 10 PO/PM chez Betclic grâce à 3 automatisations concrètes. Mon credo : la théorie des petits pas. Je vais vous montrer comment récupérer du temps de cerveau disponible en automatisant grâce à l'IA.",
+      "photo": "/images/eclaireurs/patricia-marques.png"
+    },
+    {
+      "name": "Yann Rapaport",
+      "role": "Consultant Produit",
+      "bio": "Avec 20 ans d'expérience en B2B tech, j'aide les fondateurs, CEO et CPO à structurer leur vision et leur organisation. Passionné par l'IA, j'explore chaque jour agents et automatisation pour réinventer les pratiques produit et amplifier l'impact.",
+      "photo": "/images/eclaireurs/yann-rapaport.png"
+    },
+    {
+      "name": "Matthieu Willaime",
+      "role": "Head of Product",
+      "bio": "Actuellement Head of Product chez Wecasa, la marketplace des services à domicile, après un passage par les médias et l'e-commerce. Curieux insatiable, j'explore l'IA pour booster mon quotidien et faciliter le travail opérationnel de mon équipe.",
+      "photo": "/images/eclaireurs/matthieu-willaime.png"
+    }
+  ]
+}
