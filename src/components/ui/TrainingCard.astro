@@ -8,6 +8,7 @@ export interface Props {
   price: string;
   priceNote?: string | null;
   rating?: number | null;
+  ratingCount?: number | null;
   url: string;
   banner?: string;
   /** Conservé pour compat API mais plus rendu. */
@@ -21,6 +22,7 @@ const {
   price,
   priceNote,
   rating,
+  ratingCount,
   url,
   banner,
 } = Astro.props;
@@ -28,6 +30,8 @@ const {
 // "4 x 1 heure + Exercices asynchrones" → "4 x 1 heure"
 const formatShort = format.split(/\s*\+\s*/)[0].trim();
 const hasRating = typeof rating === 'number' && !Number.isNaN(rating);
+const hasRatingCount =
+  typeof ratingCount === 'number' && !Number.isNaN(ratingCount);
 ---
 
 <article class="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover">
@@ -83,6 +87,11 @@ const hasRating = typeof rating === 'number' && !Number.isNaN(rating);
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
           <span aria-label={`Note : ${rating} sur 5`}>{rating!.toFixed(1)}</span>
+          {hasRatingCount && (
+            <span class="font-normal text-ink-light" aria-label={`${ratingCount} avis`}>
+              ({ratingCount})
+            </span>
+          )}
         </span>
       ) : (
         <span class="inline-flex items-center rounded-pill bg-brand-500 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
