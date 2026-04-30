@@ -1,0 +1,696 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import TestimonialCard from '../components/ui/TestimonialCard.astro';
+
+const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
+const CONTACT_EMAIL = 'formation@aidiscipline.com';
+const REFERENT_EMAIL = 'tristan@discovery-discipline.com';
+
+const formatPoints = [
+  {
+    title: '1 journée dans vos locaux',
+    body:
+      "Une journée immersive au sein de votre organisation pour former vos équipes directement dans leur environnement de travail.",
+  },
+  {
+    title: 'Mise en pratique sur vos outils',
+    body:
+      "Les exercices se déroulent directement sur vos environnements : Dust, Copilot, Gemini ou outils internes, pour une application immédiate.",
+  },
+  {
+    title: 'Formation ancrée dans votre contexte',
+    body:
+      "Le programme est personnalisable selon vos priorités et vos défis afin d'ancrer les nouvelles pratiques d'IA dans votre réalité métier.",
+  },
+  {
+    title: 'Certificat de réussite',
+    body:
+      "Chaque formation délivre un certificat attestant de la réussite des participants, à partager avec leur employeur ou sur LinkedIn.",
+  },
+];
+
+const modules = [
+  {
+    number: '01',
+    title: 'Maîtriser le Prompting Professionnel',
+    intro:
+      "Maîtrisez le prompting en structurant vos demandes et en variant vos perspectives pour un usage vraiment professionnel de l'IA.",
+    points: [
+      'Fonctionnement probabiliste des LLM et gestion des biais',
+      'Méthode CAFÉ pour structurer vos prompts',
+      "Faire varier les perspectives d'un prompt",
+      "Gérer la courbe d'adoption de l'IA",
+    ],
+  },
+  {
+    number: '02',
+    title: "Traiter les Cas d'Usage Avancés",
+    intro:
+      "Identifiez vos cas d'usage quotidiens, évitez les pièges des scopes trop larges et exploitez le Chain of Thought pour les scénarios complexes.",
+    points: [
+      "Défis psychologiques et organisationnels face à l'IA",
+      'Éviter les pièges des scopes trop ambitieux et des prompts « fourre-tout »',
+      "Cas d'usage du quotidien : les plus efficaces et actionnables",
+      "Méthode du Chain of Thought (CoT) pour les cas d'usage avancés",
+    ],
+  },
+  {
+    number: '03',
+    title: 'Construire sa Base de Connaissances',
+    intro:
+      "Bâtissez une base RAG sur mesure et transformez vos données et conversations en intelligence directement exploitable par l'IA.",
+    points: [
+      'Principe du RAG (Retrieval Augmented Generation)',
+      'Construire une base de données sur mesure',
+      "Capturer et exploiter l'intelligence conversationnelle",
+      'Techniques de nettoyage et structuration automatisées',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Créer son Assistant IA',
+    intro:
+      "Configurez un assistant projet efficace, du choix du modèle aux instructions, et mettez-le en action dans votre quotidien.",
+    points: [
+      "Les bonnes attentes vis-à-vis d'un assistant",
+      'Instructions vs prompts : méthode CAFÉ « double shot »',
+      'Choix du modèle et réglage de la température',
+      "Configuration complète d'un assistant projet",
+    ],
+  },
+];
+
+const indicators = [
+  { label: 'Satisfaction globale', value: '9,2', unit: '/10' },
+  { label: "Qualité de l'animation", value: '9,6', unit: '/10' },
+  { label: 'Recommandation', value: '91', unit: '%' },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Une formation sans langue de bois, qui délivre du concret et de la valeur aux équipes.",
+    author: 'Julien Clément',
+    role: 'Global Head of Design',
+    company: 'Carrefour',
+    photo: '/images/testimonials/julien-clement.jpg',
+  },
+  {
+    quote:
+      "Une formation actionnable pour construire une bonne base de compétences et de réflexion, nécessaire à une prise en main de la GenAI de la bonne manière : réfléchie, intentionnelle et scalable pour les équipes.",
+    author: 'Sophie Pesenti',
+    role: 'Group Product Manager',
+    company: 'Decathlon',
+  },
+  {
+    quote:
+      "Tristan et Rémi ont une connaissance approfondie et pratique de l'IA qui fait de cette formation un vrai tremplin pour les managers qui souhaitent augmenter leurs équipes. Je recommande les yeux fermés.",
+    author: 'Geoffroy de La Rochebrochard',
+    role: 'Product Director',
+    company: 'Pluxee',
+  },
+  {
+    quote:
+      "Format efficace, échanges stimulants et mise en pratique simple ! Parfait pour embarquer ses équipes et leur donner envie de s'y mettre.",
+    author: 'Alicia Carb',
+    role: 'Chief Product Officer',
+    company: 'Barrière',
+  },
+  {
+    quote:
+      "Une bonne formation pour démystifier l'IA, apprendre à prompter et créer notre propre assistant. Une formation dynamique et inspirante pour nos équipes !",
+    author: 'Virginie Lacloche',
+    role: 'Directrice Marketing',
+    company: 'Carrefour',
+  },
+  {
+    quote:
+      "Une formation excellente, à la fois sur le fond et sur la forme. L'équipe en est ressortie pleine d'énergie avec l'envie d'avancer.",
+    author: 'Vincent Fonade',
+    role: 'Chief People Officer',
+    company: 'Eurecia',
+  },
+];
+
+const objectives = [
+  {
+    title: 'Maîtriser le prompting professionnel',
+    body:
+      "connaître le fonctionnement des LLMs, gérer les biais et appliquer la méthode CAFÉ pour structurer des demandes efficaces et reproductibles.",
+  },
+  {
+    title: "Identifier les cas d'usage à fort impact",
+    body:
+      "évaluer et prioriser les opportunités d'intégration de l'IA dans le quotidien professionnel, en évitant les pièges des scopes trop ambitieux.",
+  },
+  {
+    title: 'Construire une base de connaissances opérationnelle',
+    body:
+      "maîtriser les principes du RAG pour connecter l'IA aux documents internes et transformer l'intelligence conversationnelle en levier de productivité.",
+  },
+  {
+    title: 'Créer un assistant IA personnalisé',
+    body:
+      "configurer un assistant métier fonctionnel avec des instructions précises, adapté aux besoins spécifiques de son équipe.",
+  },
+];
+
+const modalities = [
+  { label: 'Durée', value: '1 journée (7 heures)' },
+  { label: 'Format', value: 'Présentiel dans vos locaux' },
+  {
+    label: 'Public',
+    value: 'Équipes Produit, Design, Marketing, RH, Management et CODIR',
+  },
+  {
+    label: 'Pré-requis',
+    value:
+      'Aucun pré-requis technique. Ordinateur portable et connexion internet haut débit requis.',
+  },
+  {
+    label: 'Accessibilité',
+    value:
+      'Formation accessible aux personnes en situation de handicap. Contacter le référent handicap en amont.',
+  },
+  { label: 'Tarif', value: 'à partir de 6 000 € HT' },
+  {
+    label: "Délai d'accès",
+    value:
+      '7 jours ouvrés minimum à compter de la validation de la convention.',
+  },
+];
+---
+
+<BaseLayout
+  title="Formations sur mesure — AI Discipline"
+  description="Formations IA générative sur mesure pour vos équipes Produit, Design, Marketing et RH. 1 journée immersive, dans vos locaux, sur vos outils."
+>
+  <Header />
+
+  <main>
+    <!-- Hero ------------------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28 lg:px-12">
+        <div class="space-y-8 text-center">
+          <p class="mx-auto max-w-3xl text-sm font-semibold uppercase tracking-widest text-brand-500">
+            L'IA, ce n'est pas une question d'outil. C'est une question de savoir-faire.
+          </p>
+          <h1 class="text-display-xl font-bold text-ink">
+            Des formations <span class="text-brand-500">sur mesure</span><br class="hidden sm:inline" />
+            pour vos équipes
+          </h1>
+          <div class="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-ink-muted">
+            <p>
+              L'intelligence artificielle générative transforme nos façons de
+              concevoir, de collaborer et de créer de la valeur. Pourtant,
+              beaucoup d'équipes se limitent à tester des outils sans en tirer
+              de réels bénéfices. Car l'IA n'est pas un outil, c'est une
+              nouvelle manière de penser et de travailler.
+            </p>
+            <p>
+              Nos formations sur mesure permettent justement de franchir ce cap.
+              En construisant un socle de connaissances essentielles, les équipes
+              Produit et Design développent une pratique concrète, responsable
+              et durable de l'intelligence artificielle — et transforment enfin
+              la curiosité en compétence, puis la compétence en performance.
+            </p>
+          </div>
+          <div class="flex justify-center pt-2">
+            <Button
+              href={CALENDLY_URL}
+              variant="primary"
+              size="lg"
+              external
+              withArrow
+            >
+              Échanger sur votre projet
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Format ----------------------------------------------------------- -->
+    <section class="border-t border-gray-100">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Formation dédiée
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            Une journée, dans vos locaux, sur vos outils
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {formatPoints.map((point) => (
+            <article class="rounded-2xl border border-gray-100 bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover">
+              <h3 class="text-lg font-semibold text-ink">{point.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+                {point.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules ---------------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Programme
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            Programme de la journée
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {modules.map((m) => (
+            <article class="flex flex-col rounded-2xl bg-white p-8 shadow-card">
+              <div class="flex items-baseline gap-3">
+                <span class="text-sm font-mono font-semibold text-brand-500">
+                  Module {m.number}
+                </span>
+              </div>
+              <h3 class="mt-2 text-xl font-bold text-ink">{m.title}</h3>
+              <p class="mt-4 flex gap-2 text-sm leading-relaxed text-ink-muted">
+                <span aria-hidden="true">👉</span>
+                <span>{m.intro}</span>
+              </p>
+              <ul class="mt-5 space-y-2 border-t border-gray-100 pt-5">
+                {m.points.map((point) => (
+                  <li class="flex gap-2 text-sm text-ink">
+                    <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Audiences -------------------------------------------------------- -->
+    <section>
+      <div class="mx-auto max-w-4xl px-6 py-20 text-center md:px-8 md:py-24 lg:px-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+          Public visé
+        </p>
+        <h2 class="mt-3 text-display-lg font-bold text-ink">
+          Quelles équipes former ?
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-ink-muted">
+          Nos formations s'adaptent à la réalité et aux besoins de chaque
+          organisation. Les fondamentaux du prompting et de la conception
+          d'assistants IA constituent un socle commun à toutes les équipes —
+          Produit, Design, Marketing, Data, ou encore RH. Ce qui change, ce
+          sont les cas d'usage explorés, les outils mobilisés et les exemples
+          concrets appliqués à chaque métier. Nous concevons ainsi des
+          parcours sur mesure qui parlent le langage de vos équipes et leur
+          permettent d'intégrer l'IA dans leur quotidien, de façon pertinente,
+          durable et alignée avec vos enjeux.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <Button
+            href={CALENDLY_URL}
+            variant="primary"
+            size="lg"
+            external
+            withArrow
+          >
+            Échanger sur votre projet
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indicateurs ------------------------------------------------------ -->
+    <section class="bg-ink text-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">
+            Indicateurs de résultats
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold">
+            Une formation plébiscitée par les équipes
+          </h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          {indicators.map((ind) => (
+            <div class="text-center">
+              <p class="text-5xl font-bold text-brand-400 md:text-6xl">
+                {ind.value}<span class="text-3xl text-white/70 md:text-4xl">{ind.unit}</span>
+              </p>
+              <p class="mt-3 text-sm font-medium uppercase tracking-wider text-white/70">
+                {ind.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-12 text-center text-xs text-white/50">
+          Mise à jour avril 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials ----------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Témoignages
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            Ils ont formé leurs équipes
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <TestimonialCard
+              quote={t.quote}
+              author={t.author}
+              role={t.role}
+              company={t.company}
+              photo={t.photo}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Modalités & infos formation (accordion) -------------------------- -->
+    <section>
+      <div class="mx-auto max-w-4xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Informations formation
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            Modalités, objectifs et accessibilité
+          </h2>
+        </div>
+
+        <div class="space-y-3">
+          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+              <span>Modalités</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="border-t border-gray-100 px-6 py-5">
+              <dl class="space-y-3 text-sm">
+                {modalities.map((row) => (
+                  <div class="flex flex-col gap-1 sm:flex-row sm:gap-2">
+                    <dt class="font-semibold text-ink sm:w-40 sm:flex-shrink-0">
+                      {row.label}
+                    </dt>
+                    <dd class="text-ink-muted">{row.value}</dd>
+                  </div>
+                ))}
+                <div class="flex flex-col gap-1 sm:flex-row sm:gap-2">
+                  <dt class="font-semibold text-ink sm:w-40 sm:flex-shrink-0">
+                    Réservation
+                  </dt>
+                  <dd>
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      class="text-brand-500 hover:underline"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+
+          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+              <span>Objectifs pédagogiques</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="border-t border-gray-100 px-6 py-5">
+              <p class="mb-4 text-sm text-ink-muted">
+                À l'issue de la formation, chaque participant sera capable de :
+              </p>
+              <ul class="space-y-3">
+                {objectives.map((obj) => (
+                  <li class="text-sm leading-relaxed">
+                    <span class="font-semibold text-ink">{obj.title}</span>
+                    <span class="text-ink-muted"> — {obj.body}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+
+          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+              <span>Méthode pédagogique</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="border-t border-gray-100 px-6 py-5">
+              <ul class="space-y-3 text-sm leading-relaxed text-ink-muted">
+                <li>
+                  Alternance d'exposés théoriques et d'exercices pratiques
+                  adaptés au contexte métier de chaque participant.
+                </li>
+                <li>
+                  Tour de table en début de journée pour recueillir les
+                  attentes spécifiques de chaque participant.
+                </li>
+                <li>
+                  Mise en pratique sur les outils IA déployés dans
+                  l'organisation (Dust, Copilot, Gemini ou outils internes).
+                </li>
+                <li>
+                  Exercice fil conducteur : chaque participant configure et
+                  teste son propre assistant IA au fil de la journée.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+              <span>Évaluation des compétences acquises</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="border-t border-gray-100 px-6 py-5">
+              <ul class="space-y-3 text-sm leading-relaxed text-ink-muted">
+                <li>
+                  Un test de positionnement est réalisé en amont de la
+                  formation pour évaluer le niveau initial de chaque
+                  participant.
+                </li>
+                <li>
+                  Un test de validation des acquis est réalisé en fin de
+                  journée.
+                </li>
+                <li>
+                  Un certificat de formation est délivré aux participants
+                  ayant réussi le test de certification.
+                </li>
+                <li>
+                  Une feuille d'émargement est signée par chaque participant
+                  tout au long de la journée.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+              <span>Accessibilité et handicap</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="border-t border-gray-100 px-6 py-5">
+              <div class="space-y-4 text-sm leading-relaxed text-ink-muted">
+                <p>
+                  Cette formation est accessible aux personnes en situation de
+                  handicap. Nous adaptons nos modalités pédagogiques en
+                  fonction des besoins spécifiques de chaque participant.
+                </p>
+                <p>
+                  Pour toute situation de handicap, merci de contacter notre
+                  référent handicap en amont de la formation afin que nous
+                  puissions étudier ensemble les aménagements nécessaires.
+                </p>
+                <p>
+                  <span class="font-semibold text-ink">Référent handicap :</span>{' '}
+                  Tristan Charvillat —{' '}
+                  <a
+                    href={`mailto:${REFERENT_EMAIL}`}
+                    class="text-brand-500 hover:underline"
+                  >
+                    {REFERENT_EMAIL}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form ----------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-3xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Contact
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">Nous contacter</h2>
+          <p class="mx-auto mt-4 max-w-xl text-base text-ink-muted">
+            Une question, un projet de formation pour vos équipes ? Écrivez-nous
+            et nous reviendrons vers vous rapidement.
+          </p>
+        </div>
+
+        <form
+          action={`mailto:${CONTACT_EMAIL}`}
+          method="post"
+          enctype="text/plain"
+          class="space-y-5 rounded-2xl bg-white p-6 shadow-card md:p-8"
+        >
+          <div class="grid gap-5 md:grid-cols-2">
+            <div>
+              <label for="firstname" class="block text-sm font-medium text-ink">
+                Prénom <span class="text-brand-500">*</span>
+              </label>
+              <input
+                id="firstname"
+                name="firstname"
+                type="text"
+                required
+                class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              />
+            </div>
+            <div>
+              <label for="lastname" class="block text-sm font-medium text-ink">
+                Nom <span class="text-brand-500">*</span>
+              </label>
+              <input
+                id="lastname"
+                name="lastname"
+                type="text"
+                required
+                class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-ink">
+              E-mail <span class="text-brand-500">*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            />
+          </div>
+
+          <div>
+            <label for="company" class="block text-sm font-medium text-ink">
+              Société
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-ink">
+              Votre message <span class="text-brand-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            ></textarea>
+          </div>
+
+          <div class="pt-2">
+            <Button type="submit" variant="primary" size="lg" withArrow>
+              Envoyer
+            </Button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
