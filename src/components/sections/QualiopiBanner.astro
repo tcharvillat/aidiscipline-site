@@ -1,13 +1,40 @@
 ---
-import QualiopiBadge from '../ui/QualiopiBadge.astro';
 ---
 
 <section
   id="qualiopi-banner"
-  class="border-y border-gray-100 bg-white py-8"
+  class="border-y border-gray-100 bg-brand-50/40 py-5 md:py-6"
   aria-label="Certification Qualiopi"
 >
-  <div class="mx-auto flex max-w-7xl justify-center px-6 md:px-8 lg:px-12">
-    <QualiopiBadge compact={false} />
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 px-6 md:flex-row md:gap-8 md:px-8 lg:px-12">
+    <img
+      src="/images/brand/LogoQualiopi-150dpi-AvecMarianne.png"
+      alt="Qualiopi - Processus certifié - République Française"
+      width="110"
+      class="h-auto w-[180px] flex-shrink-0 md:w-[200px]"
+      loading="lazy"
+    />
+
+    <div class="flex flex-col items-center gap-2 text-center md:flex-row md:gap-6 md:text-left">
+      <p class="text-sm font-semibold text-ink md:text-base">
+        Organisme certifié Qualiopi
+      </p>
+      <span
+        class="hidden h-1 w-1 rounded-full bg-ink-light md:inline-block"
+        aria-hidden="true"
+      ></span>
+      <p class="text-sm text-ink-muted md:text-base">
+        Formations finançables OPCO, France Travail et fonds publics
+      </p>
+    </div>
+
+    <a
+      href="/documents/certificat-qualiopi.pdf"
+      target="_blank"
+      rel="noopener"
+      class="text-sm font-medium text-brand-600 underline-offset-2 hover:underline"
+    >
+      Voir le certificat <span aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
