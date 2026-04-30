@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import TestimonialCard from '../components/ui/TestimonialCard.astro';
+import EclaireurCard from '../components/ui/EclaireurCard.astro';
+import TrainingCard from '../components/ui/TrainingCard.astro';
+import LogoCarousel from '../components/ui/LogoCarousel.astro';
+
+import testimonialsData from '../data/testimonials.json';
+import eclaireursData from '../data/eclaireurs.json';
+import trainingsData from '../data/trainings.json';
+
+const testimonials = testimonialsData.testimonials.slice(0, 3);
+const eclaireurs = eclaireursData.eclaireurs.slice(0, 4);
+const trainings = trainingsData.trainings.slice(0, 3);
+
+// Logos clients téléchargés depuis Wix (mapping nom→numéro à finaliser).
+const clientLogos = Array.from({ length: 19 }, (_, i) => ({
+  src: `/images/logos/logo${i + 1}.png`,
+  alt: `Logo client ${i + 1}`,
+}));
+---
+
+<BaseLayout
+  title="Test design — composants"
+  description="Page de prévisualisation des composants AI Discipline."
+>
+  <Header />
+
+  <main class="mx-auto max-w-7xl space-y-24 px-6 py-16 md:px-8 lg:px-12">
+    <header class="space-y-3 border-b border-gray-100 pb-8">
+      <p class="text-sm font-medium uppercase tracking-wider text-brand-500">
+        Sandbox
+      </p>
+      <h1 class="text-display-xl font-bold text-ink">
+        Test design — composants
+      </h1>
+      <p class="max-w-2xl text-lg text-ink-muted">
+        Page de prévisualisation pour valider visuellement les composants
+        layout / UI avant de construire les pages finales.
+      </p>
+    </header>
+
+    <!-- Buttons ------------------------------------------------------------- -->
+    <section aria-labelledby="section-buttons" class="space-y-6">
+      <h2 id="section-buttons" class="text-display-md font-semibold text-ink">
+        1. Button
+      </h2>
+
+      <div class="space-y-6 rounded-2xl border border-gray-100 bg-surface-secondary p-8">
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            Primary — md / lg, avec et sans flèche
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button variant="primary" size="md">Rejoindre la communauté</Button>
+            <Button variant="primary" size="md" withArrow>
+              Rejoindre la communauté
+            </Button>
+            <Button variant="primary" size="lg" withArrow>
+              Rejoindre la communauté
+            </Button>
+          </div>
+        </div>
+
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            Secondary — md / lg, avec et sans flèche
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button variant="secondary" size="md">Prendre rendez-vous</Button>
+            <Button variant="secondary" size="md" withArrow>
+              Prendre rendez-vous
+            </Button>
+            <Button variant="secondary" size="lg" withArrow>
+              Prendre rendez-vous
+            </Button>
+          </div>
+        </div>
+
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            En tant que lien externe (target=_blank)
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button
+              href="https://discovery-discipline.typeform.com/aidiscipline"
+              variant="primary"
+              size="lg"
+              external
+              withArrow
+            >
+              Lien Typeform
+            </Button>
+            <Button
+              href="https://calendly.com/remi-guyot/30min"
+              variant="secondary"
+              size="md"
+              external
+              withArrow
+            >
+              Lien Calendly
+            </Button>
+          </div>
+        </div>
+
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            Disabled (button natif)
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button variant="primary" size="md">
+              <span>Bouton actif</span>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TestimonialCard ----------------------------------------------------- -->
+    <section aria-labelledby="section-testimonials" class="space-y-6">
+      <h2 id="section-testimonials" class="text-display-md font-semibold text-ink">
+        2. TestimonialCard <span class="text-base font-normal text-ink-muted">(3 exemples depuis testimonials.json)</span>
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {testimonials.map((t) => (
+          <TestimonialCard
+            quote={t.quote}
+            author={t.author}
+            role={t.role}
+            company={t.company}
+            companyLogo={t.companyLogo}
+          />
+        ))}
+      </div>
+      <p class="text-xs text-ink-light">
+        Note : les photos / logos d'entreprises sont en placeholder (initiales)
+        tant qu'on n'a pas téléchargé les images depuis Wix.
+      </p>
+    </section>
+
+    <!-- EclaireurCard ------------------------------------------------------- -->
+    <section aria-labelledby="section-eclaireurs" class="space-y-6">
+      <h2 id="section-eclaireurs" class="text-display-md font-semibold text-ink">
+        3. EclaireurCard <span class="text-base font-normal text-ink-muted">(4 exemples depuis eclaireurs.json)</span>
+      </h2>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {eclaireurs.map((e) => (
+          <EclaireurCard
+            name={e.name}
+            role={e.role}
+            bio={e.bio}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- TrainingCard -------------------------------------------------------- -->
+    <section aria-labelledby="section-trainings" class="space-y-6">
+      <h2 id="section-trainings" class="text-display-md font-semibold text-ink">
+        4. TrainingCard <span class="text-base font-normal text-ink-muted">(3 exemples depuis trainings.json)</span>
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {trainings.map((t) => (
+          <TrainingCard
+            title={t.title}
+            description={t.description}
+            format={t.format}
+            price={t.price}
+            priceNote={t.priceNote}
+            rating={t.rating}
+            url={t.url}
+            trainer={t.trainer}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- LogoCarousel -------------------------------------------------------- -->
+    <section aria-labelledby="section-carousel" class="space-y-6">
+      <h2 id="section-carousel" class="text-display-md font-semibold text-ink">
+        5. LogoCarousel <span class="text-base font-normal text-ink-muted">(défilement infini, placeholders)</span>
+      </h2>
+
+      <div class="space-y-4 rounded-2xl border border-gray-100 bg-white p-6">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+          Vitesse 40s (défaut)
+        </p>
+        <LogoCarousel logos={clientLogos} />
+      </div>
+
+      <div class="space-y-4 rounded-2xl border border-gray-100 bg-white p-6">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+          Vitesse 20s (rapide)
+        </p>
+        <LogoCarousel logos={clientLogos} speed={20} />
+      </div>
+    </section>
+
+    <!-- Palette ------------------------------------------------------------ -->
+    <section aria-labelledby="section-palette" class="space-y-6">
+      <h2 id="section-palette" class="text-display-md font-semibold text-ink">
+        Bonus — palette brand
+      </h2>
+      <div class="grid grid-cols-5 gap-2 md:grid-cols-10">
+        {[
+          { step: 50,  cls: 'bg-brand-50'  },
+          { step: 100, cls: 'bg-brand-100' },
+          { step: 200, cls: 'bg-brand-200' },
+          { step: 300, cls: 'bg-brand-300' },
+          { step: 400, cls: 'bg-brand-400' },
+          { step: 500, cls: 'bg-brand-500' },
+          { step: 600, cls: 'bg-brand-600' },
+          { step: 700, cls: 'bg-brand-700' },
+          { step: 800, cls: 'bg-brand-800' },
+          { step: 900, cls: 'bg-brand-900' },
+        ].map(({ step, cls }) => (
+          <div class="space-y-2">
+            <div class:list={['aspect-square rounded-xl', cls]}></div>
+            <p class="text-center text-[10px] font-mono text-ink-muted">
+              {step}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

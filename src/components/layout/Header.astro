@@ -1,0 +1,130 @@
+---
+import Button from '../ui/Button.astro';
+
+const links = [
+  { href: '/', label: 'Accueil' },
+  { href: '/formation-ia', label: 'Formations en ligne' },
+  { href: '/formation-sur-mesure', label: 'Formations sur mesure' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) =>
+  (href === '/' && currentPath === '/') ||
+  (href !== '/' && currentPath.startsWith(href));
+
+const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8 lg:px-12">
+    <a href="/" class="flex items-center gap-2 text-lg font-bold text-ink" aria-label="AI Discipline — accueil">
+      <span class="inline-block h-7 w-7 rounded-full bg-brand-500" aria-hidden="true"></span>
+      <span>AI Discipline</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium transition-colors hover:text-brand-500',
+            isCurrent(link.href) ? 'text-brand-500' : 'text-ink-muted',
+          ]}
+          aria-current={isCurrent(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:block">
+      <Button
+        href={TYPEFORM_URL}
+        variant="primary"
+        size="md"
+        external
+        withArrow
+      >
+        Rejoindre la communauté
+      </Button>
+    </div>
+
+    <button
+      type="button"
+      id="mobile-menu-toggle"
+      class="inline-flex items-center justify-center rounded-pill p-2 text-ink hover:bg-gray-100 md:hidden"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-100 md:hidden"
+    aria-hidden="true"
+  >
+    <nav
+      class="flex flex-col gap-1 px-6 py-4"
+      aria-label="Navigation mobile"
+    >
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-brand-50',
+            isCurrent(link.href) ? 'text-brand-500' : 'text-ink',
+          ]}
+          aria-current={isCurrent(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="mt-2">
+        <Button
+          href={TYPEFORM_URL}
+          variant="primary"
+          size="md"
+          external
+          withArrow
+          class="w-full"
+        >
+          Rejoindre la communauté
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isHidden));
+      menu.setAttribute('aria-hidden', String(isHidden));
+      toggle.setAttribute(
+        'aria-label',
+        isHidden ? 'Ouvrir le menu' : 'Fermer le menu',
+      );
+    });
+  }
+</script>

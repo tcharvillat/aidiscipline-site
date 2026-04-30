@@ -1,0 +1,41 @@
+---
+export interface Props {
+  name: string;
+  role: string;
+  bio: string;
+  photo?: string;
+}
+
+const { name, role, bio, photo } = Astro.props;
+
+const initials = name
+  .split(' ')
+  .map((part) => part[0])
+  .filter(Boolean)
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<article class="flex flex-col items-center text-center">
+  {photo ? (
+    <img
+      src={photo}
+      alt={`Portrait de ${name}`}
+      class="h-32 w-32 rounded-full object-cover ring-4 ring-brand-50"
+      loading="lazy"
+      width="128"
+      height="128"
+    />
+  ) : (
+    <div
+      class="flex h-32 w-32 items-center justify-center rounded-full bg-brand-100 text-2xl font-semibold text-brand-700 ring-4 ring-brand-50"
+      aria-hidden="true"
+    >
+      {initials}
+    </div>
+  )}
+  <h3 class="mt-4 text-lg font-semibold text-ink">{name}</h3>
+  <p class="mt-1 text-sm font-medium text-brand-500">{role}</p>
+  <p class="mt-3 text-sm leading-relaxed text-ink-muted">{bio}</p>
+</article>

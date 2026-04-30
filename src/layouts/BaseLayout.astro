@@ -5,15 +5,18 @@ export interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  canonicalURL?: string;
 }
 
 const {
   title,
   description = 'AI Discipline — Formations IA pour équipes Produit & Design.',
   ogImage = '/images/brand/og-default.png',
+  canonicalURL,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const canonical =
+  canonicalURL ?? new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>

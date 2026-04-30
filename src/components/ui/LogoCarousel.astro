@@ -1,0 +1,104 @@
+---
+export interface Logo {
+  src?: string;
+  alt: string;
+}
+
+export interface Props {
+  logos: Logo[];
+  /** Durée d'un cycle complet en secondes. Plus la valeur est grande, plus le défilement est lent. */
+  speed?: number;
+  /** Mettre l'animation en pause au survol. */
+  pauseOnHover?: boolean;
+  /** Hauteur des logos (classe Tailwind, ex. "h-10"). */
+  height?: string;
+}
+
+const {
+  logos,
+  speed = 40,
+  pauseOnHover = true,
+  height = 'h-10',
+} = Astro.props;
+
+// On rend la liste deux fois : l'animation translate de 0 à -50%, ce qui
+// produit une boucle infinie sans saut visible.
+const doubled = [...logos, ...logos];
+---
+
+<div
+  class="logo-carousel relative w-full overflow-hidden"
+  data-pause-on-hover={pauseOnHover ? 'true' : 'false'}
+  style={`--scroll-duration: ${speed}s;`}
+>
+  <div class="logo-track flex items-center gap-12 py-4">
+    {doubled.map((logo, i) => {
+      const isClone = i >= logos.length;
+      return (
+        <div
+          class="flex flex-shrink-0 items-center"
+          aria-hidden={isClone ? 'true' : undefined}
+        >
+          {logo.src ? (
+            <img
+              src={logo.src}
+              alt={isClone ? '' : logo.alt}
+              class={`w-auto ${height} opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0`}
+              loading="lazy"
+            />
+          ) : (
+            <div
+              class={`flex w-32 ${height} items-center justify-center rounded-md bg-gray-100 px-3 text-xs font-medium text-ink-muted`}
+            >
+              {logo.alt}
+            </div>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .logo-carousel {
+    /* Fade sur les bords pour une transition douce */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .logo-track {
+    width: max-content;
+    animation: logo-scroll-x var(--scroll-duration, 40s) linear infinite;
+  }
+
+  .logo-carousel[data-pause-on-hover='true']:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes logo-scroll-x {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track {
+      animation: none;
+    }
+  }
+</style>
