@@ -32,7 +32,7 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
         <a
           href={link.href}
           class:list={[
-            'text-sm font-medium transition-colors hover:text-brand-500',
+            'text-base font-medium transition-colors hover:text-brand-500 md:text-lg',
             isCurrent(link.href) ? 'text-brand-500' : 'text-ink-muted',
           ]}
           aria-current={isCurrent(link.href) ? 'page' : undefined}

@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Button from '../components/ui/Button.astro';
 import TestimonialCard from '../components/ui/TestimonialCard.astro';
+import QualiopiBadge from '../components/ui/QualiopiBadge.astro';
 
 const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
 const CONTACT_EMAIL = 'formation@aidiscipline.com';
@@ -670,6 +671,29 @@ const modalities = [
           }
         }
       </script>
+    </section>
+
+    <!-- Financement OPCO ------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-6xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div class="flex justify-center lg:justify-start">
+            <QualiopiBadge compact={false} />
+          </div>
+
+          <div class="space-y-5">
+            <h2 class="text-display-lg font-bold text-ink">
+              Formation finançable par votre OPCO
+            </h2>
+            <p class="text-base leading-relaxed text-ink-muted md:text-lg">
+              AI Discipline est certifié Qualiopi (Actions de formation). Nos
+              formations sur mesure sont éligibles aux financements OPCO,
+              France Travail et fonds publics de la formation professionnelle.
+              Renseignez-vous auprès de votre service RH ou contactez-nous.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact form ----------------------------------------------------- -->

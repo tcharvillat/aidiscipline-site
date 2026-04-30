@@ -2,119 +2,42 @@
 import Button from '../ui/Button.astro';
 
 const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
-
-const features = [
-  {
-    title: 'Apprentissage IA renforcé',
-    body:
-      "Des sessions live, des replays et des contenus pédagogiques pour " +
-      "monter en compétence sans devoir tout lire seul.",
-    icon: 'graduation',
-  },
-  {
-    title: "Cas d'usage IA concrets",
-    body:
-      "Des dizaines de retours d'expérience postés chaque semaine — directement " +
-      "applicables à vos workflows produit.",
-    icon: 'workflow',
-  },
-  {
-    title: 'Accès à des experts',
-    body:
-      "Posez vos questions directement aux Éclaireurs et aux fondateurs. " +
-      "Pas de bots, pas de gourous : que des praticiens.",
-    icon: 'mic',
-  },
-  {
-    title: 'Ressources exclusives',
-    body:
-      "Templates, prompts, frameworks d'analyse… une bibliothèque qui s'étoffe " +
-      "à chaque cohorte.",
-    icon: 'archive',
-  },
-];
-
-const stats = [
-  { value: '1 500+', label: 'Membres' },
-  { value: '500',    label: 'Entreprises' },
-  { value: '25',     label: 'Éclaireurs' },
-  { value: '10',     label: 'Hubs régionaux' },
-];
 ---
 
-<section id="community" class="bg-ink py-16 text-white md:py-24">
+<section id="community" class="bg-white py-8 md:py-12">
   <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-    <div class="mx-auto max-w-3xl space-y-4 text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-brand-400">
-        Rejoignez la communauté
-      </p>
-      <h2 class="text-display-lg font-bold leading-tight text-white">
-        Une communauté Slack où l'IA produit s'apprend en collectif
-      </h2>
-      <p class="mx-auto max-w-2xl text-lg text-white/70">
-        Plus de 1 500 PM, PO, Designers et leaders d'équipe qui partagent,
-        questionnent, et progressent ensemble.
-      </p>
-    </div>
+    <div class="relative isolate overflow-hidden rounded-2xl shadow-card">
+      <img
+        src="/images/wix/community-street.png"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        width="1920"
+        height="700"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/25 to-transparent" aria-hidden="true"></div>
 
-    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {stats.map((s) => (
-        <div class="rounded-2xl bg-white/5 p-6 text-center backdrop-blur">
-          <p class="text-display-md font-bold text-brand-400">{s.value}</p>
-          <p class="mt-1 text-sm text-white/70">{s.label}</p>
-        </div>
-      ))}
-    </div>
+      <div class="relative px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+        <div class="max-w-2xl">
+          <p class="text-lg leading-relaxed text-white md:text-xl">
+            AI Discipline, c'est aussi un espace Slack gratuit, ouvert à tous,
+            pour progresser ensemble dans notre pratique de l'IA au quotidien.
+          </p>
 
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {features.map((f) => (
-        <article class="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-6">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500/20 text-brand-400">
-            {f.icon === 'graduation' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c3 3 9 3 12 0v-5" />
-              </svg>
-            )}
-            {f.icon === 'workflow' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="6" height="6" rx="1" />
-                <rect x="15" y="15" width="6" height="6" rx="1" />
-                <path d="M9 6h6a3 3 0 0 1 3 3v6" />
-              </svg>
-            )}
-            {f.icon === 'mic' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                <line x1="12" y1="19" x2="12" y2="23" />
-                <line x1="8" y1="23" x2="16" y2="23" />
-              </svg>
-            )}
-            {f.icon === 'archive' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="21 8 21 21 3 21 3 8" />
-                <rect x="1" y="3" width="22" height="5" />
-                <line x1="10" y1="12" x2="14" y2="12" />
-              </svg>
-            )}
+          <div class="mt-8">
+            <Button
+              href={TYPEFORM_URL}
+              variant="primary"
+              size="lg"
+              external
+              withArrow
+            >
+              Formulaire d'inscription
+            </Button>
           </div>
-          <h3 class="text-base font-semibold text-white">{f.title}</h3>
-          <p class="text-sm leading-relaxed text-white/70">{f.body}</p>
-        </article>
-      ))}
-    </div>
-
-    <div class="mt-12 flex justify-center">
-      <Button
-        href={TYPEFORM_URL}
-        variant="primary"
-        size="lg"
-        external
-        withArrow
-      >
-        Rejoindre AI Discipline
-      </Button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

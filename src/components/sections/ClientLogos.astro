@@ -13,19 +13,14 @@ const firstRow = allLogos.slice(0, 9);
 const secondRow = allLogos.slice(9);
 ---
 
-<section id="client-logos" class="bg-white py-16 md:py-24">
+<section id="client-logos" class="bg-white py-3 md:py-4">
   <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-    <div class="mx-auto max-w-3xl space-y-3 text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-brand-500">
-        Ils nous font confiance
-      </p>
-      <h2 class="text-display-md font-bold leading-tight text-ink">
-        Parmi les 1 500+ PM, PO, Designers et Tech Leaders formés
-      </h2>
-    </div>
+    <h2 class="mx-auto max-w-4xl text-center text-2xl font-bold leading-tight text-ink md:text-3xl lg:text-4xl">
+      Parmi les 1.500+ PM, PO, Designers… de la communauté
+    </h2>
   </div>
 
-  <div class="mt-12 space-y-6">
+  <div class="mt-2">
     <LogoCarousel logos={firstRow} speed={45} />
     <LogoCarousel logos={secondRow} speed={55} />
   </div>

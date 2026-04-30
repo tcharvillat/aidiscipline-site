@@ -2,20 +2,17 @@
 import Button from '../ui/Button.astro';
 ---
 
-<section id="online-sessions" class="bg-white py-16 md:py-24">
+<section id="online-sessions" class="bg-ink pt-10 pb-6 text-white md:pt-14">
   <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
     <div class="grid items-center gap-12 lg:grid-cols-2">
       <div class="space-y-6">
-        <p class="text-sm font-semibold uppercase tracking-wider text-brand-500">
+        <h2 class="text-4xl font-light leading-tight text-white md:text-5xl">
           Les sessions online
-        </p>
-        <h2 class="text-display-lg font-bold leading-tight text-ink">
-          Apprenez l'IA en cohorte, à votre rythme
         </h2>
-        <p class="text-lg leading-relaxed text-ink-muted">
-          Une heure live chaque semaine, des exercices individualisés, et des
-          formateurs en activité qui partagent leurs cas d'usage. Suivez les
-          formations qui font progresser votre équipe sans casser votre agenda.
+        <p class="text-base leading-relaxed text-white/85 md:text-lg">
+          Rejoignez des cohortes de formation en ligne. Sessions live +
+          exercices pratiques corrigés + accès à notre communauté pratique.
+          Flexible, actionnable, avec templates et méthodes prêts à l'emploi.
         </p>
         <div class="pt-2">
           <Button href="/formation-ia" variant="primary" size="lg" withArrow>
@@ -24,13 +21,13 @@ import Button from '../ui/Button.astro';
         </div>
       </div>
 
-      <div class="relative order-first lg:order-last">
+      <div class="order-first lg:order-last">
         <img
           src="/images/brand/cohort.png"
-          alt="Capture d'une session AI Discipline en cohorte"
+          alt="Mosaïque d'une session AI Discipline en cohorte"
           class="w-full rounded-2xl shadow-card"
-          width="719"
-          height="648"
+          width="1200"
+          height="800"
           loading="lazy"
         />
       </div>

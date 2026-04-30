@@ -2,53 +2,81 @@
 import Button from '../ui/Button.astro';
 
 const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
+
+const avatars = [
+  '/images/eclaireurs/marion-jachimski.png',
+  '/images/eclaireurs/geraldine-corrales.png',
+  '/images/eclaireurs/pantea-negui.png',
+  '/images/eclaireurs/vincent-gadanho.png',
+];
 ---
 
-<section
-  id="hero"
-  class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white"
->
-  <div class="mx-auto max-w-7xl px-6 pt-16 pb-12 md:px-8 md:pt-24 md:pb-16 lg:px-12">
-    <div class="mx-auto max-w-3xl space-y-6 text-center">
-      <span class="inline-flex items-center gap-2 rounded-pill bg-white px-4 py-2 text-sm font-medium text-brand-700 shadow-card">
-        <span class="inline-block h-2 w-2 rounded-full bg-brand-500" aria-hidden="true"></span>
-        1 500+ · Communauté IA francophone n°1
-      </span>
+<section id="hero" class="relative isolate overflow-hidden">
+  <img
+    src="/images/wix/hero.png"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+    width="1920"
+    height="975"
+    fetchpriority="high"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/35 to-transparent"
+    aria-hidden="true"
+  ></div>
 
-      <h1 class="text-display-xl font-bold leading-tight text-ink">
-        Formations IA & <span class="text-brand-500">Communauté</span> d'apprentissage
-      </h1>
+  <div class="mx-auto max-w-7xl px-6 pt-10 pb-28 md:px-8 md:pt-16 md:pb-40 lg:px-12 lg:pt-24 lg:pb-56">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3">
+        <div class="flex -space-x-3">
+          {avatars.map((src) => (
+            <img
+              src={src}
+              alt=""
+              aria-hidden="true"
+              class="h-12 w-12 rounded-full border-2 border-white object-cover"
+              width="48"
+              height="48"
+              loading="eager"
+            />
+          ))}
+          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-brand-500 text-xs font-bold text-white">
+            1,5K+
+          </span>
+        </div>
+        <p class="text-base font-medium text-white">
+          Communauté IA francophone n°1
+        </p>
+      </div>
 
-      <p class="mx-auto max-w-2xl text-lg text-ink-muted md:text-xl">
-        Partagez, montez en savoir-faire et pratiquez l'IA au sein des équipes Produit.
+      <p class="mt-10 text-sm font-medium uppercase tracking-[0.18em] text-white md:text-base">
+        Formations IA & Communauté d'apprentissage
       </p>
 
-      <div class="flex flex-wrap justify-center gap-3 pt-2">
-        <Button href="/formation-ia" variant="primary" size="lg" withArrow>
+      <h1 class="mt-6 text-4xl font-light leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        Partage, savoir-faire et pratique l'IA au sein des équipes Produit.
+      </h1>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <Button href="/formation-ia" variant="primary" size="lg">
           Formations en ligne
         </Button>
-        <Button
+        <a
           href={CALENDLY_URL}
-          variant="secondary"
-          size="lg"
-          external
-          withArrow
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-pill border border-white/70 bg-white/5 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/15"
         >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
           Prendre rendez-vous
-        </Button>
+        </a>
       </div>
     </div>
-  </div>
-
-  <div class="mx-auto max-w-7xl px-6 pb-16 md:px-8 md:pb-24 lg:px-12">
-    <img
-      src="/images/brand/communaute.jpeg"
-      alt="Mosaïque des membres de la communauté AI Discipline"
-      class="h-auto w-full rounded-2xl shadow-card"
-      width="1400"
-      height="350"
-      loading="eager"
-      fetchpriority="high"
-    />
   </div>
 </section>

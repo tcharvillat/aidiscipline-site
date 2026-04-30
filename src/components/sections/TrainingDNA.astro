@@ -1,84 +1,163 @@
 ---
-const pillars = [
-  {
-    title: 'Des cas d’usage concrets',
-    body:
-      "On ne parle pas de l'IA en théorie : chaque session part d'un cas réel " +
-      "que vous pouvez rejouer dès le lendemain dans votre équipe.",
-    icon: 'target',
-  },
-  {
-    title: 'Des formateurs engagés',
-    body:
-      "Tous nos formateurs sont des opérationnels en activité — PM, Designers, " +
-      "CPO — qui pratiquent encore l'IA au quotidien.",
-    icon: 'users',
-  },
-  {
-    title: 'Une pédagogie individualisée',
-    body:
-      "Petites cohortes, exercices corrigés, feedback personnalisé. " +
-      "On adapte le rythme et les exemples à votre métier.",
-    icon: 'sparkles',
-  },
-  {
-    title: 'Une progression continue',
-    body:
-      "L'apprentissage ne s'arrête pas après la formation : la communauté " +
-      "Slack, les replays et les ressources sont là pour ancrer la pratique.",
-    icon: 'trending-up',
-  },
-];
 ---
 
-<section id="training-dna" class="bg-surface-secondary py-16 md:py-24">
-  <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-    <div class="mx-auto max-w-3xl space-y-3 text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-brand-500">
+<section id="training-dna" aria-labelledby="training-dna-title">
+  <div class="bg-ink py-10 md:py-14">
+    <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
+      <h2
+        id="training-dna-title"
+        class="text-4xl font-light leading-tight text-white md:text-5xl"
+      >
         L'ADN de nos formations
-      </p>
-      <h2 class="text-display-lg font-bold leading-tight text-ink">
-        Quatre piliers, une seule promesse : faire pratiquer.
       </h2>
-    </div>
 
-    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {pillars.map((p) => (
-        <article class="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover">
-          <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-600">
-            {p.icon === 'target' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
-              </svg>
-            )}
-            {p.icon === 'users' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            )}
-            {p.icon === 'sparkles' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3l1.9 4.5L18 9l-4.1 1.5L12 15l-1.9-4.5L6 9l4.1-1.5L12 3z" />
-                <path d="M19 14l.7 1.7L21 16.5l-1.3.8L19 19l-.7-1.7L17 16.5l1.3-.8L19 14z" />
-                <path d="M5 14l.5 1.2L6.7 16l-1.2.5L5 17.5l-.5-1L3.3 16l1.2-.8L5 14z" />
-              </svg>
-            )}
-            {p.icon === 'trending-up' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                <polyline points="17 6 23 6 23 12" />
-              </svg>
-            )}
+      <div class="mt-16 grid items-center gap-12 lg:grid-cols-2">
+        <div class="lg:order-1">
+          <img
+            src="/images/wix/adn-cas-usage.jpg"
+            alt=""
+            aria-hidden="true"
+            class="w-full rounded-2xl shadow-card"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
+        </div>
+        <div class="lg:order-2 lg:pl-6">
+          <h3 class="text-3xl font-light leading-tight text-white md:text-4xl">
+            Des cas d'usage concrets.
+          </h3>
+          <div class="mt-6 space-y-4 text-base leading-relaxed text-white/80 md:text-lg">
+            <p>
+              Nos formations s'appuient sur les besoins réels de notre
+              communauté de praticiens Produit & Design.
+            </p>
+            <p>
+              Chaque module est ancré dans la pratique quotidienne et vous
+              fait travailler directement sur vos données, vos outils et vos
+              contraintes.
+            </p>
+            <p>
+              Pas de buzzwords ni de tendances vides : nous partons des
+              problèmes concrets que vous affrontez chaque semaine.
+            </p>
+            <p>
+              L'objectif : que vos apprentissages se traduisent par des
+              résultats tangibles dès la semaine suivante.
+            </p>
           </div>
-          <h3 class="text-lg font-semibold text-ink">{p.title}</h3>
-          <p class="text-sm leading-relaxed text-ink-muted">{p.body}</p>
-        </article>
-      ))}
+        </div>
+      </div>
+
+      <div class="mt-20 grid items-center gap-12 lg:grid-cols-2">
+        <div class="lg:order-2">
+          <img
+            src="/images/wix/adn-formateurs.png"
+            alt=""
+            aria-hidden="true"
+            class="w-full rounded-2xl shadow-card"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
+        </div>
+        <div class="lg:order-1 lg:pr-6">
+          <h3 class="text-3xl font-light leading-tight text-white md:text-4xl">
+            Des Formateurs engagés.
+          </h3>
+          <div class="mt-6 space-y-4 text-base leading-relaxed text-white/80 md:text-lg">
+            <p>
+              Nous sélectionnons les formateurs selon un critère fondamental :
+              leur envie et leur capacité à transmettre leur expérience de
+              terrain.
+            </p>
+            <p>
+              Ils ne sont pas là grâce à un nom ou un logo prestigieux, mais
+              pour leur passion de l'enseignement de ce qu'ils ont testé,
+              ajusté et validé en production — avec exigence et bienveillance.
+            </p>
+            <p>
+              Ils font tous partie des Éclaireurs de la communauté AI
+              Discipline, et illustrent chaque jour leur envie de partager.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-surface-secondary py-10 md:py-14">
+    <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div class="lg:order-1">
+          <img
+            src="/images/wix/adn-pedagogie.png"
+            alt=""
+            aria-hidden="true"
+            class="w-full rounded-2xl shadow-card"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
+        </div>
+        <div class="lg:order-2 lg:pl-6">
+          <h3 class="text-3xl font-light leading-tight text-ink md:text-4xl">
+            Une pédagogie individualisée.
+          </h3>
+          <div class="mt-6 space-y-4 text-base leading-relaxed text-ink-muted md:text-lg">
+            <p>
+              Dès la première session, vous travaillez sur vos propres cas :
+              vos données, vos workflows, vos contraintes.
+            </p>
+            <p>
+              Entre chaque module : exercices appliqués dans votre contexte +
+              retour personnalisé du formateur.
+            </p>
+            <p>
+              Le dernier module : démonstrations collectives et feedback pour
+              affiner votre solution.
+            </p>
+            <p>
+              En 3 semaines, vous passez de la découverte à une solution
+              opérationnelle prête à l'emploi dès le lundi suivant.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20">
+        <img
+          src="/images/wix/community-cocktail.png"
+          alt=""
+          aria-hidden="true"
+          class="w-full rounded-2xl shadow-card"
+          width="1920"
+          height="700"
+          loading="lazy"
+        />
+
+        <div class="mx-auto mt-12 max-w-5xl">
+          <h3 class="text-3xl font-light leading-tight text-ink md:text-4xl">
+            Une progression continue.
+          </h3>
+          <div class="mt-6 space-y-4 text-base leading-relaxed text-ink-muted md:text-lg">
+            <p>
+              L'apprentissage ne s'arrête pas aux étapes de formation. Dès
+              votre inscription, vous rejoignez la communauté AI Discipline,
+              où Product Managers et Designers partagent leurs retours
+              d'expérience et leurs solutions concrètes.
+            </p>
+            <p>
+              En tant que membre, vous accédez à des meet-ups pratiques et à
+              des workshops réguliers pour continuer à progresser.
+            </p>
+            <p>
+              Les formations établissent les fondations, la communauté
+              construit la pratique.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

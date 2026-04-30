@@ -1,0 +1,51 @@
+---
+export interface Props {
+  compact?: boolean;
+  /** Classe additionnelle appliquée au cartouche blanc (ex. bordure pour contraster sur fond sombre). */
+  class?: string;
+}
+
+const { compact = false, class: extraClass = '' } = Astro.props;
+
+const logoWidth = compact ? 120 : 180;
+const linkLabel = compact ? 'Voir le certificat' : 'Télécharger le certificat';
+const mention =
+  "La certification qualité a été délivrée au titre de la catégorie d'action suivante : ACTIONS DE FORMATION";
+---
+
+<div
+  class:list={[
+    'inline-flex flex-col items-center gap-3 rounded-lg bg-white text-ink',
+    compact ? 'p-4' : 'p-6',
+    extraClass,
+  ]}
+>
+  <img
+    src="/images/brand/LogoQualiopi-150dpi-AvecMarianne.png"
+    alt="Qualiopi - Processus certifié - République Française"
+    width={logoWidth}
+    class="h-auto w-auto"
+    loading="lazy"
+  />
+
+  <p
+    class:list={[
+      'max-w-xs text-center leading-snug text-ink-muted',
+      compact ? 'text-xs' : 'text-sm',
+    ]}
+  >
+    {mention}
+  </p>
+
+  <a
+    href="/documents/certificat-qualiopi.pdf"
+    target="_blank"
+    rel="noopener"
+    class:list={[
+      'inline-flex items-center gap-1 font-medium text-brand-600 underline-offset-2 hover:underline',
+      compact ? 'text-xs' : 'text-sm',
+    ]}
+  >
+    {linkLabel} <span aria-hidden="true">→</span>
+  </a>
+</div>

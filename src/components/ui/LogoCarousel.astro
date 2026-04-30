@@ -18,7 +18,7 @@ const {
   logos,
   speed = 40,
   pauseOnHover = true,
-  height = 'h-10',
+  height = 'h-20 md:h-28',
 } = Astro.props;
 
 // On rend la liste deux fois : l'animation translate de 0 à -50%, ce qui
@@ -31,7 +31,7 @@ const doubled = [...logos, ...logos];
   data-pause-on-hover={pauseOnHover ? 'true' : 'false'}
   style={`--scroll-duration: ${speed}s;`}
 >
-  <div class="logo-track flex items-center gap-12 py-4">
+  <div class="logo-track flex items-center gap-12 py-0">
     {doubled.map((logo, i) => {
       const isClone = i >= logos.length;
       return (
