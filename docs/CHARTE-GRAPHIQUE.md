@@ -4,14 +4,18 @@ Document de référence pour reproduire fidèlement l'identité visuelle du site
 
 ## Couleurs
 
-### Palette principale (à confirmer en pixel-pickant le site Wix actuel via l'inspecteur)
+### Palette principale
+
+La couleur de marque est un **rose/fuchsia** (et non un violet, contrairement à
+ce qu'indiquaient les premières estimations). Source vérifiée par le fondateur :
+le logo, les CTA et les accents utilisent `#FC037E`.
 
 ```css
 :root {
-  /* Violet/Mauve — couleur de marque dominante */
-  --color-brand-primary: #6B4EFF;       /* Violet principal (à ajuster) */
-  --color-brand-primary-dark: #4A2FE5;  /* Variante foncée pour hover */
-  --color-brand-primary-light: #E8E2FF; /* Variante claire pour fonds */
+  /* Rose/Fuchsia — couleur de marque dominante */
+  --color-brand-primary: #FC037E;       /* Rose principal (logo, CTA) */
+  --color-brand-primary-dark: #B10257;  /* Variante foncée pour hover */
+  --color-brand-primary-light: #FFD6EA; /* Variante claire pour fonds */
 
   /* Noir / Gris (textes) */
   --color-text-primary: #0F0F1A;        /* Titres, textes principaux */
@@ -20,7 +24,7 @@ Document de référence pour reproduire fidèlement l'identité visuelle du site
 
   /* Fonds */
   --color-bg-primary: #FFFFFF;          /* Fond principal */
-  --color-bg-secondary: #F7F5FF;        /* Fond sections (très léger violet) */
+  --color-bg-secondary: #FFF0F8;        /* Fond sections (très léger rose) */
   --color-bg-dark: #0F0F1A;             /* Fond sections sombres si besoin */
 
   /* Accents */
@@ -29,8 +33,23 @@ Document de référence pour reproduire fidèlement l'identité visuelle du site
 }
 ```
 
-> **Action recommandée pour Claude Code :**
-> Lance le site actuel dans Chrome → DevTools → utilise la pipette pour relever les couleurs exactes du logo violet, des CTA, des fonds. Mets à jour ce fichier avec les valeurs précises.
+### Échelle Tailwind `brand` (50 → 900)
+
+L'échelle est dérivée de `#FC037E` en faisant varier la luminosité HSL
+(teinte 330°, saturation ~98%). Définie dans `tailwind.config.mjs` :
+
+| Token        | Hex       | Usage type                                  |
+| ------------ | --------- | ------------------------------------------- |
+| `brand-50`   | `#FFF0F8` | Fonds de section très clairs                |
+| `brand-100`  | `#FFD6EA` | Badges, surlignages doux                    |
+| `brand-200`  | `#FEB1D7` | Bordures, séparateurs accentués             |
+| `brand-300`  | `#FE80BC` | États hover sur fonds clairs                |
+| `brand-400`  | `#FE45A0` | Accents secondaires                         |
+| `brand-500`  | `#FC037E` | **CTA principaux, logo, liens**             |
+| `brand-600`  | `#DA026B` | Hover de `brand-500`                        |
+| `brand-700`  | `#B10257` | Texte sur fond clair (contraste AA)         |
+| `brand-800`  | `#880143` | Texte sur fond très clair                   |
+| `brand-900`  | `#5F002F` | Très foncé, rarement utilisé                |
 
 ## Typographie
 
@@ -58,17 +77,17 @@ Le site Wix utilise probablement une typographie sans-serif moderne. À confirme
 
 ### Boutons
 
-**Bouton primaire** (CTA principal) — fond violet, texte blanc :
+**Bouton primaire** (CTA principal) — fond rose, texte blanc :
 ```html
-<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-primary text-white font-medium hover:bg-brand-primary-dark transition-colors">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-500 text-white font-medium hover:bg-brand-600 transition-colors">
   Rejoindre la communauté
   <svg>→</svg>
 </a>
 ```
 
-**Bouton secondaire** — bordure violette, fond transparent :
+**Bouton secondaire** — bordure rose, fond transparent :
 ```html
-<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-brand-primary text-brand-primary font-medium hover:bg-brand-primary-light transition-colors">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-brand-500 text-brand-500 font-medium hover:bg-brand-50 transition-colors">
   Prendre rendez-vous
   <svg>→</svg>
 </a>
@@ -86,7 +105,7 @@ Le site Wix utilise probablement une typographie sans-serif moderne. À confirme
 - Bannière/image en haut, badge prix, titre, description, bouton "Voir la formation"
 
 **Card témoignage** :
-- Fond blanc ou très léger violet
+- Fond blanc ou très léger rose (`bg-brand-50`)
 - Photo ronde de l'auteur
 - Citation en italique ou regular
 - Nom + rôle + entreprise
@@ -95,7 +114,7 @@ Le site Wix utilise probablement une typographie sans-serif moderne. À confirme
 **Card éclaireur** :
 - Photo ronde
 - Nom
-- Rôle (en violet ou couleur d'accent)
+- Rôle (en rose `text-brand-500` ou couleur d'accent)
 - Bio courte (2-3 lignes)
 
 ### Carrousels de logos clients
@@ -114,10 +133,13 @@ Le site actuel affiche **deux bandeaux de logos qui défilent** (auto-scroll hor
 
 ## Logo
 
-- **Logo principal** : `Logo Purple.png` — version violette sur fond clair (header)
-- **Logo secondaire** : `Logo.png` — version utilisée dans le footer ou sur fond clair
+- **Logo principal** : version rose `#FC037E` sur fond clair (header)
+- **Logo secondaire** : version utilisée dans le footer ou sur fond clair
 
-À télécharger depuis Wix et placer dans `public/images/brand/`.
+À télécharger depuis Wix et placer dans `public/images/brand/`. Les fichiers
+récupérés depuis Wix peuvent encore s'appeler `Logo Purple.png` malgré la
+couleur rose réelle — renommer en `logo-pink.svg` / `logo-pink-dark.svg` à la
+volée pour éviter la confusion.
 
 ## Animations & micro-interactions
 
@@ -134,16 +156,15 @@ Le site actuel affiche **deux bandeaux de logos qui défilent** (auto-scroll hor
 - **Espacement vertical entre sections** : `py-16 md:py-24` (généreux)
 - **Espacement entre éléments** : utiliser `space-y-*` et `gap-*` de Tailwind
 
-## Méthode pour extraire les valeurs exactes du site Wix
+## Méthode pour extraire les valeurs exactes restantes (typo, etc.)
 
-Pour avoir une fidélité maximale, je recommande à Claude Code d'utiliser cette procédure au démarrage :
+La couleur de marque est figée à `#FC037E`. Reste à valider la typographie et
+les valeurs précises de tailles/espacements via DevTools :
 
 1. Ouvrir https://www.aidiscipline.com dans Chrome
 2. F12 → Inspector
-3. Sélectionner le logo violet → relever la valeur RGB du premier pixel violet pur
-4. Sélectionner un CTA principal → relever la couleur de fond exacte
-5. Sélectionner un titre H1 → relever `font-family`, `font-size`, `font-weight`, `line-height`, `letter-spacing`
-6. Sélectionner un paragraphe → idem
-7. Mettre à jour `tailwind.config.mjs` avec les valeurs exactes
+3. Sélectionner un titre H1 → relever `font-family`, `font-size`, `font-weight`, `line-height`, `letter-spacing`
+4. Sélectionner un paragraphe → idem
+5. Mettre à jour `tailwind.config.mjs` (section `fontFamily` / `fontSize`) avec les valeurs exactes
 
-> Alternative : Claude Code peut analyser le CSS via fetch des assets Wix et extraire les valeurs automatiquement. Demande-lui de le faire en première étape.
+> Alternative : analyser le CSS via fetch des assets Wix et extraire les valeurs automatiquement.

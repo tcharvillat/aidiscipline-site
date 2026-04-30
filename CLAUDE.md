@@ -72,7 +72,7 @@ aidiscipline-site/
 │   │   ├── eclaireurs/    # Portraits des éclaireurs
 │   │   ├── testimonials/  # Photos témoignages
 │   │   ├── trainings/     # Bannières formations
-│   │   └── brand/         # Logo AI Discipline (purple, dark)
+│   │   └── brand/         # Logo AI Discipline (rose #FC037E, dark)
 │   ├── favicon.svg
 │   └── robots.txt
 ├── astro.config.mjs

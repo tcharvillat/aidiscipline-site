@@ -45,7 +45,7 @@ aidiscipline-site/
 │       └── global.css   # @import "tailwindcss" + @config + tokens CSS
 ├── public/
 │   ├── images/
-│   │   ├── brand/        # Logo AI Discipline (purple, dark)
+│   │   ├── brand/        # Logo AI Discipline (rose #FC037E, dark)
 │   │   ├── logos/        # Logos clients (Carrefour, Decathlon, …)
 │   │   ├── eclaireurs/   # Portraits des éclaireurs
 │   │   ├── testimonials/ # Photos témoignages

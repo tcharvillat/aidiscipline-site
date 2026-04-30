@@ -3,16 +3,16 @@
 
 /* Design tokens — mirrored as CSS custom properties for use outside Tailwind utilities. */
 :root {
-  --color-brand-primary: #6B4EFF;
-  --color-brand-primary-dark: #4A2FE5;
-  --color-brand-primary-light: #E8E2FF;
+  --color-brand-primary: #FC037E;
+  --color-brand-primary-dark: #B10257;
+  --color-brand-primary-light: #FFD6EA;
 
   --color-text-primary: #0F0F1A;
   --color-text-secondary: #4A4A5C;
   --color-text-muted: #8A8A9E;
 
   --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F7F5FF;
+  --color-bg-secondary: #FFF0F8;
   --color-bg-dark: #0F0F1A;
 
   --color-border: #E5E5EE;

@@ -1,7 +1,6 @@
 // tailwind.config.mjs
 // Configuration Tailwind v4 pour AI Discipline
-// IMPORTANT : les couleurs ci-dessous sont des estimations basées sur les visuels du site Wix.
-// À CONFIRMER en pixel-pickant le site actuel via DevTools Chrome avant de figer ces valeurs.
+// Palette de marque : rose/fuchsia centré sur #FC037E (hue 330, saturation ~98%).
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,17 +9,17 @@ export default {
     extend: {
       colors: {
         brand: {
-          // Violet/Mauve principal — couleur dominante de la marque
-          50:  '#F4F1FF',
-          100: '#E8E2FF',
-          200: '#D1C2FF',
-          300: '#B19BFF',
-          400: '#8B6EFF',
-          500: '#6B4EFF',  // ← couleur principale (à valider)
-          600: '#5638E5',
-          700: '#4A2FE5',
-          800: '#3A22B8',
-          900: '#2A1A8A',
+          // Rose/Fuchsia — couleur dominante de la marque
+          50:  '#FFF0F8',
+          100: '#FFD6EA',
+          200: '#FEB1D7',
+          300: '#FE80BC',
+          400: '#FE45A0',
+          500: '#FC037E', // ← couleur principale (logo, CTA)
+          600: '#DA026B',
+          700: '#B10257',
+          800: '#880143',
+          900: '#5F002F',
         },
         ink: {
           DEFAULT: '#0F0F1A',
@@ -29,7 +28,7 @@ export default {
         },
         surface: {
           DEFAULT:   '#FFFFFF',
-          secondary: '#F7F5FF',
+          secondary: '#FFF0F8', // wash rose très léger pour fonds de section
           dark:      '#0F0F1A',
         },
       },
