@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import TrainingCard from '../components/ui/TrainingCard.astro';
+import TestimonialCard from '../components/ui/TestimonialCard.astro';
+
+import trainingsData from '../data/trainings.json';
+import testimonialsData from '../data/testimonials.json';
+
+const CONTACT_EMAIL = 'formation@aidiscipline.com';
+const MAVEN_GUARANTEE_URL =
+  'https://help.maven.com/en/articles/8705540-maven-s-satisfaction-guarantee';
+
+const trainings = trainingsData.trainings;
+const testimonials = testimonialsData.testimonials;
+
+const features = [
+  {
+    title: '1 heure live chaque semaine',
+    body:
+      "Des sessions en direct pour plonger dans des cas concrets, poser tes questions et repartir avec des réponses à tes défis.",
+    icon: 'live',
+  },
+  {
+    title: 'Replay et support de formation',
+    body:
+      "Revois les sessions à tout moment : les enregistrements et les supports sont accessibles à tous les participants.",
+    icon: 'replay',
+  },
+  {
+    title: 'Apprentissage en cohorte',
+    body:
+      "Rejoins un espace privé de pairs pour échanger librement et progresser ensemble pendant la formation.",
+    icon: 'cohort',
+  },
+  {
+    title: 'Certificat de réussite',
+    body:
+      "Chaque formation délivre un certificat attestant de ta réussite, à partager avec ton employeur ou sur LinkedIn.",
+    icon: 'certificate',
+  },
+  {
+    title: 'Garantie remboursement Maven',
+    body:
+      "Nos formations sont couvertes par la garantie Maven : satisfait ou remboursé jusqu'à la moitié du parcours.",
+    icon: 'guarantee',
+    link: { href: MAVEN_GUARANTEE_URL, label: 'En savoir plus' },
+  },
+];
+---
+
+<BaseLayout
+  title="Formations IA en ligne — AI Discipline"
+  description="Catalogue des formations IA AI Discipline : 1 heure live par semaine, exercices individualisés, certificat et garantie Maven. 15 formations pour les équipes Produit & Design."
+>
+  <Header />
+
+  <main>
+    <!-- Hero ------------------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-5xl px-6 py-20 text-center md:px-8 md:py-28 lg:px-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+          Les savoir-faire en ligne — AI Discipline
+        </p>
+        <h1 class="mt-5 text-display-xl font-bold text-ink">
+          On ne forme pas à l'IA : <br class="hidden sm:inline" />
+          on forme au <span class="text-brand-500">savoir-faire</span> de l'IA.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          15 formations en cohorte, animées par des praticiens en activité.
+          Une heure live par semaine, des exercices individualisés, un
+          certificat à la clé.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features --------------------------------------------------------- -->
+    <section class="border-t border-gray-100">
+      <div class="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
+        <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {features.map((feat) => (
+            <li class="flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-card">
+              <div class="flex h-12 w-12 items-center justify-center rounded-pill bg-brand-50 text-brand-500">
+                {feat.icon === 'live' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3" fill="currentColor" />
+                    <path d="M5.5 5.5a9 9 0 0 0 0 13" />
+                    <path d="M2.5 2.5a13 13 0 0 0 0 19" />
+                    <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+                    <path d="M21.5 2.5a13 13 0 0 1 0 19" />
+                  </svg>
+                )}
+                {feat.icon === 'replay' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
+                  </svg>
+                )}
+                {feat.icon === 'cohort' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                )}
+                {feat.icon === 'certificate' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="9" r="6" />
+                    <path d="M9 14.5V21l3-2 3 2v-6.5" />
+                  </svg>
+                )}
+                {feat.icon === 'guarantee' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <polyline points="9 11 12 14 16 9" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="mt-4 text-base font-semibold text-ink">
+                {feat.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                {feat.body}
+              </p>
+              {feat.link && (
+                <a
+                  href={feat.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-3 text-xs font-semibold text-brand-500 hover:underline"
+                >
+                  {feat.link.label} →
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Catalogue -------------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Catalogue
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            {trainings.length} formations en ligne
+          </h2>
+          <p class="mt-4 text-base text-ink-muted">
+            Toutes nos formations sont accessibles via la plateforme Maven.
+            Cliquez sur « Voir la formation » pour consulter le programme
+            détaillé et vous inscrire à la prochaine cohorte.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {trainings.map((t) => (
+            <TrainingCard
+              title={t.title}
+              description={t.description}
+              format={t.format}
+              price={t.price}
+              priceNote={t.priceNote}
+              rating={t.rating}
+              url={t.url}
+              banner={t.banner}
+              trainer={t.trainer}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials ----------------------------------------------------- -->
+    <section>
+      <div class="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Témoignages
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">
+            Ils parlent de nos formations
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <TestimonialCard
+              quote={t.quote}
+              author={t.author}
+              role={t.role}
+              company={t.company}
+              photo={t.photo}
+              companyLogo={t.companyLogo}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form ----------------------------------------------------- -->
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-3xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Contact
+          </p>
+          <h2 class="mt-3 text-display-lg font-bold text-ink">Nous contacter</h2>
+          <p class="mx-auto mt-4 max-w-xl text-base text-ink-muted">
+            Une question sur une formation, ou envie d'organiser une session
+            pour votre équipe ? Écrivez-nous, nous reviendrons vers vous
+            rapidement.
+          </p>
+        </div>
+
+        <form
+          action={`mailto:${CONTACT_EMAIL}`}
+          method="post"
+          enctype="text/plain"
+          class="space-y-5 rounded-2xl bg-white p-6 shadow-card md:p-8"
+        >
+          <div class="grid gap-5 md:grid-cols-2">
+            <div>
+              <label for="firstname" class="block text-sm font-medium text-ink">
+                Prénom <span class="text-brand-500">*</span>
+              </label>
+              <input
+                id="firstname"
+                name="firstname"
+                type="text"
+                required
+                class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              />
+            </div>
+            <div>
+              <label for="lastname" class="block text-sm font-medium text-ink">
+                Nom <span class="text-brand-500">*</span>
+              </label>
+              <input
+                id="lastname"
+                name="lastname"
+                type="text"
+                required
+                class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-ink">
+              E-mail <span class="text-brand-500">*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            />
+          </div>
+
+          <div>
+            <label for="company" class="block text-sm font-medium text-ink">
+              Société
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-ink">
+              Votre message <span class="text-brand-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="mt-2 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-ink placeholder-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            ></textarea>
+          </div>
+
+          <div class="pt-2">
+            <Button type="submit" variant="primary" size="lg" withArrow>
+              Envoyer
+            </Button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
