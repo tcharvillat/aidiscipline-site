@@ -1,0 +1,54 @@
+---
+import Button from '../ui/Button.astro';
+
+const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
+---
+
+<section
+  id="hero"
+  class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white"
+>
+  <div class="mx-auto max-w-7xl px-6 pt-16 pb-12 md:px-8 md:pt-24 md:pb-16 lg:px-12">
+    <div class="mx-auto max-w-3xl space-y-6 text-center">
+      <span class="inline-flex items-center gap-2 rounded-pill bg-white px-4 py-2 text-sm font-medium text-brand-700 shadow-card">
+        <span class="inline-block h-2 w-2 rounded-full bg-brand-500" aria-hidden="true"></span>
+        1 500+ · Communauté IA francophone n°1
+      </span>
+
+      <h1 class="text-display-xl font-bold leading-tight text-ink">
+        Formations IA & <span class="text-brand-500">Communauté</span> d'apprentissage
+      </h1>
+
+      <p class="mx-auto max-w-2xl text-lg text-ink-muted md:text-xl">
+        Partagez, montez en savoir-faire et pratiquez l'IA au sein des équipes Produit.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <Button href="/formation-ia" variant="primary" size="lg" withArrow>
+          Formations en ligne
+        </Button>
+        <Button
+          href={CALENDLY_URL}
+          variant="secondary"
+          size="lg"
+          external
+          withArrow
+        >
+          Prendre rendez-vous
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-6 pb-16 md:px-8 md:pb-24 lg:px-12">
+    <img
+      src="/images/brand/communaute.jpeg"
+      alt="Mosaïque des membres de la communauté AI Discipline"
+      class="h-auto w-full rounded-2xl shadow-card"
+      width="1400"
+      height="350"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+</section>

@@ -1,0 +1,112 @@
+---
+import Button from '../ui/Button.astro';
+
+// V1 : Formspree placeholder. Remplacer XXXXX par le vrai endpoint
+// après création du formulaire sur https://formspree.io/
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXX';
+
+const inputBase =
+  'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-light focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20';
+---
+
+<section id="contact" class="bg-surface-secondary py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-6 md:px-8 lg:px-12">
+    <div class="space-y-3 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-brand-500">
+        Nous contacter
+      </p>
+      <h2 class="text-display-lg font-bold leading-tight text-ink">
+        Une question, un projet de formation ?
+      </h2>
+      <p class="mx-auto max-w-xl text-lg text-ink-muted">
+        Écrivez-nous : nous répondons sous 48h ouvrées.
+      </p>
+    </div>
+
+    <form
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      class="mt-12 space-y-5 rounded-2xl bg-white p-6 shadow-card md:p-10"
+    >
+      <div class="grid gap-5 md:grid-cols-2">
+        <div class="space-y-2">
+          <label for="firstname" class="block text-sm font-medium text-ink">
+            Prénom <span class="text-brand-500" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            required
+            autocomplete="given-name"
+            class={inputBase}
+          />
+        </div>
+        <div class="space-y-2">
+          <label for="lastname" class="block text-sm font-medium text-ink">
+            Nom <span class="text-brand-500" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            required
+            autocomplete="family-name"
+            class={inputBase}
+          />
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <label for="email" class="block text-sm font-medium text-ink">
+          E-mail <span class="text-brand-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+          class={inputBase}
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label for="company" class="block text-sm font-medium text-ink">
+          Société
+        </label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          autocomplete="organization"
+          class={inputBase}
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label for="message" class="block text-sm font-medium text-ink">
+          Message <span class="text-brand-500" aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="5"
+          class={inputBase}
+        />
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <Button type="submit" variant="primary" size="lg" withArrow>
+          Envoyer le message
+        </Button>
+      </div>
+    </form>
+
+    <p class="mt-4 text-center text-xs text-ink-light">
+      En envoyant ce formulaire, vous acceptez d'être recontacté à propos de
+      votre demande. Vos données ne sont pas partagées avec des tiers.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import EclaireurCard from '../ui/EclaireurCard.astro';
+import data from '../../data/eclaireurs.json';
+
+const eclaireurs = data.eclaireurs;
+---
+
+<section id="eclaireurs" class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
+    <div class="mx-auto max-w-3xl space-y-3 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-brand-500">
+        Les Éclaireurs
+      </p>
+      <h2 class="text-display-lg font-bold leading-tight text-ink">
+        Une vingtaine de praticiens qui défrichent l'IA avec nous
+      </h2>
+      <p class="mx-auto max-w-2xl text-lg text-ink-muted">
+        Les Éclaireurs sont des PM, Designers et leaders d'équipe qui testent,
+        partagent et font progresser la communauté avec leurs cas d'usage du
+        quotidien.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {eclaireurs.map((e) => (
+        <EclaireurCard
+          name={e.name}
+          role={e.role}
+          bio={e.bio}
+          photo={e.photo}
+        />
+      ))}
+    </div>
+  </div>
+</section>
