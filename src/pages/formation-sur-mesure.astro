@@ -388,21 +388,24 @@ const modalities = [
       </div>
     </section>
 
-    <!-- Modalités & infos formation (accordion) -------------------------- -->
+    <!-- Modalités & infos formation (accordion exclusif) ----------------- -->
     <section>
       <div class="mx-auto max-w-4xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
         <div class="mb-10 text-center">
           <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
-            Informations formation
+            Informations détaillées
           </p>
           <h2 class="mt-3 text-display-lg font-bold text-ink">
             Modalités, objectifs et accessibilité
           </h2>
         </div>
 
-        <div class="space-y-3">
-          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+        <div class="space-y-3" data-accordion="formation-info">
+          <details
+            name="formation-info"
+            class="group rounded-2xl border border-gray-200 bg-white transition-shadow open:border-brand-200 open:shadow-card"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-ink hover:text-brand-500">
               <span>Modalités</span>
               <svg
                 class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
@@ -444,8 +447,11 @@ const modalities = [
             </div>
           </details>
 
-          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+          <details
+            name="formation-info"
+            class="group rounded-2xl border border-gray-200 bg-white transition-shadow open:border-brand-200 open:shadow-card"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-ink hover:text-brand-500">
               <span>Objectifs pédagogiques</span>
               <svg
                 class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
@@ -466,17 +472,23 @@ const modalities = [
               </p>
               <ul class="space-y-3">
                 {objectives.map((obj) => (
-                  <li class="text-sm leading-relaxed">
-                    <span class="font-semibold text-ink">{obj.title}</span>
-                    <span class="text-ink-muted"> — {obj.body}</span>
+                  <li class="flex gap-2 text-sm leading-relaxed">
+                    <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                    <span>
+                      <span class="font-semibold text-ink">{obj.title}</span>
+                      <span class="text-ink-muted"> — {obj.body}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
           </details>
 
-          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+          <details
+            name="formation-info"
+            class="group rounded-2xl border border-gray-200 bg-white transition-shadow open:border-brand-200 open:shadow-card"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-ink hover:text-brand-500">
               <span>Méthode pédagogique</span>
               <svg
                 class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
@@ -493,28 +505,43 @@ const modalities = [
             </summary>
             <div class="border-t border-gray-100 px-6 py-5">
               <ul class="space-y-3 text-sm leading-relaxed text-ink-muted">
-                <li>
-                  Alternance d'exposés théoriques et d'exercices pratiques
-                  adaptés au contexte métier de chaque participant.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Alternance d'exposés théoriques et d'exercices pratiques
+                    adaptés au contexte métier de chaque participant.
+                  </span>
                 </li>
-                <li>
-                  Tour de table en début de journée pour recueillir les
-                  attentes spécifiques de chaque participant.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Tour de table en début de journée pour recueillir les
+                    attentes spécifiques de chaque participant.
+                  </span>
                 </li>
-                <li>
-                  Mise en pratique sur les outils IA déployés dans
-                  l'organisation (Dust, Copilot, Gemini ou outils internes).
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Mise en pratique sur les outils IA déployés dans
+                    l'organisation (Dust, Copilot, Gemini ou outils internes).
+                  </span>
                 </li>
-                <li>
-                  Exercice fil conducteur : chaque participant configure et
-                  teste son propre assistant IA au fil de la journée.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Exercice fil conducteur : chaque participant configure et
+                    teste son propre assistant IA au fil de la journée.
+                  </span>
                 </li>
               </ul>
             </div>
           </details>
 
-          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+          <details
+            name="formation-info"
+            class="group rounded-2xl border border-gray-200 bg-white transition-shadow open:border-brand-200 open:shadow-card"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-ink hover:text-brand-500">
               <span>Évaluation des compétences acquises</span>
               <svg
                 class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
@@ -531,29 +558,44 @@ const modalities = [
             </summary>
             <div class="border-t border-gray-100 px-6 py-5">
               <ul class="space-y-3 text-sm leading-relaxed text-ink-muted">
-                <li>
-                  Un test de positionnement est réalisé en amont de la
-                  formation pour évaluer le niveau initial de chaque
-                  participant.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Un test de positionnement est réalisé en amont de la
+                    formation pour évaluer le niveau initial de chaque
+                    participant.
+                  </span>
                 </li>
-                <li>
-                  Un test de validation des acquis est réalisé en fin de
-                  journée.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Un test de validation des acquis est réalisé en fin de
+                    journée.
+                  </span>
                 </li>
-                <li>
-                  Un certificat de formation est délivré aux participants
-                  ayant réussi le test de certification.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Un certificat de formation est délivré aux participants
+                    ayant réussi le test de certification.
+                  </span>
                 </li>
-                <li>
-                  Une feuille d'émargement est signée par chaque participant
-                  tout au long de la journée.
+                <li class="flex gap-2">
+                  <span class="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>
+                    Une feuille d'émargement est signée par chaque participant
+                    tout au long de la journée.
+                  </span>
                 </li>
               </ul>
             </div>
           </details>
 
-          <details class="group rounded-2xl border border-gray-100 bg-white open:shadow-card">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-ink">
+          <details
+            name="formation-info"
+            class="group rounded-2xl border border-gray-200 bg-white transition-shadow open:border-brand-200 open:shadow-card"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-ink hover:text-brand-500">
               <span>Accessibilité et handicap</span>
               <svg
                 class="h-5 w-5 flex-shrink-0 text-brand-500 transition-transform group-open:rotate-180"
@@ -581,6 +623,15 @@ const modalities = [
                   puissions étudier ensemble les aménagements nécessaires.
                 </p>
                 <p>
+                  <span class="font-semibold text-ink">Téléchargement :</span>{' '}
+                  <a
+                    href="/documents/politique-accessibilite.pdf"
+                    class="text-brand-500 hover:underline"
+                  >
+                    Politique d'accessibilité
+                  </a>
+                </p>
+                <p>
                   <span class="font-semibold text-ink">Référent handicap :</span>{' '}
                   Tristan Charvillat —{' '}
                   <a
@@ -595,6 +646,30 @@ const modalities = [
           </details>
         </div>
       </div>
+
+      <script>
+        // Fallback : sur les navigateurs qui ne supportent pas <details name=...>,
+        // on force un comportement accordion (un seul ouvert à la fois).
+        const group = document.querySelector('[data-accordion="formation-info"]');
+        if (group) {
+          const items = Array.from(
+            group.querySelectorAll<HTMLDetailsElement>('details[name="formation-info"]'),
+          );
+          const supportsExclusive =
+            'name' in HTMLDetailsElement.prototype;
+          if (!supportsExclusive) {
+            items.forEach((d) => {
+              d.addEventListener('toggle', () => {
+                if (d.open) {
+                  items.forEach((other) => {
+                    if (other !== d && other.open) other.open = false;
+                  });
+                }
+              });
+            });
+          }
+        }
+      </script>
     </section>
 
     <!-- Contact form ----------------------------------------------------- -->
