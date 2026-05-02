@@ -238,11 +238,11 @@ const modalities = [
     <!-- Format ----------------------------------------------------------- -->
     <section class="border-t border-gray-100">
       <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
-        <div class="mb-12 max-w-2xl">
+        <div class="mb-12">
           <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
             Formation dédiée
           </p>
-          <h2 class="mt-3 text-4xl font-light leading-tight text-ink md:text-5xl">
+          <h2 class="mt-3 text-4xl font-light leading-tight text-ink md:text-5xl lg:whitespace-nowrap">
             Une journée, dans vos locaux, sur vos outils
           </h2>
         </div>
@@ -263,12 +263,12 @@ const modalities = [
     <!-- Modules ---------------------------------------------------------- -->
     <section class="bg-surface-secondary">
       <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
-        <div class="mb-12 max-w-2xl">
+        <div class="mb-12">
           <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
             Programme
           </p>
-          <h2 class="mt-3 text-4xl font-light leading-tight text-ink md:text-5xl">
-            Programme de la journée
+          <h2 class="mt-3 text-4xl font-light leading-tight text-ink md:text-4xl lg:whitespace-nowrap lg:text-5xl">
+            Les Fondamentaux de l'IA - Programme de la journée
           </h2>
         </div>
 
@@ -296,6 +296,37 @@ const modalities = [
             </article>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- Indicateurs ------------------------------------------------------ -->
+    <section class="bg-ink text-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">
+            Indicateurs de résultats
+          </p>
+          <h2 class="mt-3 text-4xl font-light leading-tight md:text-5xl">
+            Une formation plébiscitée par les équipes
+          </h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          {indicators.map((ind) => (
+            <div class="text-center">
+              <p class="text-5xl font-bold text-brand-400 md:text-6xl">
+                {ind.value}<span class="text-3xl text-white/70 md:text-4xl">{ind.unit}</span>
+              </p>
+              <p class="mt-3 text-sm font-medium uppercase tracking-wider text-white/70">
+                {ind.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-12 text-center text-xs text-white/50">
+          Mise à jour avril 2026
+        </p>
       </div>
     </section>
 
@@ -330,37 +361,6 @@ const modalities = [
             Échanger sur votre projet
           </Button>
         </div>
-      </div>
-    </section>
-
-    <!-- Indicateurs ------------------------------------------------------ -->
-    <section class="bg-ink text-white">
-      <div class="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
-        <div class="mb-12 text-center">
-          <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">
-            Indicateurs de résultats
-          </p>
-          <h2 class="mt-3 text-4xl font-light leading-tight md:text-5xl">
-            Une formation plébiscitée par les équipes
-          </h2>
-        </div>
-
-        <div class="grid gap-8 md:grid-cols-3">
-          {indicators.map((ind) => (
-            <div class="text-center">
-              <p class="text-5xl font-bold text-brand-400 md:text-6xl">
-                {ind.value}<span class="text-3xl text-white/70 md:text-4xl">{ind.unit}</span>
-              </p>
-              <p class="mt-3 text-sm font-medium uppercase tracking-wider text-white/70">
-                {ind.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p class="mt-12 text-center text-xs text-white/50">
-          Mise à jour avril 2026
-        </p>
       </div>
     </section>
 
