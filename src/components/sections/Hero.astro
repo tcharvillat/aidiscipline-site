@@ -23,15 +23,7 @@ const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
       </h1>
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
-        <Button href="/formation-ia" variant="primary" size="lg">
-          Formations en ligne
-        </Button>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-pill border border-white/70 bg-white/5 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/15"
-        >
+        <Button href={CALENDLY_URL} variant="primary" size="lg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="18" rx="2" />
             <line x1="16" y1="2" x2="16" y2="6" />
@@ -39,7 +31,7 @@ const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
             <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
           Prendre rendez-vous
-        </a>
+        </Button>
       </div>
     </div>
   </div>

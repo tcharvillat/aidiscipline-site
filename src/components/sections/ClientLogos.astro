@@ -1,26 +1,45 @@
 ---
 import LogoCarousel from '../ui/LogoCarousel.astro';
 
-// Les logos clients ont été téléchargés depuis Wix sous forme générique
-// (logo1.png … logo19.png). Le mapping nom→numéro est à finaliser ;
-// pour l'instant on les répartit sur deux bandeaux qui défilent.
-const allLogos = Array.from({ length: 19 }, (_, i) => ({
-  src: `/images/logos/logo${i + 1}.png`,
-  alt: `Logo client ${i + 1}`,
-}));
+// Liste ordonnée des logos clients. Tous s'inscrivent dans une "boîte" de
+// taille uniforme côté LogoCarousel : la largeur visuelle est ainsi
+// harmonisée entre logos carrés et wordmarks allongés.
+const allLogos = [
+  { src: '/images/logos/carrefour.svg', alt: 'Carrefour' },
+  { src: '/images/logos/meetic.svg', alt: 'Meetic', scaleClass: 'scale-75' },
+  { src: '/images/logos/doctolib.svg', alt: 'Doctolib', scaleClass: 'scale-[2.34]' },
+  { src: '/images/logos/blablacar.svg', alt: 'BlaBlaCar' },
+  { src: '/images/logos/decathlon.svg', alt: 'Decathlon' },
+  { src: '/images/logos/michelin.svg', alt: 'Michelin' },
+  { src: '/images/logos/thales.svg', alt: 'Thales' },
+  { src: '/images/logos/betclic.svg', alt: 'Betclic', scaleClass: 'scale-75' },
+  { src: '/images/logos/france-travail.svg', alt: 'France Travail' },
+  { src: '/images/logos/vinci.svg', alt: 'Vinci' },
+  { src: '/images/logos/cdiscount.svg', alt: 'Cdiscount' },
+  { src: '/images/logos/le-monde.svg', alt: 'Le Monde' },
+  { src: '/images/logos/dassault-systemes.svg', alt: 'Dassault Systèmes' },
+  { src: '/images/logos/pluxee.svg', alt: 'Pluxee', scaleClass: 'scale-75' },
+  { src: '/images/logos/leetchi.svg', alt: 'Leetchi', scaleClass: 'scale-75' },
+  { src: '/images/logos/radio-canada.svg', alt: 'Radio-Canada' },
+  { src: '/images/logos/onepoint.png', alt: 'Onepoint' },
+  { src: '/images/logos/believe.png', alt: 'Believe', scaleClass: 'scale-75' },
+  { src: '/images/logos/bpifrance.svg', alt: 'Bpifrance', scaleClass: 'scale-75' },
+  { src: '/images/logos/adeo.svg', alt: 'ADEO' },
+];
 
-const firstRow = allLogos.slice(0, 9);
-const secondRow = allLogos.slice(9);
+const half = Math.ceil(allLogos.length / 2);
+const firstRow = allLogos.slice(0, half);
+const secondRow = allLogos.slice(half);
 ---
 
 <section id="client-logos" class="bg-white py-3 md:py-4">
   <div class="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-    <h2 class="mx-auto max-w-4xl text-center text-3xl font-light leading-tight text-ink md:text-4xl">
-      Parmi les 1.500+ PM, PO, Designers… de la communauté
-    </h2>
+    <p class="text-sm font-semibold uppercase tracking-widest text-ink">
+      Nos dernières formations
+    </p>
   </div>
 
-  <div class="mt-2">
+  <div class="mt-4 space-y-4 md:mt-7 md:space-y-7">
     <LogoCarousel logos={firstRow} speed={45} />
     <LogoCarousel logos={secondRow} speed={55} />
   </div>
