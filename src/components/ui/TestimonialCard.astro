@@ -32,7 +32,18 @@ const initials = author
   </svg>
 
   <blockquote class="mt-4 flex-1">
-    <p class="text-base leading-relaxed text-ink">{quote}</p>
+    <p
+      class="text-base leading-relaxed text-ink line-clamp-4"
+      data-testimonial-quote
+    >{quote}</p>
+    <button
+      type="button"
+      class="mt-2 hidden text-sm font-medium text-brand-600 hover:underline focus:outline-none focus-visible:underline"
+      data-testimonial-toggle
+      aria-expanded="false"
+    >
+      Lire la suite
+    </button>
   </blockquote>
 
   <footer class="mt-6 flex items-center gap-4">
@@ -69,3 +80,41 @@ const initials = author
     )}
   </footer>
 </article>
+
+<script>
+  const setupTestimonialToggles = () => {
+    document.querySelectorAll<HTMLElement>('[data-testimonial-quote]').forEach((quote) => {
+      const toggle = quote.parentElement?.querySelector<HTMLButtonElement>(
+        '[data-testimonial-toggle]'
+      );
+      if (!toggle) return;
+
+      const isTruncated = quote.scrollHeight > quote.clientHeight + 1;
+      if (!isTruncated) {
+        toggle.remove();
+        return;
+      }
+
+      toggle.classList.remove('hidden');
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          quote.classList.add('line-clamp-4');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = 'Lire la suite';
+        } else {
+          quote.classList.remove('line-clamp-4');
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.textContent = 'Voir moins';
+        }
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTestimonialToggles);
+  } else {
+    setupTestimonialToggles();
+  }
+</script>

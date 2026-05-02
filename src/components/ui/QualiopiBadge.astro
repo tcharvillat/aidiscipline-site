@@ -7,7 +7,7 @@ export interface Props {
 
 const { compact = false, class: extraClass = '' } = Astro.props;
 
-const logoWidth = compact ? 120 : 180;
+const logoWidth = compact ? 200 : 180;
 const linkLabel = compact ? 'Voir le certificat' : 'Télécharger le certificat';
 const mention =
   "La certification qualité a été délivrée au titre de la catégorie d'action suivante : ACTIONS DE FORMATION";
@@ -24,7 +24,8 @@ const mention =
     src="/images/brand/LogoQualiopi-150dpi-AvecMarianne.png"
     alt="Qualiopi - Processus certifié - République Française"
     width={logoWidth}
-    class="h-auto w-auto"
+    style={`width: ${logoWidth}px`}
+    class="h-auto"
     loading="lazy"
   />
 

@@ -8,6 +8,7 @@ import QualiopiBadge from '../components/ui/QualiopiBadge.astro';
 
 const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
 const CONTACT_EMAIL = 'formation@aidiscipline.com';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqenknrz';
 const REFERENT_EMAIL = 'tristan@discovery-discipline.com';
 
 const formatPoints = [
@@ -711,9 +712,8 @@ const modalities = [
         </div>
 
         <form
-          action={`mailto:${CONTACT_EMAIL}`}
-          method="post"
-          enctype="text/plain"
+          action={FORMSPREE_ENDPOINT}
+          method="POST"
           class="space-y-5 rounded-2xl bg-white p-6 shadow-card md:p-8"
         >
           <div class="grid gap-5 md:grid-cols-2">

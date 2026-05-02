@@ -2,60 +2,24 @@
 import Button from '../ui/Button.astro';
 
 const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
-
-const avatars = [
-  '/images/eclaireurs/marion-jachimski.png',
-  '/images/eclaireurs/geraldine-corrales.png',
-  '/images/eclaireurs/pantea-negui.png',
-  '/images/eclaireurs/vincent-gadanho.png',
-];
 ---
 
-<section id="hero" class="relative isolate overflow-hidden">
+<section id="hero" class="relative isolate overflow-hidden bg-black">
   <img
     src="/images/wix/hero.png"
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 -z-10 h-full w-full object-cover"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
     width="1920"
     height="975"
     fetchpriority="high"
   />
-  <div
-    class="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/35 to-transparent"
-    aria-hidden="true"
-  ></div>
 
-  <div class="mx-auto max-w-7xl px-6 pt-10 pb-28 md:px-8 md:pt-16 md:pb-40 lg:px-12 lg:pt-24 lg:pb-56">
-    <div class="max-w-3xl">
-      <div class="flex items-center gap-3">
-        <div class="flex -space-x-3">
-          {avatars.map((src) => (
-            <img
-              src={src}
-              alt=""
-              aria-hidden="true"
-              class="h-12 w-12 rounded-full border-2 border-white object-cover"
-              width="48"
-              height="48"
-              loading="eager"
-            />
-          ))}
-          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-brand-500 text-xs font-bold text-white">
-            1,5K+
-          </span>
-        </div>
-        <p class="text-base font-medium text-white">
-          Communauté IA francophone n°1
-        </p>
-      </div>
-
-      <p class="mt-10 text-sm font-medium uppercase tracking-[0.18em] text-white md:text-base">
-        Formations IA & Communauté d'apprentissage
-      </p>
-
-      <h1 class="mt-6 text-4xl font-light leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-        Partage, savoir-faire et pratique l'IA au sein des équipes Produit.
+  <div class="mx-auto flex min-h-[60vh] max-w-7xl items-center px-6 py-16 md:min-h-[55vh] md:px-8 md:py-20 lg:min-h-[60vh] lg:px-12 lg:py-24">
+    <div class="max-w-3xl lg:max-w-5xl">
+      <h1 class="text-4xl font-light leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        Les outils sont en place.<br />
+        <span class="md:whitespace-nowrap">L'adoption reste à construire.</span>
       </h1>
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
