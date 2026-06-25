@@ -18,7 +18,8 @@ const { logos, speed = 40, pauseOnHover = true } = Astro.props;
 
 // Chaque logo s'inscrit dans une "boîte" de taille uniforme : on harmonise
 // ainsi les largeurs visuelles entre logos carrés et wordmarks allongés.
-const slotSize = 'h-12 w-36 md:h-16 md:w-48';
+// -20% par rapport à la version précédente (h-12 w-36 / md:h-16 md:w-48).
+const slotSize = 'h-[2.4rem] w-[7.2rem] md:h-[3.2rem] md:w-[9.6rem]';
 
 // On rend la liste deux fois : l'animation translate de 0 à -50%, ce qui
 // produit une boucle infinie sans saut visible.
