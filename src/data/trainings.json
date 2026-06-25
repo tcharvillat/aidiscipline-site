@@ -16,15 +16,15 @@
     {
       "id": "claude-code-pour-les-product-managers",
       "title": "Le bootcamp pour Product Managers qui veulent maîtriser Claude Code de zéro",
-      "format": "3 x 1 heure",
-      "price": "249€ HT",
+      "format": "3 x 1h30",
+      "price": "399€ HT",
       "priceNote": null,
-      "rating": null,
+      "rating": 4.6,
       "description": "Claude Code pour les PMs : génération de specs, connexion d'outils via MCP, automatisation de veille, workflows réutilisables.",
       "url": "https://maven.com/aidiscipline/claude-code-pour-les-product-managers",
       "banner": "/images/trainings/claude-code.jpg",
       "trainer": "Jules",
-      "ratingCount": null
+      "ratingCount": 10
     },
     {
       "id": "analyser-des-entretiens-utilisateurs",
