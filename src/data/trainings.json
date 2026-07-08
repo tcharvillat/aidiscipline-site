@@ -92,19 +92,6 @@
       "ratingCount": 5
     },
     {
-      "id": "votre-agent-ia-de-delivery",
-      "title": "Un agent IA connecté à votre documentation pour générer SPECs et tickets.",
-      "format": "3 x 1 heure + Exercices asynchrones",
-      "price": "299€ HT",
-      "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
-      "rating": 4.4,
-      "description": "Agent IA capable d'extraire le contexte depuis vos documents, de produire des SPECs complètes et de les transformer en tickets alignés produit/dev/QA.",
-      "url": "https://maven.com/aidiscipline/votre-agent-ia-de-delivery",
-      "banner": "/images/trainings/delivery.jpg",
-      "trainer": "Marion 3",
-      "ratingCount": 7
-    },
-    {
       "id": "concevoir-un-guide-d-entretien",
       "title": "Automatisez la delivery avec Claude Code dans le terminal",
       "format": "3 x 1 heure + Exercices asynchrones",
