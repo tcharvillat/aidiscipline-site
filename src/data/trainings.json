@@ -37,7 +37,7 @@
       "url": "https://maven.com/aidiscipline/analyser-des-entretiens-utilisateurs",
       "banner": "/images/trainings/entretiens.jpg",
       "trainer": "Marion D.",
-      "ratingCount": 11
+      "ratingCount": 12
     },
     {
       "id": "creer-un-agent-de-veille-concurrentielle",
@@ -50,7 +50,7 @@
       "url": "https://maven.com/aidiscipline/creer-un-agent-de-veille-concurrentielle",
       "banner": "/images/trainings/veille.jpg",
       "trainer": "Laurent",
-      "ratingCount": 23
+      "ratingCount": 24
     },
     {
       "id": "exploiter-vos-feedbacks-clients",
@@ -84,12 +84,12 @@
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
-      "rating": 4.6,
+      "rating": 4.5,
       "description": "Utiliser l'IA pour structurer vos tests et renforcer la qualité, éviter les régressions et combler les manques de couverture.",
       "url": "https://maven.com/aidiscipline/passez-a-la-qa-augmentee",
       "banner": "/images/trainings/qa.jpg",
       "trainer": "Marion 2",
-      "ratingCount": 5
+      "ratingCount": 6
     },
     {
       "id": "concevoir-un-guide-d-entretien",
