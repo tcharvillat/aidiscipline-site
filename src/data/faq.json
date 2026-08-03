@@ -1,6 +1,18 @@
 {
   "faq": [
     {
+      "question": "Qu'est-ce qu'AI Discipline ?",
+      "answer": "AI Discipline est un organisme de formation français spécialisé dans l'IA générative pour les équipes Produit & Design, certifié Qualiopi. Fondé par Tristan Charvillat et Rémi Guyot (ex-PayPal, BlaBlaCar, Malt et Intuit, auteurs du livre Discovery Discipline), il propose 14 formations en ligne en cohorte et des journées sur mesure en entreprise, et anime une communauté Slack de plus de 1 500 praticiens."
+    },
+    {
+      "question": "Combien coûte une formation IA pour Product Manager ?",
+      "answer": "Chez AI Discipline, les formations IA en ligne pour Product Managers coûtent de 249 € à 599 € HT par participant, pour 3 à 4 semaines de formation (1 heure live par semaine + exercices individualisés). Les journées de formation sur mesure en entreprise sont sur devis et finançables par votre OPCO grâce à notre certification Qualiopi."
+    },
+    {
+      "question": "Comment se former à Claude Code quand on est Product Manager ?",
+      "answer": "AI Discipline propose un bootcamp Claude Code dédié aux Product Managers, sans prérequis technique : 3 sessions live de 1 h 30 plus des exercices individualisés (399 € HT). Vous y apprenez à générer des specs, connecter vos outils via MCP, automatiser votre veille et construire des workflows réutilisables."
+    },
+    {
       "question": "Comment fonctionne une intelligence artificielle ?",
       "answer": "Une IA repose sur des modèles capables d'analyser des données, de reconnaître des schémas et de produire des réponses ou actions. Les IA génératives comme ChatGPT utilisent des LLM (Large Language Models) entraînés sur des milliards de textes pour générer du contenu cohérent et pertinent."
     },
