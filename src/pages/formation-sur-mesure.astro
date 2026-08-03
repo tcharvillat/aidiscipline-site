@@ -184,12 +184,41 @@ const modalities = [
       '7 jours ouvrés minimum à compter de la validation de la convention.',
   },
 ];
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: "Les Fondamentaux de l'IA — Formation sur mesure en entreprise",
+  description:
+    "Formation IA générative sur mesure pour les équipes Produit, Design, Marketing et RH : 1 journée immersive dans vos locaux, sur vos outils. Éligible aux financements OPCO (organisme certifié Qualiopi).",
+  url: 'https://www.aidiscipline.com/formation-sur-mesure',
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: objectives.map((o) => o.title),
+  coursePrerequisites: 'Aucun pré-requis technique',
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 6000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    courseWorkload: 'PT7H',
+  },
+};
 ---
 
 <BaseLayout
   title="Formations sur mesure — AI Discipline"
   description="Formations IA générative sur mesure pour vos équipes Produit, Design, Marketing et RH. 1 journée immersive, dans vos locaux, sur vos outils."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <Header />
 
   <main>

@@ -16,6 +16,47 @@ const MAVEN_GUARANTEE_URL =
 const trainings = trainingsData.trainings;
 const testimonials = testimonialsData.testimonials;
 
+const coursesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Formations IA en ligne — AI Discipline',
+  itemListElement: trainings.map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Course',
+      name: t.title,
+      description: t.description,
+      url: t.url,
+      provider: {
+        '@type': 'Organization',
+        name: 'AI Discipline',
+        sameAs: 'https://www.aidiscipline.com',
+      },
+      offers: {
+        '@type': 'Offer',
+        category: 'Paid',
+        price: parseInt(t.price, 10),
+        priceCurrency: 'EUR',
+      },
+      ...(t.rating && t.ratingCount
+        ? {
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: t.rating,
+              reviewCount: t.ratingCount,
+            },
+          }
+        : {}),
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'Online',
+        location: { '@type': 'VirtualLocation', url: t.url },
+      },
+    },
+  })),
+};
+
 const features = [
   {
     title: '1 heure live chaque semaine',
@@ -53,8 +94,9 @@ const features = [
 
 <BaseLayout
   title="Formations IA en ligne — AI Discipline"
-  description="Catalogue des formations IA AI Discipline : 1 heure live par semaine, exercices individualisés, certificat et garantie Maven. 15 formations pour les équipes Produit & Design."
+  description="Formations IA en ligne pour équipes Produit & Design : 1 heure live par semaine, exercices individualisés, certificat et garantie Maven."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
   <Header />
 
   <main>
@@ -78,6 +120,7 @@ const features = [
     <!-- Features --------------------------------------------------------- -->
     <section class="border-t border-gray-100">
       <div class="mx-auto max-w-7xl px-6 py-10 md:px-8 md:py-14 lg:px-12">
+        <h2 class="sr-only">Comment se déroulent nos formations</h2>
         <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {features.map((feat) => (
             <li class="flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-card">
@@ -142,6 +185,15 @@ const features = [
     <!-- Catalogue -------------------------------------------------------- -->
     <section class="bg-surface-secondary">
       <div class="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
+        <div class="mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+            Catalogue
+          </p>
+          <h2 class="mt-3 text-4xl font-light leading-tight text-ink md:text-5xl">
+            Nos formations IA en ligne
+          </h2>
+        </div>
+
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {trainings.map((t) => (
             <TrainingCard
