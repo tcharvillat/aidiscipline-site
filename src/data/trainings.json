@@ -11,14 +11,14 @@
       "url": "https://maven.com/aidiscipline/genai-for-product",
       "banner": "/images/trainings/genai-for-product.jpg",
       "trainer": "Tristan",
-      "ratingCount": 76
+      "ratingCount": 77
     },
     {
       "id": "claude-code-pour-les-product-managers",
       "title": "Le bootcamp pour Product Managers qui veulent maîtriser Claude Code de zéro",
-      "format": "3 x 1h30",
+      "format": "3 x 1h30 + Exercices asynchrones",
       "price": "399€ HT",
-      "priceNote": null,
+      "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
       "rating": 4.6,
       "description": "Claude Code pour les PMs : génération de specs, connexion d'outils via MCP, automatisation de veille, workflows réutilisables.",
       "url": "https://maven.com/aidiscipline/claude-code-pour-les-product-managers",
@@ -32,12 +32,12 @@
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
-      "rating": null,
+      "rating": 5.0,
       "description": "Création et test d'un assistant d'analyse pour préparer des données fiables, structurer l'analyse et intégrer des garde-fous contre biais et hallucinations.",
       "url": "https://maven.com/aidiscipline/analyser-des-entretiens-utilisateurs",
       "banner": "/images/trainings/entretiens.jpg",
       "trainer": "Marion D.",
-      "ratingCount": null
+      "ratingCount": 12
     },
     {
       "id": "creer-un-agent-de-veille-concurrentielle",
@@ -45,73 +45,60 @@
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
-      "rating": 4.8,
+      "rating": 4.7,
       "description": "Créer un Agent IA de veille sectorielle qui suit les actualités, détecte les signaux faibles, filtre le bruit et partage les infos utiles à votre équipe.",
       "url": "https://maven.com/aidiscipline/creer-un-agent-de-veille-concurrentielle",
       "banner": "/images/trainings/veille.jpg",
       "trainer": "Laurent",
-      "ratingCount": 20
+      "ratingCount": 24
     },
     {
       "id": "exploiter-vos-feedbacks-clients",
-      "title": "NPS, CES, retours des Sales… vous êtes assis sur une mine d'or, inexploitée.",
+      "title": "NPS, CES, retours de vos équipes Sales… vous êtes assis sur une mine d'or, inexploitée.",
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "249€ HT",
       "priceNote": null,
-      "rating": 4.6,
+      "rating": 4.2,
       "description": "Tirer parti de vos retours utilisateurs grâce à des agents IA capables d'analyser automatiquement les insights clés.",
       "url": "https://maven.com/aidiscipline/exploiter-vos-feedbacks-clients",
       "banner": "/images/trainings/feedbacks.jpg",
       "trainer": "Romain",
-      "ratingCount": 9
+      "ratingCount": 12
     },
     {
       "id": "rediger-ses-specs-produit",
-      "title": "Clarifier et renforcer la qualité des specs et rituels à l'ère de l'IA.",
+      "title": "Transformez un besoin produit en backlog prêt à développer grâce à l’IA.",
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
       "rating": 4.4,
-      "description": "Faire de l'IA votre copilote pour structurer, enrichir et fiabiliser vos specs produit. User Stories, Acceptance Criteria, traçabilité.",
+      "description": "Faites de l’IA votre copilote pour structurer, challenger et fiabiliser vos User Stories, Acceptance Criteria et la traçabilité de vos décisions.",
       "url": "https://maven.com/aidiscipline/rediger-ses-specs-produit",
       "banner": "/images/trainings/specs.jpg",
       "trainer": "Marion 1",
-      "ratingCount": 23
+      "ratingCount": 26
     },
     {
       "id": "passez-a-la-qa-augmentee",
-      "title": "Générez, enrichissez et structurez vos tests avec l'IA pour une QA plus solide.",
+      "title": "Utilisez l’IA pour identifier les risques, prioriser les tests et combler les angles morts",
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
       "rating": 4.5,
       "description": "Utiliser l'IA pour structurer vos tests et renforcer la qualité, éviter les régressions et combler les manques de couverture.",
       "url": "https://maven.com/aidiscipline/passez-a-la-qa-augmentee",
-      "banner": "/images/trainings/qa.jpg",
+      "banner": "/images/trainings/qa.webp",
       "trainer": "Marion 2",
-      "ratingCount": 4
-    },
-    {
-      "id": "votre-agent-ia-de-delivery",
-      "title": "Un agent IA connecté à votre documentation pour générer SPECs et tickets.",
-      "format": "3 x 1 heure + Exercices asynchrones",
-      "price": "299€ HT",
-      "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
-      "rating": 4.4,
-      "description": "Agent IA capable d'extraire le contexte depuis vos documents, de produire des SPECs complètes et de les transformer en tickets alignés produit/dev/QA.",
-      "url": "https://maven.com/aidiscipline/votre-agent-ia-de-delivery",
-      "banner": "/images/trainings/delivery.jpg",
-      "trainer": "Marion 3",
-      "ratingCount": 7
+      "ratingCount": 6
     },
     {
       "id": "concevoir-un-guide-d-entretien",
-      "title": "Transformez vos données brutes en guides d'entretien clairs et exploitables.",
+      "title": "Automatisez la delivery avec Claude Code dans le terminal",
       "format": "3 x 1 heure + Exercices asynchrones",
       "price": "299€ HT",
       "priceNote": "AVEC EXERCICES INDIVIDUALISÉS",
       "rating": null,
-      "description": "Méthode simple et reproductible pour cadrer votre recherche, structurer vos questions et générer un guide d'entretien cohérent avec l'aide de l'IA.",
+      "description": "En trois semaines, construisez un système de delivery assistée par IA prêt à l'emploi, reproductible et évolutif.",
       "url": "https://maven.com/aidiscipline/concevoir-un-guide-d-entretien",
       "banner": "/images/trainings/guide-entretien.jpg",
       "trainer": "Yann",
@@ -123,12 +110,12 @@
       "format": "3 x 1 heure",
       "price": "249€ HT",
       "priceNote": null,
-      "rating": 4.8,
+      "rating": 4.4,
       "description": "Utiliser le server MCP Figma dans Cursor pour transformer vos écrans Figma en code prêt à intégrer.",
       "url": "https://maven.com/aidiscipline/transformez-un-figma-en-fonctionnalite",
       "banner": "/images/trainings/figma.jpg",
       "trainer": "Jules 1",
-      "ratingCount": 4
+      "ratingCount": 5
     },
     {
       "id": "creer-et-deployer-un-produit-avec-cursor",

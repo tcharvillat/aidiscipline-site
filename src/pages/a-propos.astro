@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const CONTACT_EMAIL = 'hello@aidiscipline.com';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: "À propos d'AI Discipline",
+  url: 'https://www.aidiscipline.com/a-propos',
+  mainEntity: { '@id': 'https://www.aidiscipline.com/#organization' },
+};
+
+const keyFacts = [
+  { value: '14', label: 'formations IA en ligne au catalogue' },
+  { value: '4,5/5', label: 'note moyenne des participants' },
+  { value: '1 500+', label: 'praticiens dans la communauté Slack' },
+  { value: '20 ans', label: "d'expérience Produit des fondateurs" },
+];
+---
+
+<BaseLayout
+  title="À propos — AI Discipline"
+  description="AI Discipline est un organisme de formation IA certifié Qualiopi pour les équipes Produit & Design, fondé par Tristan Charvillat et Rémi Guyot, auteurs de Discovery Discipline."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+  <Header />
+
+  <main>
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-4xl px-6 py-14 text-center md:px-8 md:py-20 lg:px-12">
+        <h1 class="text-display-xl font-bold text-ink">À propos d'AI Discipline</h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted">
+          AI Discipline est un organisme de formation français spécialisé dans
+          l'intelligence artificielle générative pour les équipes Produit &
+          Design, certifié Qualiopi.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto max-w-3xl space-y-12 px-6 py-16 md:px-8 md:py-20 lg:px-12">
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">Qui sommes-nous ?</h2>
+          <p class="text-base leading-relaxed text-ink-muted">
+            Depuis plus de 20 ans, Rémi Guyot et Tristan Charvillat aident les
+            équipes Produit à être plus efficaces et plus impactantes. Après
+            avoir occupé des rôles stratégiques chez PayPal, BlaBlaCar, Malt et
+            Intuit, ils ont développé des méthodes concrètes pour améliorer
+            l'organisation et la collaboration des équipes cross-fonctionnelles.
+          </p>
+          <p class="text-base leading-relaxed text-ink-muted">
+            En 2022, ils publient <em>Discovery Discipline</em> et sa méthode
+            FOCUSED, rapidement adoptés par la communauté Produit. Praticiens
+            passionnés devenus formateurs, ils dirigent AI Discipline et
+            transposent la même rigueur méthodologique à un nouveau savoir-faire
+            métier : la pratique quotidienne de l'IA dans les équipes.
+          </p>
+        </article>
+
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">Notre mission</h2>
+          <p class="text-base leading-relaxed text-ink-muted">
+            Les licences sont signées, les outils déployés, mais les équipes
+            tâtonnent. Le vrai challenge n'est pas technologique : c'est la
+            réalité des usages. Notre mission : faire passer vos équipes de
+            l'accès à la maîtrise de l'IA.
+          </p>
+        </article>
+
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">AI Discipline en chiffres</h2>
+          <ul class="grid gap-4 sm:grid-cols-2">
+            {keyFacts.map((fact) => (
+              <li class="rounded-2xl border border-gray-100 bg-white p-6 shadow-card">
+                <p class="text-3xl font-bold text-brand-500">{fact.value}</p>
+                <p class="mt-1 text-sm leading-relaxed text-ink-muted">{fact.label}</p>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">Nos deux offres de formation</h2>
+          <p class="text-base leading-relaxed text-ink-muted">
+            <a href="/formation-ia" class="text-brand-500 hover:underline">Les formations en ligne</a> :
+            14 formations en cohorte de 249 € à 599 € HT, animées par des
+            praticiens en activité — 1 heure live par semaine, exercices
+            individualisés, certificat de réussite et garantie Maven.
+          </p>
+          <p class="text-base leading-relaxed text-ink-muted">
+            <a href="/formation-sur-mesure" class="text-brand-500 hover:underline">Les formations sur mesure</a> :
+            une journée immersive dans vos locaux, sur vos outils, pour former
+            vos équipes Produit, Design, Marketing ou RH. Finançables par votre
+            OPCO grâce à notre certification Qualiopi.
+          </p>
+        </article>
+
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">Ils nous font confiance</h2>
+          <p class="text-base leading-relaxed text-ink-muted">
+            Carrefour, Doctolib, BlaBlaCar, Decathlon, Michelin, Thales, France
+            Travail, Vinci, Le Monde ou encore Dassault Systèmes ont formé leurs
+            équipes avec AI Discipline.
+          </p>
+        </article>
+
+        <article class="space-y-4">
+          <h2 class="text-2xl font-semibold text-ink">Informations légales</h2>
+          <p class="text-base leading-relaxed text-ink-muted">
+            AI Discipline est la marque commerciale de Discovery Discipline SAS
+            (SIRET 912 638 533 00014, Paris). Organisme de formation certifié
+            Qualiopi, déclaration d'activité n°11756928875 auprès du préfet de
+            la région Île-de-France. Contact :
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-brand-500 hover:underline">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

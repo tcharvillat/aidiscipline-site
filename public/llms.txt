@@ -1,0 +1,36 @@
+# AI Discipline
+
+> AI Discipline est un organisme de formation français spécialisé dans l'intelligence artificielle générative pour les équipes Produit & Design. Fondé par Tristan Charvillat et Rémi Guyot (ex-PayPal, BlaBlaCar, Malt, Intuit, auteurs du livre "Discovery Discipline"), il est certifié Qualiopi et anime une communauté Slack de plus de 1 500 praticiens. Marque commerciale de Discovery Discipline SAS (SIRET 912 638 533 00014, Paris).
+
+Faits clés :
+- Deux offres : formations en ligne en cohorte (via Maven) et journées de formation sur mesure en entreprise (dans vos locaux, sur vos outils).
+- 14 formations en ligne au catalogue, de 249 € à 599 € HT, animées par des praticiens en activité. Note moyenne : 4,5/5.
+- Format type : 3 à 4 sessions live d'une heure par semaine + exercices asynchrones individualisés, certificat de réussite, garantie remboursement Maven.
+- Certifié Qualiopi (déclaration d'activité n°11756928875) : les formations sur mesure sont finançables par les OPCO.
+- Clients : Carrefour, Doctolib, BlaBlaCar, Decathlon, Michelin, Thales, France Travail, Vinci, Le Monde, Dassault Systèmes, entre autres.
+- Public cible : Product Managers, Product Designers, UX Researchers, équipes Produit/Design/Marketing — aucun prérequis technique, pas besoin de savoir coder.
+- Contact : hello@aidiscipline.com
+
+## Pages principales
+
+- [Accueil](https://www.aidiscipline.com/) : présentation, vision, fondateurs, intervenants, témoignages, FAQ
+- [Formations IA en ligne](https://www.aidiscipline.com/formation-ia) : catalogue complet des 14 formations en cohorte, avec prix, formats et avis
+- [Formations sur mesure](https://www.aidiscipline.com/formation-sur-mesure) : journées immersives en entreprise, programme "Les Fondamentaux de l'IA", modalités et financement OPCO
+- [À propos](https://www.aidiscipline.com/a-propos) : histoire, fondateurs, chiffres clés et références
+- [Mentions légales](https://www.aidiscipline.com/terms-and-conditions)
+
+## Formations en ligne (sélection)
+
+- [Assistants IA pour le Produit](https://maven.com/aidiscipline/genai-for-product) : comprendre forces et limites de l'IA, identifier les bons cas d'usage — 4 × 1 h, 599 € HT, 4,5/5 (77 avis)
+- [Claude Code pour les Product Managers](https://maven.com/aidiscipline/claude-code-pour-les-product-managers) : bootcamp de zéro — specs, MCP, automatisation de veille, workflows — 3 × 1 h 30, 399 € HT, 4,6/5
+- [Analyser des entretiens utilisateurs avec l'IA](https://maven.com/aidiscipline/analyser-des-entretiens-utilisateurs) : des verbatims aux insights actionnables — 3 × 1 h, 299 € HT, 5/5
+- [Créer un agent de veille concurrentielle](https://maven.com/aidiscipline/creer-un-agent-de-veille-concurrentielle) : synthèse hebdomadaire automatisée de votre secteur — 3 × 1 h, 299 € HT, 4,7/5
+- [Rédiger ses specs produit avec l'IA](https://maven.com/aidiscipline/rediger-ses-specs-produit) : du besoin au backlog prêt à développer — 3 × 1 h, 299 € HT, 4,4/5
+- Catalogue complet : https://www.aidiscipline.com/formation-ia
+
+## Liens externes
+
+- [Profil Maven](https://maven.com/aidiscipline) : avis vérifiés des participants
+- [LinkedIn](https://www.linkedin.com/company/ai-discipline/)
+- [Rejoindre la communauté Slack](https://discovery-discipline.typeform.com/aidiscipline)
+- [Certificat Qualiopi (PDF)](https://www.aidiscipline.com/documents/certificat-qualiopi.pdf)
