@@ -2,51 +2,35 @@
   "faq": [
     {
       "question": "Qu'est-ce qu'AI Discipline ?",
-      "answer": "AI Discipline est un organisme de formation français spécialisé dans l'IA générative pour les équipes Produit & Design, certifié Qualiopi. Fondé par Tristan Charvillat et Rémi Guyot (ex-PayPal, BlaBlaCar, Malt et Intuit, auteurs du livre Discovery Discipline), il propose 14 formations en ligne en cohorte et des journées sur mesure en entreprise, et anime une communauté Slack de plus de 1 500 praticiens."
+      "answer": "AI Discipline est un organisme de formation français certifié Qualiopi, spécialisé dans l'IA générative pour les équipes Produit & Design. Fondé par Tristan Charvillat et Rémi Guyot (ex-PayPal, BlaBlaCar, Malt et Intuit, auteurs de Discovery Discipline), il propose des formations sur mesure en entreprise et anime une communauté Slack de plusieurs milliers de praticiens de l'IA."
     },
     {
-      "question": "Combien coûte une formation IA pour Product Manager ?",
-      "answer": "Chez AI Discipline, les formations IA en ligne pour Product Managers coûtent de 249 € à 599 € HT par participant, pour 3 à 4 semaines de formation (1 heure live par semaine + exercices individualisés). Les journées de formation sur mesure en entreprise sont sur devis et finançables par votre OPCO grâce à notre certification Qualiopi."
+      "question": "Comment se passe une formation IA sur mesure en entreprise ?",
+      "answer": "Nous commençons par un échange de cadrage pour comprendre vos équipes, vos outils et vos cas d'usage réels. Nous construisons ensuite un programme adapté, d'une journée d'acculturation Comex à un parcours de transformation sur plusieurs mois, animé en présentiel ou à distance, avec des exercices sur vos propres sujets, pas des cas d'école. Chaque programme est sur devis, finançable par votre OPCO grâce à notre certification Qualiopi."
+    },
+    {
+      "question": "Combien coûte une formation IA chez AI Discipline ?",
+      "answer": "Les formations en ligne en cohorte coûtent de 249 € à 599 € HT par participant, pour 3 à 4 semaines de formation (1 heure de live par semaine + exercices individualisés corrigés). Les formations sur mesure en entreprise sont sur devis, selon le format et le nombre de participants. Dans les deux cas, notre certification Qualiopi permet un financement par votre OPCO."
+    },
+    {
+      "question": "Qui anime les formations ?",
+      "answer": "Des praticiens en poste et passionnés par le sujet de la formation. Tristan et Rémi animent les programmes phares, entourés d'experts qui utilisent et enseignent l'IA au quotidien. Ils ne se contentent pas de partager leur propre expérience dans leur contexte, ils construisent des parcours pédagogiques pour transmettre des compétences."
+    },
+    {
+      "question": "Les formations sont-elles finançables par le CPF ou l'OPCO ?",
+      "answer": "Nos formations ne sont pas éligibles au CPF. En revanche, AI Discipline est certifié Qualiopi : toutes nos formations sont finançables par le plan de développement des compétences de votre entreprise ou par votre OPCO. Pour un financement OPCO, contactez-nous en amont, nous vous fournissons les documents nécessaires (convention, programme, certificat Qualiopi)."
+    },
+    {
+      "question": "Faut-il savoir coder pour suivre une formation ?",
+      "answer": "Non. Nos formations sont conçues pour des profils non techniques : Product Managers, Designers, Marketers, dirigeants. Notre conviction, c'est que l'IA n'est pas un outil qu'on installe mais un savoir-faire qui se travaille : nous vous apprenons à dialoguer avec l'IA, à construire des workflows fiables et à les intégrer dans votre métier, sans écrire une ligne de code. Même notre bootcamp Claude Code est accessible sans prérequis technique."
+    },
+    {
+      "question": "Quels résultats concrets attendre d'une formation ?",
+      "answer": "Nos participants repartent avec des livrables utilisables dès le lendemain : prompts structurés pour leurs tâches récurrentes, workflows IA branchés sur leurs outils, réflexes de vérification et d'itération. Chaque formation inclut des exercices individualisés corrigés, c'est là que le savoir-faire se construit, pas en regardant des démos."
     },
     {
       "question": "Comment se former à Claude Code quand on est Product Manager ?",
       "answer": "AI Discipline propose un bootcamp Claude Code dédié aux Product Managers, sans prérequis technique : 3 sessions live de 1 h 30 plus des exercices individualisés (399 € HT). Vous y apprenez à générer des specs, connecter vos outils via MCP, automatiser votre veille et construire des workflows réutilisables."
-    },
-    {
-      "question": "Comment fonctionne une intelligence artificielle ?",
-      "answer": "Une IA repose sur des modèles capables d'analyser des données, de reconnaître des schémas et de produire des réponses ou actions. Les IA génératives comme ChatGPT utilisent des LLM (Large Language Models) entraînés sur des milliards de textes pour générer du contenu cohérent et pertinent."
-    },
-    {
-      "question": "Comment utiliser l'intelligence artificielle dans mon métier ?",
-      "answer": "Dans les équipes Produit, l'IA permet de résumer du feedback utilisateur, générer des idées de solutions, créer du contenu marketing ou produit, synthétiser des entretiens utilisateurs, et automatiser la documentation produit. On vous montre exactement comment faire, avec des outils et cas d'usage concrets de l'IA."
-    },
-    {
-      "question": "Comment se former à l'intelligence artificielle ?",
-      "answer": "Il existe plusieurs façons de se former à l'IA : via des formations en ligne, des MOOC, des cours en présentiel, ou des formations certifiantes. Pour bien démarrer, privilégiez une formation IA pour débutants qui explique les bases : machine learning, IA générative, et utilisation d'outils comme ChatGPT."
-    },
-    {
-      "question": "Quelle formation IA choisir quand on débute ?",
-      "answer": "Si vous débutez, optez pour une formation IA accessible sans prérequis, qui propose des projets pratiques, des vidéos pédagogiques et un accompagnement. Des formations IA no-code ou centrées sur des outils concrets (comme Notion AI, Midjourney, etc.) sont idéales pour les profils non techniques."
-    },
-    {
-      "question": "Peut-on apprendre à créer une intelligence artificielle sans être développeur ?",
-      "answer": "Oui. Grâce à certaines formations IA no-code, il est aujourd'hui possible de comprendre les bases de l'IA et de créer des modèles simples sans coder. Vous apprendrez par exemple à utiliser des générateurs de texte, des outils d'automatisation ou à construire un assistant intelligent."
-    },
-    {
-      "question": "Comment créer ou utiliser l'intelligence artificielle dans son métier ?",
-      "answer": "Nos formations IA vous apprennent à intégrer concrètement l'IA dans vos processus : créer des workflows avec GPT-4 ou Claude, utiliser des outils no-code pour automatiser des tâches, exploiter les IA génératives pour vos users tests, benchmarks, contenus, etc."
-    },
-    {
-      "question": "Existe-t-il des formations IA gratuites ou financées ?",
-      "answer": "L'inscription à la communauté AI Discipline (1500+ membres) donne accès à des contenus gratuits, ressources et webinaires. Nos formations payantes sont finançables dans certaines entreprises (par les plans de formation internes, OPCO, etc.)."
-    },
-    {
-      "question": "Par où commencer pour se former à l'intelligence artificielle ?",
-      "answer": "Commencez par rejoindre la communauté AI Discipline : vous y trouverez des retours d'expérience, des cas concrets, et des recommandations de parcours selon votre métier. Ensuite, choisissez la formation IA adaptée à votre besoin : montée en compétences individuelle, ou transformation d'équipe."
-    },
-    {
-      "question": "Faut-il savoir coder pour suivre une formation IA ?",
-      "answer": "Pas du tout. Nos formations en intelligence artificielle sont pensées pour des profils non techniques. Nous vous apprenons à dialoguer avec l'IA, à en comprendre les logiques, et à les intégrer dans vos outils métier, sans code."
     }
   ]
 }
