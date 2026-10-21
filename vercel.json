@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/formations-ia/:path*",
+      "destination": "/formation-ia",
+      "permanent": true
+    },
+    {
+      "source": "/formation-ia/:path+",
+      "destination": "/formation-ia",
+      "permanent": true
+    },
+    {
+      "source": "/formation-sur-mesure",
+      "destination": "/fondamentaux",
+      "permanent": true
+    }
+  ]
+}

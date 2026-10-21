@@ -1,0 +1,250 @@
+---
+export interface Props {
+  title: string;
+  /** Libellé de l'étiquette, ex. "Marketing". */
+  categoryLabel: string;
+  /** Couleur de la catégorie (liseré, pastille, cercles, numéros). */
+  categoryColor: string;
+  /** Lettre en filigrane ; par défaut la première lettre de la catégorie. */
+  categoryInitial?: string;
+  /** Étiquettes complémentaires affichées à côté de la catégorie, ex. ["Product Design"]. */
+  tags?: string[];
+  objectives: string[];
+  /**
+   * Variante pleine largeur (formation seule dans sa catégorie) : pastilles
+   * `badges` dans le bandeau, objectifs en colonnes titrées par `steps`.
+   */
+  featured?: boolean;
+  badges?: string[];
+  steps?: string[];
+  /** Rend la carte cliquable (bandeau et contenu, hors pied) ; s'ouvre dans un nouvel onglet. */
+  href?: string;
+  /** Lien de prise de rendez-vous, ouvert dans un nouvel onglet. */
+  contactHref?: string;
+}
+
+const {
+  title,
+  categoryLabel,
+  categoryColor,
+  categoryInitial = categoryLabel.charAt(0),
+  tags = [],
+  objectives,
+  featured = false,
+  badges = [],
+  steps = [],
+  href,
+  contactHref = 'https://calendly.com/remi-guyot/30min',
+} = Astro.props;
+
+const Main = href ? 'a' : 'div';
+---
+
+<article
+  class:list={[
+    'day-card group flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover',
+    featured && 'featured',
+  ]}
+  style={`--c: ${categoryColor}`}
+>
+  <!-- Zone principale (bandeau + contenu) : lien vers `href` s'il est fourni -->
+  <Main
+    href={href}
+    target={href ? '_blank' : undefined}
+    rel={href ? 'noopener noreferrer' : undefined}
+    class="card-main flex flex-1 flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-500"
+    aria-label={href ? `Découvrir la formation : ${title} (nouvel onglet)` : undefined}
+  >
+    <!-- Bandeau noir : étiquette, titre -->
+    <div class="band relative flex min-h-40 flex-col justify-between gap-5 overflow-hidden border-t-4 bg-black px-6 pt-5 pb-6 text-white">
+      <span class="watermark" aria-hidden="true">{categoryInitial}</span>
+      <div class="relative z-10 flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center gap-2 rounded-pill border border-white/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
+          <span class="dot h-2 w-2 rounded-full" aria-hidden="true"></span>
+          {categoryLabel}
+        </span>
+        {tags.map((tag) => (
+          <span class="inline-flex items-center rounded-pill border border-white/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
+            {tag}
+          </span>
+        ))}
+      </div>
+      {featured ? (
+        <>
+          <h3 class="relative z-10 text-2xl font-extrabold leading-tight md:text-[28px]">
+            {title}
+          </h3>
+          {badges.length > 0 && (
+            <ul class="relative z-10 flex flex-wrap gap-2">
+              {badges.map((badge) => (
+                <li class="inline-flex items-center gap-2 rounded-pill bg-white/10 px-3.5 py-1.5 text-[13px] font-semibold text-white">
+                  <svg class="badge-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                  </svg>
+                  {badge}
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      ) : (
+        <h3 class="relative z-10 min-h-[3lh] text-[22px] font-extrabold lg:text-[19px] xl:text-2xl leading-tight">
+          {title}
+        </h3>
+      )}
+    </div>
+
+    {featured ? (
+      <!-- Objectifs en colonnes -->
+      <div class="flex-1 px-6 pt-7 pb-8 md:px-8">
+        <ul class="grid gap-6 md:grid-cols-3 md:gap-8">
+          {objectives.map((objective, i) => (
+            <li>
+              {steps[i] && (
+                <p class="text-[13px] font-extrabold uppercase tracking-wider text-ink">{steps[i]}</p>
+              )}
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">{objective}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : (
+      <!-- Objectifs -->
+      <ol class="flex-1 px-6 pt-4 pb-3">
+        {objectives.map((objective, i) => (
+          <li class="flex gap-3 border-b border-gray-100 py-2.5 text-sm leading-relaxed text-ink-muted last:border-b-0">
+            <span class="num min-w-[22px] font-extrabold tabular-nums" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span>{objective}</span>
+          </li>
+        ))}
+      </ol>
+    )}
+  </Main>
+
+  <!-- Pied détachable façon ticket : toute la zone ouvre le lien de contact -->
+  <a
+    href={contactHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="foot group/foot relative flex items-center justify-between gap-3 border-t-2 border-dashed border-gray-200 bg-[#FAFAFC] px-6 py-4 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-500"
+    aria-label={`Nous contacter au sujet de la formation : ${title} (nouvel onglet)`}
+  >
+    <p class="text-xs leading-snug text-ink-light">
+      <span class="block text-[13px] font-bold text-ink">Intra-entreprise</span>
+      Programme adaptable à votre équipe
+    </p>
+    <span class="inline-flex shrink-0 items-center gap-2 rounded-pill bg-brand-500 px-4 py-2.5 text-[13px] font-semibold text-white transition-colors group-hover/foot:bg-brand-600">
+      Nous contacter
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </span>
+  </a>
+</article>
+
+<style>
+  .band {
+    border-top-color: var(--c);
+  }
+  /* Initiale de la catégorie en filigrane */
+  .watermark {
+    position: absolute;
+    right: -6px;
+    bottom: -46px;
+    font-size: 180px;
+    font-weight: 800;
+    line-height: 1;
+    color: color-mix(in srgb, var(--c) 24%, transparent);
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.6s ease;
+  }
+  /* Ligne lumineuse et lueur en bas du bandeau */
+  .band::before,
+  .band::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  .band::before {
+    left: 10%;
+    right: 10%;
+    bottom: -30px;
+    height: 60px;
+    background: var(--c);
+    filter: blur(30px);
+    opacity: 0.4;
+    transition: opacity 0.6s;
+  }
+  .band::after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--c), transparent);
+    opacity: 1;
+    transform: scaleX(0.4);
+    transition: transform 0.6s ease;
+  }
+  .day-card:hover .watermark {
+    transform: translateY(-8px);
+  }
+  .day-card:hover .band::before {
+    opacity: 0.6;
+  }
+  .day-card:hover .band::after {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .watermark,
+    .band::before,
+    .band::after {
+      transition: none;
+    }
+  }
+  .dot,
+  .num {
+    background-color: var(--c);
+  }
+  .num {
+    background: none;
+    color: var(--c);
+  }
+  /* Variante pleine largeur : bandeau plus compact, marges plus généreuses */
+  .featured .band {
+    min-height: 0;
+    gap: 0.875rem;
+    padding-top: 1.125rem;
+    padding-bottom: 1.25rem;
+  }
+  .badge-check {
+    color: var(--c);
+  }
+  @media (min-width: 768px) {
+    .featured .band,
+    .featured .foot {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  /* Encoches du ticket : prennent la couleur de fond de la section parente */
+  .foot::before,
+  .foot::after {
+    content: '';
+    position: absolute;
+    top: -11px;
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    background: var(--section-bg, #fff);
+    box-shadow: inset 0 0 0 1px #e5e7eb;
+  }
+  .foot::before {
+    left: -11px;
+  }
+  .foot::after {
+    right: -11px;
+  }
+</style>

@@ -1,10 +1,16 @@
 ---
 import Button from '../ui/Button.astro';
 
+export interface Props {
+  /** En-tête réduit au logo : sans liens de navigation ni bouton. */
+  minimal?: boolean;
+}
+
+const { minimal = false } = Astro.props;
+
 const links = [
   { href: '/', label: 'Accueil' },
-  { href: '/formation-ia', label: 'Cours en ligne' },
-  { href: '/formation-sur-mesure', label: 'Formations sur mesure' },
+  { href: '/formation-ia', label: 'Notre catalogue' },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -27,94 +33,108 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
       />
     </a>
 
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            'text-base font-medium transition-colors hover:text-brand-500 md:text-lg',
-            isCurrent(link.href) ? 'text-brand-500' : 'text-ink-muted',
-          ]}
-          aria-current={isCurrent(link.href) ? 'page' : undefined}
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
+    {!minimal && (
+      <>
+        <nav class="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+          {links.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'group inline-flex items-center gap-2 text-[15px] font-bold uppercase tracking-[0.1em] transition-colors hover:text-ink focus:outline-none focus-visible:underline',
+                isCurrent(link.href) ? 'text-ink' : 'text-ink-muted',
+              ]}
+              aria-current={isCurrent(link.href) ? 'page' : undefined}
+            >
+              <!-- Point rose sur la page en cours, gris au survol -->
+              <span
+                class:list={[
+                  'h-2 w-2 rounded-full transition-colors',
+                  isCurrent(link.href) ? 'bg-brand-500' : 'bg-transparent group-hover:bg-gray-300',
+                ]}
+                aria-hidden="true"
+              ></span>
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
-    <div class="hidden md:block">
-      <Button
-        href={TYPEFORM_URL}
-        variant="primary"
-        size="md"
-        external
-        withArrow
+        <div class="hidden md:block">
+          <Button
+            href={TYPEFORM_URL}
+            variant="primary"
+            size="md"
+            external
+            withArrow
+          >
+            Rejoindre la communauté
+          </Button>
+        </div>
+
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="inline-flex items-center justify-center rounded-pill p-2 text-ink hover:bg-gray-100 md:hidden"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </>
+    )}
+  </div>
+
+  {!minimal && (
+    <div
+      id="mobile-menu"
+      class="hidden border-t border-gray-100 md:hidden"
+      aria-hidden="true"
+    >
+      <nav
+        class="flex flex-col gap-1 px-6 py-4"
+        aria-label="Navigation mobile"
       >
-        Rejoindre la communauté
-      </Button>
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-brand-50',
+              isCurrent(link.href) ? 'text-brand-500' : 'text-ink',
+            ]}
+            aria-current={isCurrent(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="mt-2">
+          <Button
+            href={TYPEFORM_URL}
+            variant="primary"
+            size="md"
+            external
+            withArrow
+            class="w-full"
+          >
+            Rejoindre la communauté
+          </Button>
+        </div>
+      </nav>
     </div>
-
-    <button
-      type="button"
-      id="mobile-menu-toggle"
-      class="inline-flex items-center justify-center rounded-pill p-2 text-ink hover:bg-gray-100 md:hidden"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <line x1="3" y1="12" x2="21" y2="12" />
-        <line x1="3" y1="18" x2="21" y2="18" />
-      </svg>
-    </button>
-  </div>
-
-  <div
-    id="mobile-menu"
-    class="hidden border-t border-gray-100 md:hidden"
-    aria-hidden="true"
-  >
-    <nav
-      class="flex flex-col gap-1 px-6 py-4"
-      aria-label="Navigation mobile"
-    >
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            'rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-brand-50',
-            isCurrent(link.href) ? 'text-brand-500' : 'text-ink',
-          ]}
-          aria-current={isCurrent(link.href) ? 'page' : undefined}
-        >
-          {link.label}
-        </a>
-      ))}
-      <div class="mt-2">
-        <Button
-          href={TYPEFORM_URL}
-          variant="primary"
-          size="md"
-          external
-          withArrow
-          class="w-full"
-        >
-          Rejoindre la communauté
-        </Button>
-      </div>
-    </nav>
-  </div>
+  )}
 </header>
 
 <script>

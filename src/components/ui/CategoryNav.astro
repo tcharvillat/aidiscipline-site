@@ -1,0 +1,150 @@
+---
+export interface Props {
+  categories: {
+    key: string;
+    label: string;
+    color: string;
+    count: number;
+  }[];
+}
+
+const { categories } = Astro.props;
+---
+
+<!-- Barre collante : reste sous l'en-tête du site tant qu'on est dans la section -->
+<nav
+  aria-label="Catégories de formation"
+  class="category-nav sticky top-[89px] z-40 border-b border-transparent transition-colors duration-300 md:top-[97px]"
+>
+  <ul class="mx-auto flex max-w-7xl flex-wrap justify-center gap-2 px-6 py-3 md:px-8 lg:px-12">
+    {categories.map((category) => (
+      <li>
+        <a
+          href={`#cat-${category.key}`}
+          class="category-link inline-flex items-center gap-2 rounded-pill px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+          style={`--c: ${category.color}`}
+        >
+          <span class="dot h-2 w-2 rounded-full" aria-hidden="true"></span>
+          {category.label}
+          <span class="count tabular-nums">{category.count}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .category-link {
+    background: #000;
+    color: #fff;
+  }
+  /* Onglets plus grands tant que la barre n'est pas collée */
+  .category-nav:not([data-stuck]) .category-link {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  .category-nav:not([data-stuck]) .dot {
+    width: 0.5625rem;
+    height: 0.5625rem;
+  }
+  .dot {
+    background: var(--c);
+  }
+  .count {
+    color: #8a8a9e;
+  }
+  /* Barre collée sous l'en-tête : fond clair translucide, textes en noir */
+  .category-nav[data-stuck] {
+    background: rgb(255 255 255 / 0.7);
+    border-bottom-color: rgb(15 15 26 / 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .category-nav[data-stuck] .category-link {
+    background: transparent;
+    color: #0f0f1a;
+  }
+  .category-nav[data-stuck] .category-link:hover {
+    background: rgb(15 15 26 / 0.06);
+  }
+  .category-nav[data-stuck] .category-link[aria-current='location'] {
+    background: var(--c);
+    color: #fff;
+  }
+  /* Survol et catégorie en cours : le bouton prend la couleur de la catégorie */
+  .category-link:hover,
+  .category-link[aria-current='location'] {
+    background: var(--c);
+  }
+  .category-link:hover .dot,
+  .category-link[aria-current='location'] .dot {
+    background: #fff;
+  }
+  .category-link:hover .count,
+  .category-link[aria-current='location'] .count {
+    color: #fff;
+  }
+</style>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('.category-nav');
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.category-link')];
+  const sections = links
+    .map((link) => document.querySelector<HTMLElement>(link.hash))
+    .filter((section): section is HTMLElement => section !== null);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = document.querySelector<HTMLElement>(link.hash);
+      if (!target) return;
+      event.preventDefault();
+      // Les onglets peuvent passer sur plusieurs lignes : on mesure la hauteur
+      // de la barre une fois collée pour arrêter le titre juste en dessous.
+      let offset = 0;
+      if (nav) {
+        const wasStuck = nav.hasAttribute('data-stuck');
+        nav.setAttribute('data-stuck', '');
+        offset = parseFloat(getComputedStyle(nav).top) + nav.offsetHeight + 16;
+        nav.toggleAttribute('data-stuck', wasStuck);
+      }
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      });
+      history.replaceState(null, '', link.hash);
+    });
+  });
+
+  // Signale quand la barre est collée, et met en évidence la catégorie
+  // dont le titre a dépassé la moitié de la hauteur de l'écran.
+  function updateActive() {
+    if (!nav) return;
+    const stuck = nav.getBoundingClientRect().top <= parseFloat(getComputedStyle(nav).top) + 1;
+    nav.toggleAttribute('data-stuck', stuck);
+    const threshold = window.innerHeight * 0.5;
+    let current = -1;
+    sections.forEach((section, i) => {
+      if (stuck && section.getBoundingClientRect().top <= threshold) current = i;
+    });
+    links.forEach((link, i) => {
+      if (i === current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActive();
+        ticking = false;
+      });
+    },
+    { passive: true },
+  );
+  updateActive();
+</script>
