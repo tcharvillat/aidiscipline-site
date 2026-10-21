@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import Button from '../components/ui/Button.astro';
 import DayTrainingCard from '../components/ui/DayTrainingCard.astro';
 import CategoryNav from '../components/ui/CategoryNav.astro';
+import FormatStrip from '../components/ui/FormatStrip.astro';
 import TestimonialCard from '../components/ui/TestimonialCard.astro';
 
 import teamTrainingsData from '../data/team-trainings.json';
@@ -36,23 +37,19 @@ const teamCategories = (
   <main>
     <!-- Hero ------------------------------------------------------------- -->
     <section class="bg-surface-secondary">
-      <div class="mx-auto max-w-5xl px-6 py-14 text-center md:px-8 md:py-20 lg:px-12">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
-          Les cours en ligne — AI Discipline
-        </p>
-        <h1 class="mt-5 text-display-xl font-bold text-ink">
+      <div class="mx-auto max-w-5xl px-6 pt-14 pb-8 text-center md:px-8 md:pt-20 md:pb-10 lg:px-12">
+        <h1 class="text-display-xl font-bold text-ink">
           L'IA enseignée par ceux qui la <span class="text-brand-500">pratiquent</span>.
         </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted">
-          Une journée pour passer à la pratique sur un sujet métier, en
-          intra-entreprise. Le programme s'adapte à vos outils, vos cas
-          d'usage et au niveau de votre équipe.
-        </p>
       </div>
     </section>
 
     <!-- Formations d'une journée ---------------------------------------- -->
     <section class="bg-surface-secondary [--section-bg:#FFF0F8]">
+      <div class="mx-auto max-w-7xl px-6 pb-10 md:px-8 lg:px-12">
+        <FormatStrip />
+      </div>
+
       <CategoryNav
         categories={teamCategories.map((c) => ({
           key: c.key,

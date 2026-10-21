@@ -90,7 +90,7 @@ const {
     font-size: 180px;
     font-weight: 800;
     line-height: 1;
-    color: color-mix(in srgb, var(--c) 16%, transparent);
+    color: color-mix(in srgb, var(--c) 24%, transparent);
     pointer-events: none;
     user-select: none;
     transition: transform 0.6s ease;
@@ -109,7 +109,7 @@ const {
     height: 60px;
     background: var(--c);
     filter: blur(30px);
-    opacity: 0.25;
+    opacity: 0.4;
     transition: opacity 0.6s;
   }
   .band::after {
@@ -118,7 +118,7 @@ const {
     bottom: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--c), transparent);
-    opacity: 0.8;
+    opacity: 1;
     transform: scaleX(0.4);
     transition: transform 0.6s ease;
   }
@@ -126,7 +126,7 @@ const {
     transform: translateY(-8px);
   }
   .day-card:hover .band::before {
-    opacity: 0.45;
+    opacity: 0.6;
   }
   .day-card:hover .band::after {
     transform: scaleX(1);
