@@ -15,7 +15,7 @@ Faits clés :
 
 - [Accueil](https://www.aidiscipline.com/) : présentation, vision, fondateurs, intervenants, témoignages, FAQ
 - [Formations IA en ligne](https://www.aidiscipline.com/formation-ia) : catalogue complet des 14 formations en cohorte, avec prix, formats et avis
-- [Formations sur mesure](https://www.aidiscipline.com/formation-sur-mesure) : journées immersives en entreprise, programme "Les Fondamentaux de l'IA", modalités et financement OPCO
+- [Formations sur mesure](https://www.aidiscipline.com/fondamentaux) : journées immersives en entreprise, programme "Les Fondamentaux de l'IA", modalités et financement OPCO
 - [À propos](https://www.aidiscipline.com/a-propos) : histoire, fondateurs, chiffres clés et références
 - [Mentions légales](https://www.aidiscipline.com/terms-and-conditions)
 

@@ -20,11 +20,15 @@ type CategoryKey = keyof typeof teamTrainingsData.categories;
 const teamCategories = (
   Object.keys(teamTrainingsData.categories) as CategoryKey[]
 )
-  .map((key) => ({
-    key,
-    ...teamTrainingsData.categories[key],
-    trainings: teamTrainingsData.trainings.filter((t) => t.category === key),
-  }))
+  .map((key) => {
+    const category: { label: string; color: string; initial?: string; featured?: boolean } =
+      teamTrainingsData.categories[key];
+    return {
+      key,
+      ...category,
+      trainings: teamTrainingsData.trainings.filter((t) => t.category === key),
+    };
+  })
   .filter((c) => c.trainings.length > 0);
 ---
 
@@ -63,22 +67,32 @@ const teamCategories = (
         <div class="space-y-14">
           {teamCategories.map((category) => (
             <div id={`cat-${category.key}`} class="scroll-mt-[164px] md:scroll-mt-[172px]">
-              <h2 class="mb-8 flex items-center gap-3 text-2xl font-semibold uppercase tracking-wide md:text-3xl text-ink">
+              <h2 class="mb-8 flex items-start gap-3 text-2xl font-semibold uppercase tracking-wide md:text-3xl text-ink">
                 <span
-                  class="h-3 w-3 shrink-0 rounded-full md:h-3.5 md:w-3.5"
+                  class="mt-2.5 h-3 w-3 shrink-0 rounded-full md:mt-[11px] md:h-3.5 md:w-3.5"
                   style={`background: ${category.color}`}
                   aria-hidden="true"
                 ></span>
-                {category.label}
+                Parcours {category.label}
               </h2>
-              <div class="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                class:list={[
+                  'grid gap-x-6 gap-y-10',
+                  !category.featured && 'md:grid-cols-2 lg:grid-cols-3',
+                ]}
+              >
                 {category.trainings.map((t) => (
                   <DayTrainingCard
                     title={t.title}
                     categoryLabel={category.label}
                     categoryColor={category.color}
+                    categoryInitial={category.initial}
                     tags={'tags' in t ? t.tags : undefined}
                     objectives={t.objectives}
+                    featured={category.featured}
+                    badges={'badges' in t ? t.badges : undefined}
+                    href={'href' in t ? t.href : undefined}
+                    steps={'steps' in t ? t.steps : undefined}
                   />
                 ))}
               </div>

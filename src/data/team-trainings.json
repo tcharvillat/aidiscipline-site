@@ -1,5 +1,6 @@
 {
   "categories": {
+    "fondamentaux": { "label": "Les Fondamentaux", "initial": "F", "color": "#FC037E", "featured": true },
     "produit": { "label": "Produit", "color": "#FC037E" },
     "marketing": { "label": "Marketing", "color": "#EA580C" },
     "tech": { "label": "Tech", "color": "#4F46E5" },
@@ -9,6 +10,19 @@
     "commercial": { "label": "Commercial", "color": "#CA8A04" }
   },
   "trainings": [
+    {
+      "id": "fondamentaux-prompting-premier-agent",
+      "category": "fondamentaux",
+      "title": "Du prompting au premier agent",
+      "href": "https://www.aidiscipline.com/fondamentaux",
+      "badges": ["Aucun prérequis", "Tous les métiers", "Avant les formations spécialisées"],
+      "steps": ["Prompting", "Base RAG", "Assistant projet"],
+      "objectives": [
+        "Maîtrisez le prompting en structurant vos demandes et en variant les perspectives pour un usage professionnel de l'IA.",
+        "Créez une base RAG sur mesure pour rendre vos données et conversations exploitables par l'IA.",
+        "Configurez un assistant projet, du choix du modèle aux instructions, et intégrez-le à votre quotidien."
+      ]
+    },
     {
       "id": "specs-produit-avec-ia",
       "category": "produit",
