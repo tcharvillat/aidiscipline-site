@@ -12,7 +12,7 @@ export interface Props {
   objectives: string[];
   /**
    * Variante pleine largeur (formation seule dans sa catégorie) : pastilles
-   * `badges` puis objectifs en colonnes titrées par `steps`.
+   * `badges` dans le bandeau, objectifs en colonnes titrées par `steps`.
    */
   featured?: boolean;
   badges?: string[];
@@ -70,9 +70,23 @@ const Main = href ? 'a' : 'div';
         ))}
       </div>
       {featured ? (
-        <h3 class="relative z-10 text-2xl font-extrabold leading-tight md:text-[28px]">
-          {title}
-        </h3>
+        <>
+          <h3 class="relative z-10 text-2xl font-extrabold leading-tight md:text-[28px]">
+            {title}
+          </h3>
+          {badges.length > 0 && (
+            <ul class="relative z-10 flex flex-wrap gap-2">
+              {badges.map((badge) => (
+                <li class="inline-flex items-center gap-2 rounded-pill bg-white/10 px-3.5 py-1.5 text-[13px] font-semibold text-white">
+                  <svg class="badge-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                  </svg>
+                  {badge}
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
       ) : (
         <h3 class="relative z-10 min-h-[3lh] text-[22px] font-extrabold lg:text-[19px] xl:text-2xl leading-tight">
           {title}
@@ -81,20 +95,8 @@ const Main = href ? 'a' : 'div';
     </div>
 
     {featured ? (
-      <!-- Pastilles puis objectifs en colonnes -->
+      <!-- Objectifs en colonnes -->
       <div class="flex-1 px-6 pt-7 pb-8 md:px-8">
-        {badges.length > 0 && (
-          <ul class="mb-6 flex flex-wrap gap-2">
-            {badges.map((badge) => (
-              <li class="inline-flex items-center gap-2 rounded-pill bg-brand-50 px-3.5 py-1.5 text-[13px] font-semibold text-ink">
-                <svg class="badge-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12.5l4.5 4.5L19 7.5" />
-                </svg>
-                {badge}
-              </li>
-            ))}
-          </ul>
-        )}
         <ul class="grid gap-6 md:grid-cols-3 md:gap-8">
           {objectives.map((objective, i) => (
             <li class="border-t border-gray-100 pt-5">
