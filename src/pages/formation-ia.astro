@@ -73,7 +73,7 @@ const teamCategories = (
                   style={`background: ${category.color}`}
                   aria-hidden="true"
                 ></span>
-                Parcours {category.label}
+                {category.featured ? category.label : `Parcours ${category.label}`}
               </h2>
               <div
                 class:list={[

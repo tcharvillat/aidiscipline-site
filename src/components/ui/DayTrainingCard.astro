@@ -121,25 +121,25 @@ const Main = href ? 'a' : 'div';
     )}
   </Main>
 
-  <!-- Pied détachable façon ticket -->
-  <div class="foot relative flex items-center justify-between gap-3 border-t-2 border-dashed border-gray-200 bg-[#FAFAFC] px-6 py-4">
+  <!-- Pied détachable façon ticket : toute la zone ouvre le lien de contact -->
+  <a
+    href={contactHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="foot group/foot relative flex items-center justify-between gap-3 border-t-2 border-dashed border-gray-200 bg-[#FAFAFC] px-6 py-4 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-500"
+    aria-label={`Nous contacter au sujet de la formation : ${title} (nouvel onglet)`}
+  >
     <p class="text-xs leading-snug text-ink-light">
       <span class="block text-[13px] font-bold text-ink">Intra-entreprise</span>
       Programme adaptable à votre équipe
     </p>
-    <a
-      href={contactHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex shrink-0 items-center gap-2 rounded-pill bg-brand-500 px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-      aria-label={`Nous contacter au sujet de la formation : ${title} (nouvel onglet)`}
-    >
+    <span class="inline-flex shrink-0 items-center gap-2 rounded-pill bg-brand-500 px-4 py-2.5 text-[13px] font-semibold text-white transition-colors group-hover/foot:bg-brand-600">
       Nous contacter
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M5 12h14M13 6l6 6-6 6" />
       </svg>
-    </a>
-  </div>
+    </span>
+  </a>
 </article>
 
 <style>

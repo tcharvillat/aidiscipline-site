@@ -4,12 +4,12 @@ import formatData from '../../data/format-points.json';
 const { points } = formatData;
 ---
 
-<!-- Format des formations : 4 points en ligne, séparés par de fins traits -->
-<div class="format-strip border-y border-[#F3C9DD] py-8 md:py-10">
+<!-- Format des formations : carte blanche, 4 points séparés par de fins traits -->
+<div class="format-strip rounded-3xl bg-white px-3 py-6 md:py-9">
   <ul class="grid md:grid-cols-2 lg:grid-cols-4">
     {points.map((point) => (
       <li class="format-item px-6 py-5 text-center lg:py-0">
-        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand-500 shadow-[0_4px_14px_rgba(252,3,126,0.12)]">
+        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-500 text-white">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             {point.icon === 'location' && (
               <>
@@ -38,7 +38,7 @@ const { points } = formatData;
             )}
           </svg>
         </span>
-        <p class="mt-4 text-[15px] font-bold text-ink">{point.title}</p>
+        <p class="mt-3.5 text-[15px] font-bold text-ink">{point.title}</p>
         <p class="mt-2 text-[13px] leading-relaxed text-ink-muted">{point.body}</p>
       </li>
     ))}
@@ -48,19 +48,19 @@ const { points } = formatData;
 <style>
   /* Traits de séparation : horizontaux sur mobile, verticaux dès 2 colonnes */
   .format-item + .format-item {
-    border-top: 1px solid #f3c9dd;
+    border-top: 1px solid #f3d3e3;
   }
   @media (min-width: 768px) {
     .format-item + .format-item {
       border-top: 0;
     }
     .format-item:nth-child(even) {
-      border-left: 1px solid #f3c9dd;
+      border-left: 1px solid #f3d3e3;
     }
   }
   @media (min-width: 1024px) {
     .format-item + .format-item {
-      border-left: 1px solid #f3c9dd;
+      border-left: 1px solid #f3d3e3;
     }
   }
 </style>

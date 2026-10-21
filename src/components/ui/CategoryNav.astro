@@ -16,9 +16,9 @@ const { categories } = Astro.props;
   aria-label="Catégories de formation"
   class="category-nav sticky top-[89px] z-40 border-b border-transparent transition-colors duration-300 md:top-[97px]"
 >
-  <ul class="no-scrollbar relative mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-3 md:px-8 lg:px-12">
+  <ul class="mx-auto flex max-w-7xl flex-wrap justify-center gap-2 px-6 py-3 md:px-8 lg:px-12">
     {categories.map((category) => (
-      <li class="shrink-0 first:ml-auto last:mr-auto">
+      <li>
         <a
           href={`#cat-${category.key}`}
           class="category-link inline-flex items-center gap-2 rounded-pill px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
@@ -37,6 +37,15 @@ const { categories } = Astro.props;
   .category-link {
     background: #000;
     color: #fff;
+  }
+  /* Onglets plus grands tant que la barre n'est pas collée */
+  .category-nav:not([data-stuck]) .category-link {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  .category-nav:not([data-stuck]) .dot {
+    width: 0.5625rem;
+    height: 0.5625rem;
   }
   .dot {
     background: var(--c);
@@ -75,12 +84,6 @@ const { categories } = Astro.props;
   .category-link[aria-current='location'] .count {
     color: #fff;
   }
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
 </style>
 
 <script>
@@ -96,7 +99,19 @@ const { categories } = Astro.props;
       const target = document.querySelector<HTMLElement>(link.hash);
       if (!target) return;
       event.preventDefault();
-      target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      // Les onglets peuvent passer sur plusieurs lignes : on mesure la hauteur
+      // de la barre une fois collée pour arrêter le titre juste en dessous.
+      let offset = 0;
+      if (nav) {
+        const wasStuck = nav.hasAttribute('data-stuck');
+        nav.setAttribute('data-stuck', '');
+        offset = parseFloat(getComputedStyle(nav).top) + nav.offsetHeight + 16;
+        nav.toggleAttribute('data-stuck', wasStuck);
+      }
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      });
       history.replaceState(null, '', link.hash);
     });
   });
@@ -116,15 +131,6 @@ const { categories } = Astro.props;
       if (i === current) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
-    const active = links[current];
-    const list = active?.closest('ul');
-    if (active && list) {
-      const item = active.parentElement as HTMLElement;
-      const outOfView =
-        item.offsetLeft < list.scrollLeft ||
-        item.offsetLeft + item.offsetWidth > list.scrollLeft + list.clientWidth;
-      if (outOfView) list.scrollTo({ left: item.offsetLeft - 24, behavior: 'smooth' });
-    }
   }
 
   let ticking = false;
