@@ -40,7 +40,7 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
             <a
               href={link.href}
               class:list={[
-                'group inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.1em] transition-colors hover:text-ink focus:outline-none focus-visible:underline',
+                'group inline-flex items-center gap-2 text-[15px] font-bold uppercase tracking-[0.1em] transition-colors hover:text-ink focus:outline-none focus-visible:underline',
                 isCurrent(link.href) ? 'text-ink' : 'text-ink-muted',
               ]}
               aria-current={isCurrent(link.href) ? 'page' : undefined}
@@ -48,7 +48,7 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
               <!-- Point rose sur la page en cours, gris au survol -->
               <span
                 class:list={[
-                  'h-[7px] w-[7px] rounded-full transition-colors',
+                  'h-2 w-2 rounded-full transition-colors',
                   isCurrent(link.href) ? 'bg-brand-500' : 'bg-transparent group-hover:bg-gray-300',
                 ]}
                 aria-hidden="true"
