@@ -1,6 +1,94 @@
 {
   "testimonials": [
     {
+      "quote": "La première formation AI qui parle des vrais sujets avec un animateur de grande qualité.",
+      "author": "Remi de Fouchier",
+      "role": "Vice President Strategy, Marketing and Innovation",
+      "company": "Thales",
+      "photo": "/images/testimonials/remi-de-fouchier.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Extraordinairement clair, efficace et utile, bravo !",
+      "author": "Paul Moreno Blosseville",
+      "role": "President & Head of Investment",
+      "company": "Opale Capital",
+      "photo": "/images/testimonials/paul-moreno-blosseville.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Merci Tristan, c'est un 20/20.",
+      "author": "Quentin Romet",
+      "role": "Fondateur",
+      "company": "Homunity",
+      "photo": "/images/testimonials/quentin-romet.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Merci ! C'était super ! Je me sens autonome pour avancer.",
+      "author": "Mélanie Kaladgew",
+      "role": "UX strategist",
+      "company": "France Travail, DGA Tech",
+      "photo": "/images/testimonials/melanie-kaladgew.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Formation au top ! Très contente d'y avoir participé 😊",
+      "author": "Alexandrina Gomes",
+      "role": "Responsable performance opérationnelle",
+      "company": "Vinci Autoroutes",
+      "photo": "/images/testimonials/alexandrina-gomes.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Très bonne formation, concrète et enrichissante. J'ai hâte de mettre en application mes nouvelles connaissances.",
+      "author": "Nathalie Choisnet",
+      "role": "Product Owner",
+      "company": "Vinci Autoroutes",
+      "photo": "/images/testimonials/nathalie-choisnet.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Engageant, motivant et rassurant sur l'avenir de nos métiers.",
+      "author": "Sandrine Laubie",
+      "role": "Responsable Studio DX",
+      "company": "France Travail",
+      "photo": "/images/testimonials/sandrine-laubie.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Un grand merci pour cette session qui combine à la fois beaucoup de pratique avec beaucoup de prise de recul.",
+      "author": "Ina Maller",
+      "role": "VP Telecom SIM",
+      "company": "Thales",
+      "photo": "/images/testimonials/ina-maller.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Abordable, actionnable, concret. La bonne humeur en bonus.",
+      "author": "Julien Beril",
+      "role": "Head of Product",
+      "company": "Homunity",
+      "photo": "/images/testimonials/julien-beril.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Cette formation me permet de réduire la peur du glissement de raisonnement que j'ai et baisse mes réticences (peur de perte de temps) quant à l'utilisation de l'IA dans les tâches du quotidien.",
+      "author": "Océane Pham",
+      "role": "Product Manager",
+      "company": "Decathlon Digital",
+      "photo": "/images/testimonials/oceane-pham.webp",
+      "companyLogo": null
+    },
+    {
+      "quote": "Super intéressant et enrichissant. Formation pratique et pédagogique. Merci !",
+      "author": "Asmahane Souissi",
+      "role": "Directrice Produit et Monétisation",
+      "company": "Le Nouvel Obs",
+      "photo": "/images/testimonials/asmahane-souissi.webp",
+      "companyLogo": null
+    },
+    {
       "quote": "Une formation sans langue de bois, qui délivre du concret et de la valeur.",
       "author": "Julien Clément",
       "role": "Global Head of Design",
