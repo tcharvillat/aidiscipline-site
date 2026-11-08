@@ -56,16 +56,22 @@ const formats = [
   { name: 'Masterclass', detail: '3 h, les mains sur l’outil' },
 ];
 
-// Logos disponibles ; les autres sont affichés en texte en attendant leurs fichiers.
-const scenes: { name: string; logo?: string; logoClass?: string }[] = [
-  { name: 'emeis' },
-  { name: 'Carrefour', logo: '/images/logos/carrefour.svg', logoClass: 'h-9' },
-  { name: 'INSEAD' },
-  { name: 'La Product Conf' },
-  { name: 'Doctolib', logo: '/images/conferences/doctolib.svg', logoClass: 'h-5' },
-  { name: 'Thales', logo: '/images/conferences/thales.svg', logoClass: 'h-4 max-w-[140px]' },
-  { name: 'Yoslo', logo: '/images/conferences/yoslo.svg', logoClass: 'h-10' },
-];
+// Logos des scènes récentes. `ratio` = largeur / hauteur du logo recadré :
+// la hauteur affichée en dépend, pour que chaque logo ait à peu près le même poids visuel.
+const scenes = [
+  { name: 'Carrefour', file: 'carrefour', ratio: 1.25 },
+  { name: 'ADEO', file: 'adeo', ratio: 1.94 },
+  { name: 'Thales', file: 'thales', ratio: 8.43 },
+  { name: 'Doctolib', file: 'doctolib', ratio: 4.14 },
+  { name: 'onepoint', file: 'onepoint', ratio: 5.29 },
+  { name: 'INSEAD', file: 'insead', ratio: 2.75 },
+  { name: 'emeis', file: 'emeis', ratio: 1.39 },
+  { name: 'La Product Conf', file: 'laproductconf', ratio: 1.64 },
+  { name: 'Yoslo', file: 'yoslo', ratio: 1.07 },
+].map((s) => {
+  const height = Math.round(42 / Math.sqrt(s.ratio));
+  return { ...s, height, width: Math.round(height * s.ratio) };
+});
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -185,14 +191,18 @@ const personSchema = {
 
           <section id="scenes" class="scroll-mt-28 rounded-3xl bg-white p-8 shadow-card" aria-labelledby="scenes-title">
             <h2 id="scenes-title" class="text-2xl font-bold text-ink">Scènes récentes</h2>
-            <ul class="mt-6 flex flex-wrap items-center gap-x-8 gap-y-5">
+            <ul class="mt-6 grid grid-cols-3 items-center gap-x-6 gap-y-6">
               {scenes.map((s) => (
-                <li class="flex h-10 items-center">
-                  {s.logo ? (
-                    <img src={s.logo} alt={s.name} class={`w-auto max-w-[120px] opacity-80 grayscale ${s.logoClass}`} loading="lazy" />
-                  ) : (
-                    <span class="whitespace-nowrap text-xl font-bold tracking-tight text-ink/70">{s.name}</span>
-                  )}
+                <li class="flex h-11 min-w-0 items-center">
+                  <img
+                    src={`/images/conferences/${s.file}.svg`}
+                    alt={s.name}
+                    width={s.width}
+                    height={s.height}
+                    style={`height:${s.height}px;width:auto;max-width:100%;object-fit:contain`}
+                    class="opacity-75"
+                    loading="lazy"
+                  />
                 </li>
               ))}
             </ul>
