@@ -8,7 +8,8 @@ import Button from '../../components/ui/Button.astro';
 
 const CONTACT_EMAIL = 'contact@aidiscipline.com';
 const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Invitation conférence — Rémi Guyot')}`;
-const PDF_URL = '/documents/remi-guyot-conferencier.pdf';
+const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
+const PDF_URL ='/documents/remi-guyot-conferencier.pdf';
 const PORTRAIT = '/images/conferences/remi-guyot.jpg';
 
 const facts = [
@@ -116,7 +117,7 @@ const personSchema = {
               ))}
             </dl>
             <div class="mt-7 flex flex-col gap-3">
-              <Button href={mailto} size="lg" class="w-full">Inviter Rémi</Button>
+              <Button href={CALENDLY_URL} size="lg" class="w-full">Inviter Rémi</Button>
               <a
                 href={PDF_URL}
                 download
