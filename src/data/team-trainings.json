@@ -1,0 +1,353 @@
+{
+  "categories": {
+    "fondamentaux": { "label": "Les Fondamentaux", "initial": "F", "color": "#FC037E", "featured": true },
+    "produit": { "label": "Produit", "color": "#FC037E" },
+    "marketing": { "label": "Marketing", "color": "#EA580C" },
+    "tech": { "label": "Tech", "color": "#4F46E5" },
+    "rh": { "label": "RH", "color": "#059669" },
+    "finance": { "label": "Finance", "color": "#0891B2" },
+    "ai-builder": { "label": "AI Builder", "color": "#9333EA" },
+    "commercial": { "label": "Commercial", "color": "#CA8A04" }
+  },
+  "trainings": [
+    {
+      "id": "fondamentaux-prompting-premier-agent",
+      "category": "fondamentaux",
+      "title": "Du prompting au premier agent",
+      "href": "https://www.aidiscipline.com/fondamentaux",
+      "badges": ["Aucun prérequis", "Tous les métiers", "Avant les formations spécialisées"],
+      "steps": ["Prompting", "Base RAG", "Assistant projet"],
+      "objectives": [
+        "Maîtrisez le prompting en structurant vos demandes et en variant les perspectives pour un usage professionnel de l'IA.",
+        "Créez une base RAG sur mesure pour rendre vos données et conversations exploitables par l'IA.",
+        "Configurez un assistant projet, du choix du modèle aux instructions, et intégrez-le à votre quotidien."
+      ]
+    },
+    {
+      "id": "specs-produit-avec-ia",
+      "category": "produit",
+      "title": "Rédiger ses specs produit avec l'IA",
+      "objectives": [
+        "Transformer un brief ou des notes en PRD, en rendant explicites hypothèses, contraintes et arbitrages.",
+        "Générer user stories, règles métier et critères d'acceptation, et repérer les zones de flou avant qu'elles ne créent du rework.",
+        "Répartir les rôles entre le PM et l'IA : ce que l'IA produit, ce qu'elle ne doit jamais décider, comment challenger ses propositions."
+      ]
+    },
+    {
+      "id": "discovery-augmentee",
+      "category": "produit",
+      "title": "Mener une discovery augmentée",
+      "objectives": [
+        "Cadrer le problème et l'impact attendu.",
+        "Transformer le feedback multi-sources (tickets, avis, NPS, entretiens) en opportunités produit.",
+        "Construire le pitch qui défend l'opportunité retenue."
+      ]
+    },
+    {
+      "id": "prototyper-idee-produit",
+      "category": "produit",
+      "title": "Prototyper une idée produit (Lovable, v0, Claude Code)",
+      "objectives": [
+        "Passer du problème au brief de prototype.",
+        "Générer et itérer un prototype fonctionnel avec des données de test.",
+        "Tester le prototype avec deux ou trois utilisateurs et décider s'il faut prototyper ou spécifier."
+      ]
+    },
+    {
+      "id": "claude-code-environnement-pm",
+      "category": "produit",
+      "title": "Faire de Claude Code son environnement de travail de PM",
+      "objectives": [
+        "Installer Claude Code et le configurer : commandes, modes, sécurité, fichier CLAUDE.md, gestion du contexte.",
+        "Connecter Claude Code à sa stack produit via MCP : Notion, Jira, Figma.",
+        "Industrialiser ses workflows PM avec skills, plugins, subagents, commandes personnalisées et routines."
+      ]
+    },
+    {
+      "id": "concevoir-produits-ia",
+      "category": "produit",
+      "title": "Concevoir des produits IA : cadrer, spécifier, évaluer",
+      "objectives": [
+        "Qualifier une opportunité IA : valeur ou gadget, faisabilité, risques.",
+        "Spécifier le comportement attendu : prompt système, contexte, outils, solution de repli.",
+        "Construire un jeu d'évaluations et fixer les garde-fous et les métriques de la fonctionnalité."
+      ]
+    },
+    {
+      "id": "donnees-produit-metriques",
+      "category": "produit",
+      "title": "Analyser ses données produit et ses métriques avec l'IA",
+      "objectives": [
+        "Traduire une question produit en analyse : métrique visée, découpage, données nécessaires.",
+        "Analyser un export d'analytics avec l'IA (funnel, cohortes, résultat d'A/B test, requête SQL générée) et vérifier chaque chiffre en faisant exécuter le calcul.",
+        "Expliquer une variation de métrique et en tirer une décision produit."
+      ]
+    },
+    {
+      "id": "wireframe-interface-figma-make",
+      "category": "produit",
+      "tags": ["Product Design"],
+      "title": "Passer du wireframe à l'interface (Figma Make)",
+      "objectives": [
+        "Générer des écrans dans Figma Make à partir d'un wireframe et du design system.",
+        "Itérer par prompts et produire des variantes d'interface, visuels compris (brique).",
+        "Faire critiquer ses maquettes par un assistant : heuristiques, accessibilité, microcopy des états d'interface (brique)."
+      ]
+    },
+    {
+      "id": "design-au-code",
+      "category": "produit",
+      "tags": ["Product Design"],
+      "title": "Passer du design au code (Claude Code, Cursor)",
+      "objectives": [
+        "Rendre le design system exploitable par l'IA : tokens, composants, documentation.",
+        "Générer de vrais composants depuis Figma et les relier au code via MCP.",
+        "Livrer sans handoff classique : itérer dans le code, vérifier le rendu, passer la main aux développeurs."
+      ]
+    },
+    {
+      "id": "concevoir-experiences-ia",
+      "category": "produit",
+      "tags": ["Product Design"],
+      "title": "Concevoir des expériences IA",
+      "objectives": [
+        "Définir le rôle de l'IA dans le parcours et son degré d'autonomie.",
+        "Choisir les patterns d'interface et calibrer la confiance : suggestions, agents, transparence, reprise de contrôle.",
+        "Spécifier le comportement de l'IA et ses états d'erreur, puis prototyper une interface conversationnelle."
+      ]
+    },
+    {
+      "id": "preparer-etude-ia",
+      "category": "produit",
+      "tags": ["UX Research"],
+      "title": "Préparer une étude avec l'IA",
+      "objectives": [
+        "Analyser les insights existants : études passées, feedback, tickets, avis. Établir ce qu'on sait et ce qui manque.",
+        "Reformuler le problème, poser les hypothèses et choisir la méthode.",
+        "Préparer le terrain : kit d'entretien (guide généré puis critiqué, consignes, supports), screener et questionnaire de recrutement."
+      ]
+    },
+    {
+      "id": "analyser-etude-qualitative",
+      "category": "produit",
+      "tags": ["UX Research"],
+      "title": "Analyser les résultats d'une étude qualitative avec l'IA",
+      "objectives": [
+        "Préparer les données : transcripts nettoyés, anonymisés, structurés.",
+        "Analyser les verbatims avec un assistant cadré : codage thématique, workflow découpé en étapes, chaque insight relié à ses verbatims.",
+        "Vérifier les insights (biais, hallucinations, sur-généralisation) et les transformer en recommandations."
+      ]
+    },
+    {
+      "id": "feedbacks-clients-echelle",
+      "category": "produit",
+      "tags": ["UX Research"],
+      "title": "Analyser ses feedbacks clients à l'échelle avec l'IA",
+      "objectives": [
+        "Consolider tickets, avis, verbatims NPS et enquêtes en un corpus nettoyé, dédoublonné et anonymisé.",
+        "Construire une taxonomie de thèmes, classer tout le corpus et vérifier le résultat sur un échantillon codé à la main.",
+        "Quantifier et prioriser les thèmes (volumes, tendances, segments, signaux émergents), chacun relié à ses verbatims."
+      ]
+    },
+    {
+      "id": "contenus-de-marque-multicanal",
+      "category": "marketing",
+      "title": "Créer des contenus de marque multicanal",
+      "objectives": [
+        "Mettre la voix de marque en contexte dans un assistant : guide de ton, exemples, interdits.",
+        "Décliner un message en formats organiques : post, newsletter, article, landing page.",
+        "Produire les visuels de marque associés, images et vidéo courte (brique)."
+      ]
+    },
+    {
+      "id": "campagnes-avec-agences",
+      "category": "marketing",
+      "title": "Concevoir et piloter ses campagnes avec ses agences",
+      "objectives": [
+        "Rédiger un brief créatif publicitaire augmenté.",
+        "Évaluer les propositions des agences : écarts au brief, angles morts, questions à leur poser.",
+        "Mesurer la performance des campagnes et piloter les ajustements."
+      ]
+    },
+    {
+      "id": "visibilite-moteurs-de-reponse",
+      "category": "marketing",
+      "title": "Rendre sa marque visible dans les moteurs de réponse (GEO, SEO)",
+      "objectives": [
+        "Auditer la visibilité de la marque face à ses concurrents.",
+        "Diagnostiquer pourquoi une page n'est pas citée.",
+        "Réécrire les pages existantes pour qu'elles soient citées : structure, entités, données sourcées, FAQ."
+      ]
+    },
+    {
+      "id": "insights-clients-personas",
+      "category": "marketing",
+      "title": "Produire des insights clients et des personas",
+      "objectives": [
+        "Rassembler les signaux clients : avis, verbatims, réseaux sociaux, tickets.",
+        "Construire des personas sourcés à partir des verbatims.",
+        "Formuler un positionnement et le confronter au benchmark de marque (brique)."
+      ]
+    },
+    {
+      "id": "coder-avec-agent-ia",
+      "category": "tech",
+      "title": "Coder au quotidien avec un agent IA (Claude Code, Cursor, Copilot)",
+      "objectives": [
+        "Configurer son environnement : choix de l'outil, modes, permissions, fichier de contexte du dépôt (CLAUDE.md, rules), connexion aux outils de l'équipe via MCP.",
+        "Travailler en boucle « plan, exécution, vérification » : découper une tâche, faire proposer un plan, valider avant d'écrire le code.",
+        "Gérer le contexte sur une vraie base de code : ce qu'on donne à l'agent, quand repartir de zéro, comment éviter qu'il dérive."
+      ]
+    },
+    {
+      "id": "moderniser-base-de-code",
+      "category": "tech",
+      "title": "Comprendre et moderniser une base de code existante",
+      "objectives": [
+        "Cartographier un dépôt inconnu : architecture, dépendances, zones à risque, documentation générée puis vérifiée.",
+        "Refactorer par petits pas contrôlés : extraction, renommage, suppression du code mort, avec un test qui protège chaque changement.",
+        "Mener une migration : montée de version d'un framework, changement de langage, reprise de code legacy."
+      ]
+    },
+    {
+      "id": "relire-securiser-code-genere",
+      "category": "tech",
+      "title": "Relire et sécuriser le code généré",
+      "objectives": [
+        "Relire du code produit par l'IA avec une grille explicite : logique, lisibilité, conformité aux conventions de l'équipe.",
+        "Détecter les failles typiques : vulnérabilités OWASP, secrets exposés, dépendances inventées ou obsolètes.",
+        "Fixer les règles d'équipe : ce que l'IA peut écrire sans revue, ce qui exige une revue humaine, traçabilité dans les PR."
+      ]
+    },
+    {
+      "id": "integrer-llm-application",
+      "category": "tech",
+      "title": "Intégrer un LLM dans une application (API, RAG)",
+      "objectives": [
+        "Appeler un modèle par API : choix du modèle, sorties structurées, appels d'outils, coûts et latence.",
+        "Brancher l'application sur les données de l'entreprise : découpage, indexation, recherche, citations des sources.",
+        "Implémenter les garde-fous et les evals définies avec le PM, puis surveiller la fonctionnalité en production."
+      ]
+    },
+    {
+      "id": "recruter-avec-ia",
+      "category": "rh",
+      "title": "Recruter avec l'IA",
+      "objectives": [
+        "Rédiger l'annonce et la fiche de poste en maîtrisant les biais.",
+        "Présélectionner les candidatures avec une grille explicite et un contrôle humain à chaque décision.",
+        "Préparer un entretien structuré et en synthétiser les résultats."
+      ]
+    },
+    {
+      "id": "gouverner-ia-rh",
+      "category": "rh",
+      "title": "Gouverner l'IA dans la fonction RH",
+      "objectives": [
+        "Classer les outils RH au regard de l'AI Act : l'emploi est un usage à haut risque, avec une échéance en décembre 2027.",
+        "Préparer l'information-consultation du CSE.",
+        "Évaluer et valider un outil ou un fournisseur RH avant achat."
+      ]
+    },
+    {
+      "id": "parcours-collaborateur",
+      "category": "rh",
+      "title": "Outiller les moments clés du parcours collaborateur",
+      "objectives": [
+        "Préparer et synthétiser les entretiens annuels et professionnels.",
+        "Concevoir un parcours d'onboarding et de développement des compétences.",
+        "Rédiger les communications RH sensibles : nouvelles politiques, changements d'organisation."
+      ]
+    },
+    {
+      "id": "fiabiliser-fichiers-excel",
+      "category": "finance",
+      "title": "Fiabiliser et analyser ses fichiers Excel (Copilot, ChatGPT)",
+      "objectives": [
+        "Nettoyer et structurer un fichier, avec Power Query assisté.",
+        "Générer, expliquer et auditer les formules d'un classeur existant.",
+        "Analyser un fichier par prompt et contrôler les réponses de l'IA."
+      ]
+    },
+    {
+      "id": "reportings-commentaires-gestion",
+      "category": "finance",
+      "title": "Produire ses reportings et commentaires de gestion",
+      "objectives": [
+        "Analyser un P&L et rédiger les commentaires de gestion.",
+        "Consolider une synthèse multi-entités et rédiger la note de clôture.",
+        "Formuler les messages clés pour le COMEX (brique)."
+      ]
+    },
+    {
+      "id": "ecarts-previsions-fpa",
+      "category": "finance",
+      "title": "Analyser les écarts et construire ses prévisions (FP&A)",
+      "objectives": [
+        "Analyser un budget contre le réel : écarts volume, prix, mix.",
+        "Construire des scénarios et des sensibilités.",
+        "Ébaucher une prévision et son narratif de business partner."
+      ]
+    },
+    {
+      "id": "automatiser-workflow-sans-code",
+      "category": "ai-builder",
+      "title": "Automatiser un workflow sans code (n8n, Zapier, Copilot Studio, GPTs)",
+      "objectives": [
+        "Cartographier une tâche répétitive et décider si elle mérite d'être automatisée.",
+        "Construire un workflow qui enchaîne collecte, traitement par l'IA et diffusion (Slack, Notion, Sheets).",
+        "Donner une mémoire au workflow, le tester et poser ses garde-fous."
+      ]
+    },
+    {
+      "id": "deleguer-taches-agent",
+      "category": "ai-builder",
+      "title": "Déléguer des tâches à un agent (Claude, Copilot)",
+      "objectives": [
+        "Choisir ce qu'on délègue et rédiger un brief de délégation : objectif, contexte, degré d'autonomie.",
+        "Donner à l'agent son environnement : fichiers, connecteurs, skills réutilisables.",
+        "Vérifier ce que l'agent a produit et transformer une délégation réussie en tâche planifiée."
+      ]
+    },
+    {
+      "id": "workflows-agentiques",
+      "category": "ai-builder",
+      "title": "Concevoir des workflows agentiques",
+      "objectives": [
+        "Découper un processus en agents spécialisés et orchestrer leur collaboration.",
+        "Évaluer un agent : jeu de cas de test, analyse des erreurs, critères de succès.",
+        "Faire vivre un agent en production : supervision, coûts, reprise par un humain."
+      ]
+    },
+    {
+      "id": "cibler-prospecter-ia",
+      "category": "commercial",
+      "title": "Cibler et prospecter avec l'IA",
+      "objectives": [
+        "Définir son profil de client idéal et prioriser ses comptes à partir des signaux d'achat : recrutements, levées, actualités, appels d'offres.",
+        "Rédiger des séquences de prospection personnalisées compte par compte : email, LinkedIn, script d'appel.",
+        "Analyser les réponses et les objections reçues pour réécrire les messages qui ne convertissent pas."
+      ]
+    },
+    {
+      "id": "rendez-vous-clients",
+      "category": "commercial",
+      "title": "Préparer et mener ses rendez-vous clients",
+      "objectives": [
+        "Construire la fiche compte et la carte des décideurs à partir des sources publiques et du CRM.",
+        "Préparer le rendez-vous : hypothèses de besoins, questions de découverte, objections probables et réponses, visuels et prototypes.",
+        "S'entraîner face à un acheteur simulé par l'IA, puis transformer le compte rendu en actions dans le CRM."
+      ]
+    },
+    {
+      "id": "appels-offres-propositions",
+      "category": "commercial",
+      "title": "Répondre aux appels d'offres et rédiger ses propositions",
+      "objectives": [
+        "Analyser un dossier de consultation : exigences, critères de notation, points éliminatoires.",
+        "Construire la matrice de conformité et rédiger le mémoire technique à partir des contenus existants.",
+        "Relire la réponse comme l'acheteur : écarts aux exigences, preuves manquantes, cohérence prix et contenu."
+      ]
+    }
+  ]
+}

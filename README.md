@@ -64,7 +64,7 @@ aidiscipline-site/
 | --------------------------- | -------------------------------------- |
 | `/`                         | `src/pages/index.astro`                |
 | `/formation-ia`             | `src/pages/formation-ia.astro`         |
-| `/formation-sur-mesure`     | `src/pages/formation-sur-mesure.astro` |
+| `/fondamentaux`             | `src/pages/fondamentaux.astro`         |
 | `/terms-and-conditions`     | `src/pages/terms-and-conditions.astro` |
 
 ### Tailwind v4 — note de configuration

@@ -2,13 +2,12 @@
 export interface Props {
   quote: string;
   author: string;
-  role: string;
-  company: string;
-  photo?: string;
-  companyLogo?: string | null;
+  role?: string;
+  company?: string;
+  photo?: string | null;
 }
 
-const { quote, author, role, company, photo, companyLogo } = Astro.props;
+const { quote, author, role, company, photo } = Astro.props;
 
 const initials = author
   .split(' ')
@@ -19,102 +18,40 @@ const initials = author
   .toUpperCase();
 ---
 
-<article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover">
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    class="text-brand-200"
-    aria-hidden="true"
-  >
-    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-  </svg>
-
-  <blockquote class="mt-4 flex-1">
-    <p
-      class="text-base leading-relaxed text-ink line-clamp-4"
-      data-testimonial-quote
-    >{quote}</p>
-    <button
-      type="button"
-      class="mt-2 hidden text-sm font-medium text-brand-600 hover:underline focus:outline-none focus-visible:underline"
-      data-testimonial-toggle
-      aria-expanded="false"
-    >
-      Lire la suite
-    </button>
-  </blockquote>
-
-  <footer class="mt-6 flex items-center gap-4">
+<!-- Carte du mur de citations : la personne d'abord, puis sa citation en entier -->
+<figure class="mb-5 break-inside-avoid rounded-[18px] border border-gray-100 bg-[#FAFAFC] p-6">
+  <figcaption class="flex items-center gap-3 border-b border-gray-100 pb-4">
     {photo ? (
       <img
         src={photo}
         alt={`Portrait de ${author}`}
-        class="h-12 w-12 flex-shrink-0 rounded-full object-cover"
+        class="h-[52px] w-[52px] flex-shrink-0 rounded-full object-cover"
         loading="lazy"
-        width="48"
-        height="48"
+        width="52"
+        height="52"
       />
     ) : (
       <div
-        class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700"
+        class="flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700"
         aria-hidden="true"
       >
         {initials}
       </div>
     )}
     <div class="min-w-0 flex-1">
-      <p class="font-semibold text-ink">{author}</p>
-      <p class="text-sm text-ink-muted">
-        {role} · <span class="font-medium">{company}</span>
-      </p>
+      <p class="text-[15px] font-bold text-ink">{author}</p>
+      {role && <p class="mt-0.5 text-sm font-semibold text-ink">{role}</p>}
+      {company && (
+        <p class:list={['text-ink-light', role ? 'text-[12.5px]' : 'mt-0.5 text-sm']}>{company}</p>
+      )}
     </div>
-    {companyLogo && (
-      <img
-        src={companyLogo}
-        alt={`Logo ${company}`}
-        class="h-8 w-auto opacity-70"
-        loading="lazy"
-      />
-    )}
-  </footer>
-</article>
+    <span
+      class="h-[34px] self-start text-[64px] font-extrabold leading-none text-brand-500"
+      aria-hidden="true"
+    >“</span>
+  </figcaption>
 
-<script>
-  const setupTestimonialToggles = () => {
-    document.querySelectorAll<HTMLElement>('[data-testimonial-quote]').forEach((quote) => {
-      const toggle = quote.parentElement?.querySelector<HTMLButtonElement>(
-        '[data-testimonial-toggle]'
-      );
-      if (!toggle) return;
-
-      const isTruncated = quote.scrollHeight > quote.clientHeight + 1;
-      if (!isTruncated) {
-        toggle.remove();
-        return;
-      }
-
-      toggle.classList.remove('hidden');
-
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          quote.classList.add('line-clamp-4');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.textContent = 'Lire la suite';
-        } else {
-          quote.classList.remove('line-clamp-4');
-          toggle.setAttribute('aria-expanded', 'true');
-          toggle.textContent = 'Voir moins';
-        }
-      });
-    });
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupTestimonialToggles);
-  } else {
-    setupTestimonialToggles();
-  }
-</script>
+  <blockquote class="mt-4">
+    <p class="text-[15px] leading-relaxed text-ink">{quote}</p>
+  </blockquote>
+</figure>

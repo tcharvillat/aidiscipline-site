@@ -3,159 +3,100 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Button from '../components/ui/Button.astro';
-import TrainingCard from '../components/ui/TrainingCard.astro';
+import DayTrainingCard from '../components/ui/DayTrainingCard.astro';
+import CategoryNav from '../components/ui/CategoryNav.astro';
+import FormatStrip from '../components/ui/FormatStrip.astro';
 import TestimonialCard from '../components/ui/TestimonialCard.astro';
 
-import trainingsData from '../data/trainings.json';
+import teamTrainingsData from '../data/team-trainings.json';
 import testimonialsData from '../data/testimonials.json';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqenknrz';
-const MAVEN_GUARANTEE_URL =
-  'https://help.maven.com/en/articles/8705540-maven-s-satisfaction-guarantee';
 
-const trainings = trainingsData.trainings;
 const testimonials = testimonialsData.testimonials;
 
-const features = [
-  {
-    title: '1 heure live chaque semaine',
-    body:
-      "Des sessions en direct pour plonger dans des cas concrets, poser tes questions et repartir avec des réponses à tes défis.",
-    icon: 'live',
-  },
-  {
-    title: 'Replay et support de formation',
-    body:
-      "Revois les sessions à tout moment : les enregistrements et les supports sont accessibles à tous les participants.",
-    icon: 'replay',
-  },
-  {
-    title: 'Apprentissage en cohorte',
-    body:
-      "Rejoins un espace privé de pairs pour échanger librement et progresser ensemble pendant la formation.",
-    icon: 'cohort',
-  },
-  {
-    title: 'Certificat de réussite',
-    body:
-      "Chaque formation délivre un certificat attestant de ta réussite, à partager avec ton employeur ou sur LinkedIn.",
-    icon: 'certificate',
-  },
-  {
-    title: 'Garantie remboursement Maven',
-    body:
-      "Nos formations sont couvertes par la garantie Maven : satisfait ou remboursé jusqu'à la moitié du parcours.",
-    icon: 'guarantee',
-    link: { href: MAVEN_GUARANTEE_URL, label: 'En savoir plus' },
-  },
-];
+// Formations d'une journée, regroupées par catégorie (ordre du JSON).
+type CategoryKey = keyof typeof teamTrainingsData.categories;
+const teamCategories = (
+  Object.keys(teamTrainingsData.categories) as CategoryKey[]
+)
+  .map((key) => {
+    const category: { label: string; color: string; initial?: string; featured?: boolean } =
+      teamTrainingsData.categories[key];
+    return {
+      key,
+      ...category,
+      trainings: teamTrainingsData.trainings.filter((t) => t.category === key),
+    };
+  })
+  .filter((c) => c.trainings.length > 0);
 ---
 
 <BaseLayout
-  title="Formations IA en ligne — AI Discipline"
-  description="Catalogue des formations IA AI Discipline : 1 heure live par semaine, exercices individualisés, certificat et garantie Maven. 15 formations pour les équipes Produit & Design."
+  title="Notre catalogue de formations IA — AI Discipline"
+  description="Formations IA pour vos équipes Produit, Marketing, Tech, RH, Finance et Commercial. Dans vos locaux, sur vos outils."
 >
   <Header />
 
   <main>
     <!-- Hero ------------------------------------------------------------- -->
     <section class="bg-surface-secondary">
-      <div class="mx-auto max-w-5xl px-6 py-14 text-center md:px-8 md:py-20 lg:px-12">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
-          Les cours en ligne — AI Discipline
-        </p>
-        <h1 class="mt-5 text-display-xl font-bold text-ink">
+      <div class="mx-auto max-w-5xl px-6 pt-14 pb-8 text-center md:px-8 md:pt-20 md:pb-10 lg:px-12">
+        <h1 class="text-display-xl font-bold text-ink">
           L'IA enseignée par ceux qui la <span class="text-brand-500">pratiquent</span>.
         </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted">
-          Des sessions en cohorte pour favoriser l'apprentissage collectif,
-          animées par des praticiens en activité. Une heure live par semaine,
-          des exercices individualisés, un certificat à la clé.
-        </p>
       </div>
     </section>
 
-    <!-- Features --------------------------------------------------------- -->
-    <section class="border-t border-gray-100">
-      <div class="mx-auto max-w-7xl px-6 py-10 md:px-8 md:py-14 lg:px-12">
-        <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {features.map((feat) => (
-            <li class="flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-card">
-              <div class="flex h-12 w-12 items-center justify-center rounded-pill bg-brand-50 text-brand-500">
-                {feat.icon === 'live' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="3" fill="currentColor" />
-                    <path d="M5.5 5.5a9 9 0 0 0 0 13" />
-                    <path d="M2.5 2.5a13 13 0 0 0 0 19" />
-                    <path d="M18.5 5.5a9 9 0 0 1 0 13" />
-                    <path d="M21.5 2.5a13 13 0 0 1 0 19" />
-                  </svg>
-                )}
-                {feat.icon === 'replay' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
-                  </svg>
-                )}
-                {feat.icon === 'cohort' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                )}
-                {feat.icon === 'certificate' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="9" r="6" />
-                    <path d="M9 14.5V21l3-2 3 2v-6.5" />
-                  </svg>
-                )}
-                {feat.icon === 'guarantee' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <polyline points="9 11 12 14 16 9" />
-                  </svg>
-                )}
+    <!-- Formations d'une journée ---------------------------------------- -->
+    <section class="bg-surface-secondary [--section-bg:#FFF0F8]">
+      <div class="mx-auto max-w-7xl px-6 pb-10 md:px-8 lg:px-12">
+        <FormatStrip />
+      </div>
+
+      <CategoryNav
+        categories={teamCategories.map((c) => ({
+          key: c.key,
+          label: c.label,
+          color: c.color,
+          count: c.trainings.length,
+        }))}
+      />
+
+      <div class="mx-auto max-w-7xl px-6 pt-12 pb-20 md:px-8 md:pb-24 lg:px-12">
+        <div class="space-y-14">
+          {teamCategories.map((category) => (
+            <div id={`cat-${category.key}`} class="scroll-mt-[164px] md:scroll-mt-[172px]">
+              <h2 class="mb-8 flex items-start gap-3 text-2xl font-semibold uppercase tracking-wide md:text-3xl text-ink">
+                <span
+                  class="mt-2.5 h-3 w-3 shrink-0 rounded-full md:mt-[11px] md:h-3.5 md:w-3.5"
+                  style={`background: ${category.color}`}
+                  aria-hidden="true"
+                ></span>
+                {category.featured ? category.label : `Parcours ${category.label}`}
+              </h2>
+              <div
+                class:list={[
+                  'grid gap-x-6 gap-y-10',
+                  !category.featured && 'md:grid-cols-2 lg:grid-cols-3',
+                ]}
+              >
+                {category.trainings.map((t) => (
+                  <DayTrainingCard
+                    title={t.title}
+                    categoryLabel={category.label}
+                    categoryColor={category.color}
+                    categoryInitial={category.initial}
+                    tags={'tags' in t ? t.tags : undefined}
+                    objectives={t.objectives}
+                    featured={category.featured}
+                    badges={'badges' in t ? t.badges : undefined}
+                    href={'href' in t ? t.href : undefined}
+                    steps={'steps' in t ? t.steps : undefined}
+                  />
+                ))}
               </div>
-              <h3 class="mt-4 text-base font-semibold text-ink">
-                {feat.title}
-              </h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
-                {feat.body}
-              </p>
-              {feat.link && (
-                <a
-                  href={feat.link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="mt-3 text-xs font-semibold text-brand-500 hover:underline"
-                >
-                  {feat.link.label} →
-                </a>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <!-- Catalogue -------------------------------------------------------- -->
-    <section class="bg-surface-secondary">
-      <div class="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {trainings.map((t) => (
-            <TrainingCard
-              title={t.title}
-              description={t.description}
-              format={t.format}
-              price={t.price}
-              priceNote={t.priceNote}
-              rating={t.rating}
-              ratingCount={t.ratingCount}
-              url={t.url}
-              banner={t.banner}
-              trainer={t.trainer}
-            />
+            </div>
           ))}
         </div>
       </div>
@@ -173,7 +114,7 @@ const features = [
           </h2>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="columns-1 gap-5 md:columns-2 lg:columns-3">
           {testimonials.map((t) => (
             <TestimonialCard
               quote={t.quote}
@@ -181,7 +122,6 @@ const features = [
               role={t.role}
               company={t.company}
               photo={t.photo}
-              companyLogo={t.companyLogo}
             />
           ))}
         </div>
@@ -189,7 +129,7 @@ const features = [
     </section>
 
     <!-- Contact form ----------------------------------------------------- -->
-    <section class="bg-surface-secondary">
+    <section id="contact" class="scroll-mt-20 bg-surface-secondary">
       <div class="mx-auto max-w-3xl px-6 py-20 md:px-8 md:py-24 lg:px-12">
         <div class="mb-10 text-center">
           <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">

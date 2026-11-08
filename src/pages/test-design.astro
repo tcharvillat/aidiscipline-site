@@ -26,6 +26,7 @@ const clientLogos = Array.from({ length: 19 }, (_, i) => ({
 <BaseLayout
   title="Test design — composants"
   description="Page de prévisualisation des composants AI Discipline."
+  noindex={true}
 >
   <Header />
 
@@ -132,7 +133,6 @@ const clientLogos = Array.from({ length: 19 }, (_, i) => ({
             author={t.author}
             role={t.role}
             company={t.company}
-            companyLogo={t.companyLogo}
           />
         ))}
       </div>

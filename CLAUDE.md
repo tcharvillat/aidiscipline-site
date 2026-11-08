@@ -60,7 +60,7 @@ aidiscipline-site/
 │   ├── pages/
 │   │   ├── index.astro                 # Accueil
 │   │   ├── formation-ia.astro          # Catalogue formations en ligne
-│   │   ├── formation-sur-mesure.astro  # Formations sur mesure
+│   │   ├── fondamentaux.astro          # Formations sur mesure (ex-/formation-sur-mesure, redirigée)
 │   │   └── terms-and-conditions.astro  # Mentions légales
 │   ├── layouts/
 │   │   └── BaseLayout.astro
@@ -88,7 +88,7 @@ aidiscipline-site/
 |---|---|---|
 | `/` | `src/pages/index.astro` | À reproduire |
 | `/formation-ia` | `src/pages/formation-ia.astro` | À reproduire |
-| `/formation-sur-mesure` | `src/pages/formation-sur-mesure.astro` | À reproduire |
+| `/fondamentaux` (ex-`/formation-sur-mesure`, redirection 301) | `src/pages/fondamentaux.astro` | En ligne |
 | `/terms-and-conditions` | `src/pages/terms-and-conditions.astro` | À reproduire |
 
 ## Intégrations externes (à conserver tel quel)
