@@ -64,6 +64,8 @@ const scenes: { name: string; logo?: string; logoClass?: string }[] = [
   { name: 'INSEAD' },
   { name: 'La Product Conf' },
   { name: 'Doctolib', logo: '/images/conferences/doctolib.svg', logoClass: 'h-5' },
+  { name: 'Thales', logo: '/images/conferences/thales.svg', logoClass: 'h-4 max-w-[140px]' },
+  { name: 'Yoslo', logo: '/images/conferences/yoslo.svg', logoClass: 'h-10' },
 ];
 
 const personSchema = {
@@ -188,7 +190,7 @@ const personSchema = {
               {scenes.map((s) => (
                 <li class="flex h-10 items-center">
                   {s.logo ? (
-                    <img src={s.logo} alt={s.name} class={`${s.logoClass} w-auto max-w-[120px] opacity-80 grayscale`} loading="lazy" />
+                    <img src={s.logo} alt={s.name} class={`w-auto max-w-[120px] opacity-80 grayscale ${s.logoClass}`} loading="lazy" />
                   ) : (
                     <span class="whitespace-nowrap text-xl font-bold tracking-tight text-ink/70">{s.name}</span>
                   )}
