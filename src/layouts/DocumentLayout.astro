@@ -1,0 +1,148 @@
+---
+/**
+ * Template des documents réglementaires (politique d'accessibilité,
+ * règlement intérieur…) : bandeau titre, fiche d'identité du document,
+ * contenu en colonne de lecture, lien vers la version PDF.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+export interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  /** Sur-titre du bandeau, ex. « Qualité & conformité ». */
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  /** Fiche d'identité du document (version, dates, rédacteur…). */
+  meta?: { label: string; value: string }[];
+  /** Version PDF téléchargeable. */
+  pdfHref?: string;
+}
+
+const {
+  seoTitle,
+  seoDescription,
+  eyebrow = 'Documents réglementaires',
+  title,
+  subtitle,
+  meta = [],
+  pdfHref,
+} = Astro.props;
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <Header />
+
+  <main>
+    <section class="bg-surface-secondary">
+      <div class="mx-auto max-w-4xl px-6 py-14 text-center md:px-8 md:py-20 lg:px-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
+          {eyebrow}
+        </p>
+        <h1 class="mt-3 text-display-xl font-bold text-ink">{title}</h1>
+        {subtitle && (
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-muted">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto max-w-3xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
+        {(meta.length > 0 || pdfHref) && (
+          <div class="mb-14 rounded-2xl bg-white p-6 shadow-card md:p-8">
+            {meta.length > 0 && (
+              <dl class="grid gap-x-8 gap-y-4 text-sm sm:grid-cols-2">
+                {meta.map((row) => (
+                  <div>
+                    <dt class="text-xs font-semibold uppercase tracking-wider text-ink-light">
+                      {row.label}
+                    </dt>
+                    <dd class="mt-1 font-medium text-ink">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            {pdfHref && (
+              <a
+                href={pdfHref}
+                class:list={[
+                  'inline-flex items-center gap-2 text-sm font-semibold text-brand-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500',
+                  meta.length > 0 && 'mt-6 border-t border-gray-100 pt-5 w-full',
+                ]}
+                download
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 4v12M6 10l6 6 6-6M5 20h14" />
+                </svg>
+                Télécharger la version PDF
+              </a>
+            )}
+          </div>
+        )}
+
+        <div class="doc-content space-y-12">
+          <slot />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .doc-content :global(h2) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: var(--color-ink, #0f0f1a);
+  }
+  .doc-content :global(h3) {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-ink, #0f0f1a);
+  }
+  .doc-content :global(p),
+  .doc-content :global(li) {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-ink-muted, #4a4a5c);
+  }
+  .doc-content :global(article > * + *) {
+    margin-top: 1rem;
+  }
+  .doc-content :global(ul) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .doc-content :global(ul > li) {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .doc-content :global(ul > li)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--color-brand-500, #fc037e);
+  }
+  .doc-content :global(a) {
+    color: var(--color-brand-500, #fc037e);
+  }
+  .doc-content :global(a:hover) {
+    text-decoration: underline;
+  }
+  .doc-content :global(strong) {
+    font-weight: 600;
+    color: var(--color-ink, #0f0f1a);
+  }
+</style>

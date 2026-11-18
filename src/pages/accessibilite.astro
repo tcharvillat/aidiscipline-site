@@ -1,0 +1,99 @@
+---
+import DocumentLayout from '../layouts/DocumentLayout.astro';
+
+const REFERENT_EMAIL = 'tristan@discovery-discipline.com';
+
+const principles = [
+  {
+    title: 'Accessibilité universelle',
+    body: "Nous adoptons une approche d'accessibilité universelle dans la conception, le développement et la prestation de nos formations, en veillant à ce qu'elles soient accessibles à tous, sans nécessiter d'ajustements particuliers.",
+  },
+  {
+    title: 'Communication accessible',
+    body: "Nous fournissons une communication accessible à tous les apprenants. Cela inclut la documentation de formation, les supports visuels, les enregistrements sonores et tout autre matériel d'apprentissage.",
+  },
+  {
+    title: 'Adaptation des supports de formation',
+    body: 'Nous fournissons des supports de formation adaptés en fonction des besoins spécifiques des apprenants en situation de handicap. Cela peut inclure la mise à disposition de documents en formats alternatifs (versions électroniques, supports audio).',
+  },
+  {
+    title: 'Accès aux installations',
+    body: "Nos formations étant dispensées exclusivement dans les locaux de nos clients (formations intra-entreprise), nous veillons, en amont de chaque session, à ce que le lieu retenu soit accessible aux personnes en situation de handicap. Un échange préalable avec le client est systématiquement organisé pour s'assurer que l'environnement d'accueil (accès au bâtiment, salle de formation, sanitaires) répond aux besoins spécifiques des participants concernés.",
+  },
+  {
+    title: 'Formation du personnel',
+    body: "Nous formons notre personnel sur les meilleures pratiques en matière d'accessibilité, de manière à ce qu'ils soient sensibilisés aux besoins spécifiques des apprenants en situation de handicap et puissent fournir un soutien approprié.",
+  },
+];
+---
+
+<DocumentLayout
+  seoTitle="Politique d'accessibilité des formations — AI Discipline"
+  seoDescription="Politique d'accessibilité des formations AI Discipline (Discovery Discipline SAS) pour les publics en situation de handicap : engagements, accompagnement et référent handicap."
+  title="Politique d'accessibilité"
+  subtitle="Des prestations de formation accessibles aux publics en situation de handicap."
+  meta={[
+    { label: 'Organisme de formation', value: 'Discovery Discipline SAS' },
+    { label: 'Version', value: '1.0 — 15 mars 2026' },
+    { label: 'Rédacteur / Valideur', value: 'Tristan Charvillat' },
+    { label: 'Mise en application', value: '15 mars 2026' },
+  ]}
+  pdfHref="/documents/politique-accessibilite.pdf"
+>
+  <article>
+    <h2>1. Engagement en faveur de l'accessibilité</h2>
+    <p>
+      L'organisme de formation Discovery Discipline SAS reconnaît et respecte
+      la diversité des apprenants, y compris ceux en situation de handicap.
+      Nous nous engageons à fournir des prestations de formation accessibles
+      et inclusives qui permettent à tous les individus, indépendamment de
+      leurs capacités, de participer pleinement à nos programmes de formation.
+    </p>
+  </article>
+
+  <article>
+    <h2>2. Principes directeurs</h2>
+    {principles.map((p) => (
+      <div>
+        <h3>{p.title}</h3>
+        <p class="mt-2">{p.body}</p>
+      </div>
+    ))}
+  </article>
+
+  <article>
+    <h2>3. Processus d'accompagnement</h2>
+    <p>
+      Les apprenants en situation de handicap sont encouragés à informer
+      l'organisme de formation de leurs besoins spécifiques dès le début du
+      processus d'inscription. Nous mettons en place un processus
+      d'accompagnement personnalisé pour discuter des adaptations nécessaires
+      et assurer un environnement d'apprentissage inclusif.
+    </p>
+  </article>
+
+  <article>
+    <h2>4. Révision continue</h2>
+    <p>
+      Cette politique d'accessibilité des prestations de formation est revue
+      régulièrement afin de s'assurer de son adéquation avec les normes
+      actuelles et d'apporter d'éventuelles améliorations.
+    </p>
+    <p><strong>Date de prochaine révision :</strong> mars 2027</p>
+  </article>
+
+  <article>
+    <h2>5. Référent handicap</h2>
+    <div class="rounded-2xl border border-brand-100 bg-surface-secondary p-6">
+      <p><strong>Tristan Charvillat</strong>, référent handicap</p>
+      <p>
+        <a href={`mailto:${REFERENT_EMAIL}`}>{REFERENT_EMAIL}</a>
+      </p>
+    </div>
+    <p>
+      Pour toute question relative à l'accessibilité des prestations de
+      formation, veuillez contacter notre référent handicap à l'adresse
+      ci-dessus.
+    </p>
+  </article>
+</DocumentLayout>
