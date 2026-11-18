@@ -91,7 +91,7 @@ const teamCategories = (
                     objectives={t.objectives}
                     featured={category.featured}
                     badges={'badges' in t ? t.badges : undefined}
-                    href={'href' in t ? t.href : 'slug' in t ? `/formation-ia/${t.slug}` : undefined}
+                    href={'href' in t ? t.href : undefined}
                     steps={'steps' in t ? t.steps : undefined}
                   />
                 ))}
