@@ -25,6 +25,7 @@
     },
     {
       "id": "specs-produit-avec-ia",
+      "slug": "rediger-specs-produit",
       "category": "produit",
       "title": "Rédiger ses specs produit avec l'IA",
       "objectives": [
@@ -35,6 +36,7 @@
     },
     {
       "id": "discovery-augmentee",
+      "slug": "discovery-augmentee",
       "category": "produit",
       "title": "Mener une discovery augmentée",
       "objectives": [
@@ -45,6 +47,7 @@
     },
     {
       "id": "prototyper-idee-produit",
+      "slug": "prototyper-idee-produit",
       "category": "produit",
       "title": "Prototyper une idée produit (Lovable, v0, Claude Code)",
       "objectives": [
@@ -55,6 +58,7 @@
     },
     {
       "id": "claude-code-environnement-pm",
+      "slug": "claude-code-environnement-pm",
       "category": "produit",
       "title": "Faire de Claude Code son environnement de travail de PM",
       "objectives": [
@@ -65,6 +69,7 @@
     },
     {
       "id": "concevoir-produits-ia",
+      "slug": "concevoir-produits-ia",
       "category": "produit",
       "title": "Concevoir des produits IA : cadrer, spécifier, évaluer",
       "objectives": [
@@ -75,6 +80,7 @@
     },
     {
       "id": "donnees-produit-metriques",
+      "slug": "analyser-donnees-produit",
       "category": "produit",
       "title": "Analyser ses données produit et ses métriques avec l'IA",
       "objectives": [
@@ -85,6 +91,7 @@
     },
     {
       "id": "wireframe-interface-figma-make",
+      "slug": "wireframe-interface",
       "category": "produit",
       "tags": ["Product Design"],
       "title": "Passer du wireframe à l'interface (Figma Make)",
@@ -96,6 +103,7 @@
     },
     {
       "id": "design-au-code",
+      "slug": "design-au-code",
       "category": "produit",
       "tags": ["Product Design"],
       "title": "Passer du design au code (Claude Code, Cursor)",
@@ -107,6 +115,7 @@
     },
     {
       "id": "concevoir-experiences-ia",
+      "slug": "concevoir-experiences-ia",
       "category": "produit",
       "tags": ["Product Design"],
       "title": "Concevoir des expériences IA",
@@ -118,6 +127,7 @@
     },
     {
       "id": "preparer-etude-ia",
+      "slug": "preparer-etude",
       "category": "produit",
       "tags": ["UX Research"],
       "title": "Préparer une étude avec l'IA",
@@ -129,6 +139,7 @@
     },
     {
       "id": "analyser-etude-qualitative",
+      "slug": "analyser-etude-qualitative",
       "category": "produit",
       "tags": ["UX Research"],
       "title": "Analyser les résultats d'une étude qualitative avec l'IA",
@@ -140,6 +151,7 @@
     },
     {
       "id": "feedbacks-clients-echelle",
+      "slug": "analyser-feedbacks-clients",
       "category": "produit",
       "tags": ["UX Research"],
       "title": "Analyser ses feedbacks clients à l'échelle avec l'IA",
@@ -151,6 +163,7 @@
     },
     {
       "id": "contenus-de-marque-multicanal",
+      "slug": "contenus-marque-multicanal",
       "category": "marketing",
       "title": "Créer des contenus de marque multicanal",
       "objectives": [
@@ -161,6 +174,7 @@
     },
     {
       "id": "campagnes-avec-agences",
+      "slug": "campagnes-agences",
       "category": "marketing",
       "title": "Concevoir et piloter ses campagnes avec ses agences",
       "objectives": [
@@ -171,6 +185,7 @@
     },
     {
       "id": "visibilite-moteurs-de-reponse",
+      "slug": "marque-visible-moteurs-reponse",
       "category": "marketing",
       "title": "Rendre sa marque visible dans les moteurs de réponse (GEO, SEO)",
       "objectives": [
@@ -181,6 +196,7 @@
     },
     {
       "id": "insights-clients-personas",
+      "slug": "insights-clients-personas",
       "category": "marketing",
       "title": "Produire des insights clients et des personas",
       "objectives": [
@@ -191,6 +207,7 @@
     },
     {
       "id": "coder-avec-agent-ia",
+      "slug": "coder-agent-ia",
       "category": "tech",
       "title": "Coder au quotidien avec un agent IA (Claude Code, Cursor, Copilot)",
       "objectives": [
@@ -201,6 +218,7 @@
     },
     {
       "id": "moderniser-base-de-code",
+      "slug": "moderniser-base-code",
       "category": "tech",
       "title": "Comprendre et moderniser une base de code existante",
       "objectives": [
@@ -211,6 +229,7 @@
     },
     {
       "id": "relire-securiser-code-genere",
+      "slug": "relire-securiser-code",
       "category": "tech",
       "title": "Relire et sécuriser le code généré",
       "objectives": [
@@ -221,6 +240,7 @@
     },
     {
       "id": "integrer-llm-application",
+      "slug": "integrer-llm-application",
       "category": "tech",
       "title": "Intégrer un LLM dans une application (API, RAG)",
       "objectives": [
@@ -231,6 +251,7 @@
     },
     {
       "id": "recruter-avec-ia",
+      "slug": "recruter-avec-ia",
       "category": "rh",
       "title": "Recruter avec l'IA",
       "objectives": [
@@ -241,6 +262,7 @@
     },
     {
       "id": "gouverner-ia-rh",
+      "slug": "gouverner-ia-rh",
       "category": "rh",
       "title": "Gouverner l'IA dans la fonction RH",
       "objectives": [
@@ -251,6 +273,7 @@
     },
     {
       "id": "parcours-collaborateur",
+      "slug": "parcours-collaborateur",
       "category": "rh",
       "title": "Outiller les moments clés du parcours collaborateur",
       "objectives": [
@@ -261,6 +284,7 @@
     },
     {
       "id": "fiabiliser-fichiers-excel",
+      "slug": "fiabiliser-fichiers-excel",
       "category": "finance",
       "title": "Fiabiliser et analyser ses fichiers Excel (Copilot, ChatGPT)",
       "objectives": [
@@ -271,6 +295,7 @@
     },
     {
       "id": "reportings-commentaires-gestion",
+      "slug": "reportings-commentaires-gestion",
       "category": "finance",
       "title": "Produire ses reportings et commentaires de gestion",
       "objectives": [
@@ -281,6 +306,7 @@
     },
     {
       "id": "ecarts-previsions-fpa",
+      "slug": "ecarts-previsions-fpa",
       "category": "finance",
       "title": "Analyser les écarts et construire ses prévisions (FP&A)",
       "objectives": [
@@ -291,6 +317,7 @@
     },
     {
       "id": "automatiser-workflow-sans-code",
+      "slug": "automatiser-workflow-sans-code",
       "category": "ai-builder",
       "title": "Automatiser un workflow sans code (n8n, Zapier, Copilot Studio, GPTs)",
       "objectives": [
@@ -301,6 +328,7 @@
     },
     {
       "id": "deleguer-taches-agent",
+      "slug": "deleguer-taches-agent",
       "category": "ai-builder",
       "title": "Déléguer des tâches à un agent (Claude, Copilot)",
       "objectives": [
@@ -311,6 +339,7 @@
     },
     {
       "id": "workflows-agentiques",
+      "slug": "workflows-agentiques",
       "category": "ai-builder",
       "title": "Concevoir des workflows agentiques",
       "objectives": [
@@ -321,6 +350,7 @@
     },
     {
       "id": "cibler-prospecter-ia",
+      "slug": "cibler-prospecter",
       "category": "commercial",
       "title": "Cibler et prospecter avec l'IA",
       "objectives": [
@@ -331,6 +361,7 @@
     },
     {
       "id": "rendez-vous-clients",
+      "slug": "rendez-vous-clients",
       "category": "commercial",
       "title": "Préparer et mener ses rendez-vous clients",
       "objectives": [
@@ -341,6 +372,7 @@
     },
     {
       "id": "appels-offres-propositions",
+      "slug": "repondre-appels-offres",
       "category": "commercial",
       "title": "Répondre aux appels d'offres et rédiger ses propositions",
       "objectives": [

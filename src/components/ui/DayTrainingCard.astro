@@ -17,7 +17,7 @@ export interface Props {
   featured?: boolean;
   badges?: string[];
   steps?: string[];
-  /** Rend la carte cliquable (bandeau et contenu, hors pied) ; s'ouvre dans un nouvel onglet. */
+  /** Rend la carte cliquable (bandeau et contenu, hors pied) ; un lien externe s'ouvre dans un nouvel onglet. */
   href?: string;
   /** Lien de prise de rendez-vous, ouvert dans un nouvel onglet. */
   contactHref?: string;
@@ -38,6 +38,7 @@ const {
 } = Astro.props;
 
 const Main = href ? 'a' : 'div';
+const external = !!href && /^https?:\/\//.test(href);
 ---
 
 <article
@@ -50,10 +51,10 @@ const Main = href ? 'a' : 'div';
   <!-- Zone principale (bandeau + contenu) : lien vers `href` s'il est fourni -->
   <Main
     href={href}
-    target={href ? '_blank' : undefined}
-    rel={href ? 'noopener noreferrer' : undefined}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
     class="card-main flex flex-1 flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-500"
-    aria-label={href ? `Découvrir la formation : ${title} (nouvel onglet)` : undefined}
+    aria-label={href ? `Découvrir la formation : ${title}${external ? ' (nouvel onglet)' : ''}` : undefined}
   >
     <!-- Bandeau noir : étiquette, titre -->
     <div class="band relative flex min-h-40 flex-col justify-between gap-5 overflow-hidden border-t-4 bg-black px-6 pt-5 pb-6 text-white">
