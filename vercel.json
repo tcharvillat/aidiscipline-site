@@ -6,13 +6,18 @@
       "permanent": true
     },
     {
-      "source": "/formation-ia/:path((?!(?:rediger-specs-produit|discovery-augmentee|prototyper-idee-produit|claude-code-environnement-pm|concevoir-produits-ia|analyser-donnees-produit|wireframe-interface|design-au-code|concevoir-experiences-ia|preparer-etude|analyser-etude-qualitative|analyser-feedbacks-clients|contenus-marque-multicanal|campagnes-agences|marque-visible-moteurs-reponse|insights-clients-personas|coder-agent-ia|moderniser-base-code|relire-securiser-code|integrer-llm-application|recruter-avec-ia|gouverner-ia-rh|parcours-collaborateur|fiabiliser-fichiers-excel|reportings-commentaires-gestion|ecarts-previsions-fpa|automatiser-workflow-sans-code|deleguer-taches-agent|workflows-agentiques|cibler-prospecter|rendez-vous-clients|repondre-appels-offres)/?$).+)",
+      "source": "/formation-ia/:path((?!(?:fondamentaux|rediger-specs-produit|discovery-augmentee|prototyper-idee-produit|claude-code-environnement-pm|concevoir-produits-ia|analyser-donnees-produit|wireframe-interface|design-au-code|concevoir-experiences-ia|preparer-etude|analyser-etude-qualitative|analyser-feedbacks-clients|contenus-marque-multicanal|campagnes-agences|marque-visible-moteurs-reponse|insights-clients-personas|coder-agent-ia|moderniser-base-code|relire-securiser-code|integrer-llm-application|recruter-avec-ia|gouverner-ia-rh|parcours-collaborateur|fiabiliser-fichiers-excel|reportings-commentaires-gestion|ecarts-previsions-fpa|automatiser-workflow-sans-code|deleguer-taches-agent|workflows-agentiques|cibler-prospecter|rendez-vous-clients|repondre-appels-offres)/?$).+)",
       "destination": "/formation-ia",
       "permanent": true
     },
     {
       "source": "/formation-sur-mesure",
-      "destination": "/fondamentaux",
+      "destination": "/formation-ia/fondamentaux",
+      "permanent": true
+    },
+    {
+      "source": "/fondamentaux",
+      "destination": "/formation-ia/fondamentaux",
       "permanent": true
     }
   ]

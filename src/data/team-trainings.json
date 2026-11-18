@@ -14,7 +14,7 @@
       "id": "fondamentaux-prompting-premier-agent",
       "category": "fondamentaux",
       "title": "Du prompting au premier agent",
-      "href": "https://www.aidiscipline.com/fondamentaux",
+      "href": "/formation-ia/fondamentaux",
       "badges": ["Aucun prérequis", "Tous les métiers", "Avant les formations spécialisées"],
       "steps": ["Prompting", "Base RAG", "Assistant projet"],
       "objectives": [
