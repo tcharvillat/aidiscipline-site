@@ -19,6 +19,16 @@
       "source": "/fondamentaux",
       "destination": "/formation-ia/fondamentaux",
       "permanent": true
+    },
+    {
+      "source": "/documents/politique-accessibilite.pdf",
+      "destination": "/accessibilite",
+      "permanent": true
+    },
+    {
+      "source": "/documents/reglement-interieur.pdf",
+      "destination": "/reglement-interieur",
+      "permanent": true
     }
   ]
 }
