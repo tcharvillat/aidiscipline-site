@@ -160,12 +160,7 @@ const modalities = [
         <div class="grid gap-6 md:grid-cols-2">
           {modules.map((m) => (
             <article class="flex flex-col rounded-2xl bg-white p-8 shadow-card">
-              <div class="flex items-baseline gap-3">
-                <span class="text-sm font-mono font-semibold text-brand-500">
-                  Module {m.number}
-                </span>
-              </div>
-              <h3 class="mt-2 text-xl font-bold text-ink">{m.title}</h3>
+              <h3 class="text-xl font-bold text-ink">{m.title}</h3>
               {m.intro && (
                 <p class="mt-4 flex gap-2 text-sm leading-relaxed text-ink-muted">
                   <span aria-hidden="true">👉</span>
