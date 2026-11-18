@@ -2,7 +2,11 @@
 /**
  * Template des documents réglementaires (politique d'accessibilité,
  * règlement intérieur…) : bandeau titre, fiche d'identité du document,
- * contenu en colonne de lecture, lien vers la version PDF.
+ * contenu en colonne de lecture.
+ *
+ * Le bouton « Télécharger en PDF » génère le PDF à partir de la page elle-même
+ * (impression du navigateur + feuille de style dédiée) : le PDF est donc
+ * toujours identique au contenu en ligne, sans fichier à maintenir.
  */
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
@@ -17,8 +21,8 @@ export interface Props {
   subtitle?: string;
   /** Fiche d'identité du document (version, dates, rédacteur…). */
   meta?: { label: string; value: string }[];
-  /** Version PDF téléchargeable. */
-  pdfHref?: string;
+  /** Nom proposé pour le PDF généré (sans extension). Affiche le bouton de téléchargement. */
+  pdfFileName?: string;
 }
 
 const {
@@ -28,15 +32,22 @@ const {
   title,
   subtitle,
   meta = [],
-  pdfHref,
+  pdfFileName,
 } = Astro.props;
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/$/, '');
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
   <Header />
 
   <main>
-    <section class="bg-surface-secondary">
+    <!-- En-tête et pied du PDF (impression uniquement) -->
+    <div class="print-only print-head">
+      <span>Discovery Discipline SAS — <strong>AI Discipline</strong></span>
+    </div>
+
+    <section class="doc-hero bg-surface-secondary">
       <div class="mx-auto max-w-4xl px-6 py-14 text-center md:px-8 md:py-20 lg:px-12">
         <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">
           {eyebrow}
@@ -52,8 +63,8 @@ const {
 
     <section>
       <div class="mx-auto max-w-3xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
-        {(meta.length > 0 || pdfHref) && (
-          <div class="mb-14 rounded-2xl bg-white p-6 shadow-card md:p-8">
+        {(meta.length > 0 || pdfFileName) && (
+          <div class="doc-meta mb-14 rounded-2xl bg-white p-6 shadow-card md:p-8">
             {meta.length > 0 && (
               <dl class="grid gap-x-8 gap-y-4 text-sm sm:grid-cols-2">
                 {meta.map((row) => (
@@ -66,20 +77,20 @@ const {
                 ))}
               </dl>
             )}
-            {pdfHref && (
-              <a
-                href={pdfHref}
+            {pdfFileName && (
+              <button
+                type="button"
+                data-pdf-download={pdfFileName}
                 class:list={[
-                  'inline-flex items-center gap-2 text-sm font-semibold text-brand-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500',
+                  'print-hidden inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-brand-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500',
                   meta.length > 0 && 'mt-6 border-t border-gray-100 pt-5 w-full',
                 ]}
-                download
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M12 4v12M6 10l6 6 6-6M5 20h14" />
                 </svg>
-                Télécharger la version PDF
-              </a>
+                Télécharger en PDF
+              </button>
             )}
           </div>
         )}
@@ -87,14 +98,126 @@ const {
         <div class="doc-content space-y-12">
           <slot />
         </div>
+
+        <p class="print-only print-foot">
+          Discovery Discipline SAS — 18 boulevard Arago, 75013 Paris — SIRET 912 638 533 00014 — NDA 11756928875<br />
+          Version en vigueur publiée sur {pageUrl}
+        </p>
       </div>
     </section>
   </main>
+
+  <script>
+    // Génère le PDF depuis la page : la boîte d'impression du navigateur
+    // propose « Enregistrer au format PDF », avec le nom de fichier prévu
+    // (le navigateur reprend le titre du document comme nom de fichier).
+    document.querySelectorAll<HTMLButtonElement>('[data-pdf-download]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const original = document.title;
+        document.title = btn.dataset.pdfDownload || original;
+        const restore = () => {
+          document.title = original;
+          window.removeEventListener('afterprint', restore);
+        };
+        window.addEventListener('afterprint', restore);
+        window.print();
+      });
+    });
+  </script>
 
   <Footer />
 </BaseLayout>
 
 <style>
+  .print-only {
+    display: none;
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 16mm 18mm;
+    }
+    :global(body > header),
+    :global(body > footer),
+    .print-hidden {
+      display: none !important;
+    }
+    .print-only {
+      display: block;
+    }
+    :global(body) {
+      font-size: 10.5pt;
+    }
+    .print-head {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6pt;
+      text-align: right;
+      font-size: 8.5pt;
+      color: #8a8a9e;
+    }
+    .print-foot {
+      margin-top: 28pt;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 8pt;
+      text-align: center;
+      font-size: 8pt;
+      line-height: 1.5;
+      color: #8a8a9e;
+    }
+    /* Mise en page compacte et sans fonds pour le papier */
+    .doc-hero {
+      background: none !important;
+    }
+    .doc-hero > div,
+    .doc-hero + section > div {
+      max-width: none;
+      padding: 0;
+    }
+    .doc-hero > div {
+      padding: 18pt 0 14pt;
+    }
+    .doc-hero :global(h1) {
+      font-size: 24pt;
+    }
+    .doc-meta {
+      box-shadow: none !important;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 20pt;
+      padding: 12pt 14pt;
+    }
+    .doc-content {
+      display: block;
+    }
+    .doc-content > :global(* + *) {
+      margin-top: 18pt;
+    }
+    .doc-content :global(p),
+    .doc-content :global(li) {
+      font-size: 10.5pt;
+      line-height: 1.55;
+    }
+    .doc-content :global(h2) {
+      font-size: 14pt;
+      line-height: 1.3;
+      break-after: avoid;
+    }
+    .doc-content :global(h3) {
+      break-after: avoid;
+    }
+    .doc-content :global(li),
+    .doc-content :global(p) {
+      break-inside: avoid;
+    }
+    /* Sommaire inutile sur papier */
+    .doc-content :global(nav) {
+      display: none;
+    }
+    .doc-content :global(a) {
+      color: inherit;
+    }
+  }
+
   .doc-content :global(h2) {
     font-size: 1.5rem;
     line-height: 2rem;
