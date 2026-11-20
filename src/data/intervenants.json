@@ -1,0 +1,151 @@
+{
+  "seo": {
+    "title": "Devenir intervenant AI Discipline — Les éléments à fournir",
+    "description": "Ce que nous demandons aux formateurs indépendants avant leur première mission avec AI Discipline, organisme de formation certifié Qualiopi."
+  },
+  "hero": {
+    "title": "Devenir intervenant AI Discipline",
+    "subtitle": "Vous allez animer des formations pour AI Discipline, organisme certifié Qualiopi. Cette page liste tout ce que nous vous demanderons avant votre première mission, et pourquoi. Rassemblez ces éléments, puis envoyez-nous votre dossier complet par email."
+  },
+  "dossierEmail": "contact@aidiscipline.com",
+  "dossierEmailSubject": "Dossier intervenant — [Prénom Nom]",
+  "parcours": [
+    {
+      "step": "01",
+      "title": "Vous nous envoyez votre dossier",
+      "body": "Une seule fois, par email, avec vos pièces justificatives. Vous nous prévenez si votre situation change."
+    },
+    {
+      "step": "02",
+      "title": "Nous validons les formations que vous animez",
+      "body": "Vous indiquez les formations qui vous intéressent. AI Discipline décide des formations sur lesquelles vous êtes habilité, à partir de votre expérience."
+    },
+    {
+      "step": "03",
+      "title": "Nous signons un contrat pour chaque mission",
+      "body": "Contrat de sous-traitance et charte de l'intervenant, signés avant chaque mission. Le contrat fixe la rémunération, les dates et le programme."
+    },
+    {
+      "step": "04",
+      "title": "Vous animez, puis vous débriefez sous 24 h",
+      "body": "Vous remplissez le recueil d'appréciations formateur dans les 24 h suivant la session, et au plus tard 2 jours ouvrés après."
+    }
+  ],
+  "categories": [
+    {
+      "title": "Votre identité et votre statut",
+      "why": "Vous intervenez comme sous-traitant d'AI Discipline. Nous devons vérifier que vous êtes en règle (Qualiopi, indicateur 27, et Code du travail).",
+      "items": [
+        {
+          "label": "Nom, prénom, email, téléphone",
+          "detail": "Les coordonnées auxquelles nous vous joignons pour vos missions.",
+          "required": true,
+          "attachment": false
+        },
+        {
+          "label": "Raison sociale et numéro SIRET",
+          "detail": "Micro-entreprise ou société.",
+          "required": true,
+          "attachment": false
+        },
+        {
+          "label": "Numéro de déclaration d'activité (NDA)",
+          "detail": "Obligatoire pour animer une formation en sous-traitance, même pour une seule journée (article L6351-1 du Code du travail). Si vous n'en avez pas encore, indiquez la date de dépôt de votre déclaration (voir plus bas).",
+          "required": true,
+          "attachment": false
+        },
+        {
+          "label": "Attestation de vigilance URSSAF de moins de 6 mois",
+          "detail": "Téléchargeable depuis votre espace URSSAF. Obligation légale dès 5 000 € HT de prestations par an.",
+          "required": true,
+          "attachment": true
+        }
+      ]
+    },
+    {
+      "title": "Vos compétences",
+      "why": "Nous devons démontrer que chaque intervenant est compétent pour la formation qu'il anime (Qualiopi, indicateur 21).",
+      "items": [
+        {
+          "label": "CV à jour",
+          "detail": "Format libre.",
+          "required": true,
+          "attachment": true
+        },
+        {
+          "label": "Formations AI Discipline visées et expérience correspondante",
+          "detail": "Pour chaque formation qui vous intéresse, une ou deux lignes sur votre expérience du sujet et de l'animation.",
+          "required": true,
+          "attachment": false
+        },
+        {
+          "label": "Justificatifs",
+          "detail": "Diplômes, certifications, références de missions : tout ce qui appuie votre expérience.",
+          "required": false,
+          "attachment": true
+        },
+        {
+          "label": "Formations suivies ou veille menée ces 12 derniers mois",
+          "detail": "Quelques lignes suffisent. Nous devons montrer que les compétences de nos intervenants sont entretenues (Qualiopi, indicateur 22).",
+          "required": true,
+          "attachment": false
+        }
+      ]
+    },
+    {
+      "title": "Votre engagement",
+      "why": "Votre déclaration engage votre responsabilité.",
+      "items": [
+        {
+          "label": "Certification de l'exactitude des informations",
+          "detail": "Une phrase datée dans votre email : « Je certifie l'exactitude des informations transmises. »",
+          "required": true,
+          "attachment": false
+        }
+      ]
+    }
+  ],
+  "nda": {
+    "title": "Obtenir votre numéro de déclaration d'activité",
+    "intro": "La démarche est gratuite et se fait en ligne auprès de la DREETS de votre région. Il s'agit d'un enregistrement, pas d'un agrément.",
+    "steps": [
+      "Créez votre compte sur Mon Activité Formation.",
+      "Joignez une copie de votre avis SIREN, votre CV avec les diplômes en lien avec la formation, et une copie recto verso de votre pièce d'identité.",
+      "Joignez votre premier contrat de formation : le contrat de sous-traitance signé avec AI Discipline. Si vous êtes micro-entrepreneur, vous n'avez pas à le joindre, mais vous devez le conserver.",
+      "Répondez aux éventuelles demandes de pièces complémentaires de la DREETS."
+    ],
+    "deadline": "Vous avez 3 mois à compter de la signature de votre premier contrat pour déposer votre déclaration. Vous pouvez donc réaliser votre première mission avec AI Discipline pendant que votre dossier est instruit.",
+    "ctaLabel": "Accéder à Mon Activité Formation",
+    "ctaUrl": "https://www.monactiviteformation.emploi.gouv.fr"
+  },
+  "notAsked": [
+    {
+      "label": "Vos conditions de rémunération",
+      "detail": "Elles sont fixées dans le contrat de sous-traitance signé pour chaque mission."
+    },
+    {
+      "label": "La charte et le contrat",
+      "detail": "Nous vous les envoyons à signer séparément, avant chaque mission."
+    }
+  ],
+  "engagements": [
+    {
+      "title": "Rémunération",
+      "body": "Elle est convenue mission par mission et écrite dans le contrat de sous-traitance. C'est ce contrat qui fait foi."
+    },
+    {
+      "title": "Formations animées",
+      "body": "Vous nous dites ce qui vous intéresse ; nous validons les formations que vous animez. Les deux peuvent différer, et c'est normal."
+    },
+    {
+      "title": "Debrief",
+      "body": "Objectif 24 h après la session, au plus tard 2 jours ouvrés. C'est ce qui nous permet de capitaliser vite et d'améliorer nos formations."
+    }
+  ],
+  "cta": {
+    "title": "Votre dossier est prêt ?",
+    "body": "Envoyez-nous tous les éléments listés ci-dessus en un seul email, pièces jointes comprises.",
+    "button": "Envoyer mon dossier par email",
+    "contactText": "Une question avant de commencer ? Écrivez-nous à"
+  }
+}
