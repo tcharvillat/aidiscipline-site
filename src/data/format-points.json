@@ -1,0 +1,24 @@
+{
+  "points": [
+    {
+      "icon": "location",
+      "title": "1 journée dans vos locaux",
+      "body": "Une journée immersive au sein de votre organisation pour former vos équipes directement dans leur environnement de travail."
+    },
+    {
+      "icon": "tools",
+      "title": "Mise en pratique sur vos outils",
+      "body": "Les exercices se déroulent directement sur vos environnements : Dust, Copilot, Gemini ou outils internes, pour une application immédiate."
+    },
+    {
+      "icon": "target",
+      "title": "Formation ancrée dans votre contexte",
+      "body": "Le programme est personnalisable selon vos priorités et vos défis afin d'ancrer les nouvelles pratiques d'IA dans votre réalité métier."
+    },
+    {
+      "icon": "certificate",
+      "title": "Certificat de réussite",
+      "body": "Chaque formation délivre un certificat attestant de la réussite des participants, à partager avec leur employeur ou sur LinkedIn."
+    }
+  ]
+}

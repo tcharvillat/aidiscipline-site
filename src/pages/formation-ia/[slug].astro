@@ -1,0 +1,68 @@
+---
+/**
+ * Fiche d'une formation sur mesure du catalogue (/formation-ia/<slug>).
+ * Le programme est alimenté par les objectifs de la carte du catalogue
+ * (un objectif = un module), en attendant un contenu détaillé par formation.
+ */
+import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
+import teamTrainingsData from '../../data/team-trainings.json';
+
+export function getStaticPaths() {
+  return teamTrainingsData.trainings
+    .filter((t) => 'slug' in t && t.slug)
+    .map((t) => ({ params: { slug: (t as { slug: string }).slug }, props: { training: t } }));
+}
+
+type Training = (typeof teamTrainingsData.trainings)[number];
+const { training } = Astro.props as { training: Training };
+
+const categories: Record<string, { label: string }> = teamTrainingsData.categories;
+const categoryLabel = categories[training.category]?.label ?? '';
+
+const modules = training.objectives.map((objective, i) => ({
+  number: String(i + 1).padStart(2, '0'),
+  title: objective,
+}));
+
+const objectives = training.objectives.map((objective) => ({ title: objective }));
+
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+
+const seoDescription = `Formation IA sur mesure « ${training.title} » (${categoryLabel}) : 1 journée dans vos locaux, sur vos outils. Éligible aux financements OPCO (organisme certifié Qualiopi).`;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${training.title} — Formation sur mesure en entreprise`,
+  description: seoDescription,
+  url,
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: training.objectives,
+  coursePrerequisites: 'Aucun pré-requis technique',
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 6000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    courseWorkload: 'PT7H',
+  },
+};
+---
+
+<TrainingDayLayout
+  seoTitle={`${training.title} — Formation IA sur mesure — AI Discipline`}
+  seoDescription={seoDescription}
+  heading={training.title}
+  modules={modules}
+  objectives={objectives}
+  courseSchema={courseSchema}
+/>

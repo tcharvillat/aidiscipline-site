@@ -1,0 +1,223 @@
+---
+// Fiche conférencier de Rémi Guyot (style « dossier de presse »).
+// Page autonome : pas encore liée depuis la navigation du site.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Button from '../../components/ui/Button.astro';
+
+const CALENDLY_URL = 'https://calendly.com/remi-guyot/30min';
+const PDF_URL ='/documents/remi-guyot-conferencier.pdf';
+const PORTRAIT = '/images/conferences/remi-guyot.jpg';
+
+const facts = [
+  { value: '20 ans', label: 'de produit numérique' },
+  { value: 'CPO', label: 'BlaBlaCar · UX PayPal' },
+  { value: 'Co-auteur', label: 'Discovery Discipline' },
+];
+
+const bio = [
+  'Rémi Guyot accompagne les dirigeants et leurs équipes dans l’un des plus grands défis de notre époque : transformer le potentiel de l’intelligence artificielle en progrès concrets et durables. Son ambition : aider les organisations à dépasser l’expérimentation individuelle pour faire de l’IA un véritable levier de transformation collective.',
+  'Ancien Chief Product Officer de BlaBlaCar et responsable de l’expérience utilisateur chez PayPal, Rémi cumule plus de 20 ans d’expérience dans le développement de produits numériques, le management et la transformation des organisations. Il est également co-auteur du best-seller Discovery Discipline, un ouvrage qui propose une méthode concrète pour aider les équipes à concevoir de meilleurs produits. Aujourd’hui, il est cofondateur d’AI Discipline, une initiative consacrée à l’adoption de l’intelligence artificielle dans les entreprises.',
+  'Tout au long de sa carrière, Rémi a constaté qu’une bonne stratégie, des équipes talentueuses et des outils performants ne suffisent pas à produire des résultats. Ce qui fait la différence, c’est la capacité à faire évoluer les pratiques, les habitudes et les façons de collaborer. Une conviction qu’il applique aujourd’hui à l’IA.',
+  'Dans ses conférences, il associe expérience de terrain, vision stratégique et sens de la pédagogie pour rendre les transformations complexes accessibles, inspirantes et surtout applicables. Avec une idée simple : la révolution de l’IA ne se jouera pas seulement dans la technologie, mais dans ce que nous choisirons d’en faire.',
+];
+
+const themes = [
+  {
+    audience: 'Pour les équipes',
+    title: 'L’IA des amateurs et celle des professionnels',
+    punchline: 'Entre l’IA du week-end et celle du métier, il n’y a pas un outil de différence. Il y a une discipline.',
+    constat: 'On tape trois lignes, on prend la première réponse, on obtient du « pas mal » que l’on fait passer pour du travail fini. La vérification saute dès que la pression monte.',
+    keynote: 'Dans cette keynote, Rémi Guyot ouvre l’outil devant la salle et montre en direct le chemin d’une demande naïve à un résultat vérifiable : comprendre ce qu’il y a sous le capot, briefer l’IA comme un stagiaire brillant qui découvre la maison, vérifier, itérer. La méthode CAFÉ et le Juste Effort, sur les cas du public présent.',
+    takeaway: 'les équipes repartent avec une méthode applicable le lendemain matin et un standard partagé du résultat professionnel. En format long : promptathon de trois heures.',
+  },
+  {
+    audience: 'Pour les dirigeants',
+    title: 'Des gains de productivité à l’impact',
+    punchline: 'Une Ferrari entre deux feux rouges va plus vite. Elle n’arrive pas plus tôt.',
+    constat: 'Des démonstrations d’agents qui impressionnent, des rapports produits en dix minutes, des équipes qui gagnent une heure par-ci, par-là. Et à l’échelle de l’entreprise, rien ne bouge : ni les délais, ni les marges, ni la qualité.',
+    keynote: 'Dans cette keynote, Rémi Guyot démonte trois illusions : la licence prise pour de l’adoption, la tâche accélérée prise pour un processus transformé, la production prise pour de l’impact. Puis il applique à l’IA la discipline des équipes produit : trois questions par initiative, le gain attendu, le risque accepté, le temps imparti.',
+    takeaway: 'les dirigeants repartent avec une méthode pour passer de l’initiative individuelle au flux de travail de l’équipe, et une règle : l’IA ne fixe pas les objectifs, elle y contribue.',
+  },
+  {
+    audience: 'Pour tous les publics',
+    title: 'Les effets secondaires de l’IA',
+    punchline: 'Chaque solution crée ses propres problèmes. Ceux de l’IA sont déjà là.',
+    constat: 'Les gains promis se transforment en journées plus denses et en équipes épuisées sans savoir pourquoi. Des compétences s’effacent sans bruit. Et une question que personne ne pose : que ne confiera-t-on jamais à une machine ?',
+    keynote: 'Dans cette keynote, Rémi Guyot part d’une consultation médicale, vingt-six minutes dont quatre les yeux dans les yeux, pour examiner ce que l’on perd en gagnant : l’apprentissage qui disparaît avec la friction, le temps libéré que personne ne décide d’employer, la frontière entre machine et humain, moins nette qu’on ne le croit.',
+    takeaway: 'les participants repartent avec une grille pour repérer ces effets avant qu’ils ne coûtent, et une conversation à ouvrir en équipe sur ce qui reste humain.',
+  },
+];
+
+const formats = [
+  { name: 'Keynote', detail: '45 min + Q&A' },
+  { name: 'Fireside chat', detail: 'interview sur scène' },
+  { name: 'Masterclass', detail: '3 h, les mains sur l’outil' },
+];
+
+// Logos des scènes récentes. `ratio` = largeur / hauteur du logo recadré :
+// la hauteur affichée en dépend, pour que chaque logo ait à peu près le même poids visuel.
+const scenes = [
+  { name: 'Carrefour', file: 'carrefour', ratio: 1.25 },
+  { name: 'ADEO', file: 'adeo', ratio: 1.94 },
+  { name: 'Thales', file: 'thales', ratio: 8.43 },
+  { name: 'Doctolib', file: 'doctolib', ratio: 4.14 },
+  { name: 'onepoint', file: 'onepoint', ratio: 5.29 },
+  { name: 'INSEAD', file: 'insead', ratio: 2.75 },
+  { name: 'emeis', file: 'emeis', ratio: 1.39 },
+  { name: 'La Product Conf', file: 'laproductconf', ratio: 1.64 },
+  { name: 'Yoslo', file: 'yoslo', ratio: 1.07 },
+].map((s) => {
+  const height = Math.round(42 / Math.sqrt(s.ratio));
+  return { ...s, height, width: Math.round(height * s.ratio) };
+});
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Rémi Guyot',
+  jobTitle: 'Conférencier, cofondateur d’AI Discipline',
+  image: `https://www.aidiscipline.com${PORTRAIT}`,
+  url: 'https://www.aidiscipline.com/conferences/remi-guyot',
+  worksFor: { '@id': 'https://www.aidiscipline.com/#organization' },
+  knowsAbout: ['Intelligence artificielle', 'Product management', 'Transformation des organisations'],
+};
+---
+
+<BaseLayout
+  title="Rémi Guyot, conférencier IA — AI Discipline"
+  description="Rémi Guyot, cofondateur d’AI Discipline et ancien CPO de BlaBlaCar : keynotes, fireside chats et masterclasses sur l’IA en entreprise. Présentiel ou distanciel, FR ou EN."
+  ogImage={PORTRAIT}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <Header />
+
+  <main class="bg-surface-secondary">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:px-8 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-14 lg:px-12 lg:py-16">
+      <!-- Colonne identité -->
+      <aside class="lg:sticky lg:top-28 lg:self-start" aria-label="Rémi Guyot en bref">
+        <div class="overflow-hidden rounded-3xl bg-ink text-white shadow-card-hover">
+          <img
+            src={PORTRAIT}
+            alt="Portrait de Rémi Guyot"
+            width="925"
+            height="705"
+            class="aspect-[4/3] w-full bg-black object-cover object-top"
+            fetchpriority="high"
+          />
+          <div class="p-7">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-500">Conférencier · AI Discipline</p>
+            <h1 class="mt-2 text-4xl font-bold">Rémi Guyot</h1>
+            <p class="mt-3 text-sm leading-relaxed text-white/70">
+              Cofondateur d’AI Discipline. Ancien Chief Product Officer de BlaBlaCar. Co-auteur de Discovery Discipline.
+            </p>
+            <dl class="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-6 text-center">
+              {facts.map((f) => (
+                <div class="min-w-0">
+                  <dt class="text-base font-bold text-brand-400">{f.value}</dt>
+                  <dd class="mt-1 text-[11px] leading-tight text-white/60">{f.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <div class="mt-7 flex flex-col gap-3">
+              <Button href={CALENDLY_URL} size="lg" class="w-full">Inviter Rémi</Button>
+              <a
+                href={PDF_URL}
+                download
+                class="inline-flex items-center justify-center gap-2 rounded-pill border-2 border-white/25 px-7 py-3 text-sm font-medium text-white transition-colors hover:border-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" /></svg>
+                Télécharger la fiche (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Contenu -->
+      <div class="min-w-0 space-y-6">
+        <nav aria-label="Sections de la page" class="flex flex-wrap gap-2">
+          {[['#bio', 'Biographie'], ['#themes', 'Thèmes'], ['#formats', 'Formats'], ['#scenes', 'Références']].map(([href, label]) => (
+            <a href={href} class="rounded-pill bg-white px-4 py-2 text-sm font-medium text-ink shadow-card transition-colors hover:text-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">{label}</a>
+          ))}
+        </nav>
+
+        <section id="bio" class="scroll-mt-28 rounded-3xl bg-white p-8 shadow-card md:p-10" aria-labelledby="bio-title">
+          <h2 id="bio-title" class="text-2xl font-bold text-ink">Qui est Rémi</h2>
+          <div class="mt-5 max-w-[70ch] space-y-4 leading-relaxed text-ink-muted">
+            {bio.map((p) => <p>{p}</p>)}
+          </div>
+        </section>
+
+        <section id="themes" class="scroll-mt-28 rounded-3xl bg-white p-8 shadow-card md:p-10" aria-labelledby="themes-title">
+          <h2 id="themes-title" class="text-2xl font-bold text-ink">Thèmes d’intervention</h2>
+          <p class="mt-2 text-sm text-ink-light">Trois keynotes. Ouvrez un thème pour lire le synopsis complet.</p>
+          <div class="mt-4">
+            {themes.map((t, i) => (
+              <details class="group border-t border-gray-200 py-5 last:pb-0" open={i === 0}>
+                <summary class="flex cursor-pointer list-none items-start gap-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 [&::-webkit-details-marker]:hidden">
+                  <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700" aria-hidden="true">{i + 1}</span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[11px] font-semibold uppercase tracking-widest text-ink-light">{t.audience}</span>
+                    <span class="mt-1 block text-lg font-semibold leading-snug text-ink md:text-xl">{t.title}</span>
+                    <span class="mt-1 block text-[15px] italic text-brand-700">{t.punchline}</span>
+                  </span>
+                  <span class="mt-0.5 text-2xl leading-none text-ink-light transition-transform group-open:rotate-45 motion-reduce:transition-none" aria-hidden="true">+</span>
+                </summary>
+                <div class="mt-5 max-w-[calc(70ch+3rem)] space-y-4 leading-relaxed text-ink-muted sm:pl-12">
+                  <p>{t.constat}</p>
+                  <p>{t.keynote}</p>
+                  <p class="rounded-2xl bg-surface-secondary p-4 text-ink"><strong class="text-brand-700">À la sortie : </strong>{t.takeaway}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <section id="formats" class="scroll-mt-28 rounded-3xl bg-white p-8 shadow-card" aria-labelledby="formats-title">
+            <h2 id="formats-title" class="text-2xl font-bold text-ink">Formats</h2>
+            <ul class="mt-5 space-y-3">
+              {formats.map((f) => (
+                <li class="flex items-baseline gap-3">
+                  <span class="h-2 w-2 shrink-0 -translate-y-0.5 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span><strong class="text-ink">{f.name}</strong> <span class="text-ink-muted">· {f.detail}</span></span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-5 text-sm text-ink-light">Présentiel ou distanciel · en français ou en anglais</p>
+          </section>
+
+          <section id="scenes" class="scroll-mt-28 rounded-3xl bg-white p-8 shadow-card" aria-labelledby="scenes-title">
+            <h2 id="scenes-title" class="text-2xl font-bold text-ink">Scènes récentes</h2>
+            <ul class="mt-6 grid grid-cols-3 items-center gap-x-6 gap-y-6">
+              {scenes.map((s) => (
+                <li class="flex h-11 min-w-0 items-center">
+                  <img
+                    src={`/images/conferences/${s.file}.svg`}
+                    alt={s.name}
+                    width={s.width}
+                    height={s.height}
+                    style={`height:${s.height}px;width:auto;max-width:100%;object-fit:contain`}
+                    class="opacity-75"
+                    loading="lazy"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        <section class="rounded-3xl bg-ink p-8 text-white md:p-10" aria-label="En résumé">
+          <p class="text-lg font-light italic">« Concret. Percutant. Inspirant. Accessible. Et sans langue de bois. »</p>
+          <p class="mt-3 max-w-[70ch] text-[15px] text-white/70">
+            Offrez à votre audience une conférence qui bouscule les idées reçues, éclaire les défis d’aujourd’hui et donne envie de passer à l’action. Des perspectives nouvelles, des exemples tirés du terrain et des enseignements immédiatement applicables.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

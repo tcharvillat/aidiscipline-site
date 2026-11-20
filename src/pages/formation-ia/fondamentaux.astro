@@ -1,0 +1,116 @@
+---
+import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
+
+const modules = [
+  {
+    number: '01',
+    title: 'Maîtriser le Prompting Professionnel',
+    intro:
+      "Maîtrisez le prompting en structurant vos demandes et en variant vos perspectives pour un usage vraiment professionnel de l'IA.",
+    points: [
+      'Fonctionnement probabiliste des LLM et gestion des biais',
+      'Méthode CAFÉ pour structurer vos prompts',
+      "Faire varier les perspectives d'un prompt",
+      "Gérer la courbe d'adoption de l'IA",
+    ],
+  },
+  {
+    number: '02',
+    title: "Traiter les Cas d'Usage Avancés",
+    intro:
+      "Identifiez vos cas d'usage quotidiens, évitez les pièges des scopes trop larges et exploitez le Chain of Thought pour les scénarios complexes.",
+    points: [
+      "Défis psychologiques et organisationnels face à l'IA",
+      'Éviter les pièges des scopes trop ambitieux et des prompts « fourre-tout »',
+      "Cas d'usage du quotidien : les plus efficaces et actionnables",
+      "Méthode du Chain of Thought (CoT) pour les cas d'usage avancés",
+    ],
+  },
+  {
+    number: '03',
+    title: 'Construire sa Base de Connaissances',
+    intro:
+      "Bâtissez une base RAG sur mesure et transformez vos données et conversations en intelligence directement exploitable par l'IA.",
+    points: [
+      'Principe du RAG (Retrieval Augmented Generation)',
+      'Construire une base de données sur mesure',
+      "Capturer et exploiter l'intelligence conversationnelle",
+      'Techniques de nettoyage et structuration automatisées',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Créer son Assistant IA',
+    intro:
+      "Configurez un assistant projet efficace, du choix du modèle aux instructions, et mettez-le en action dans votre quotidien.",
+    points: [
+      "Les bonnes attentes vis-à-vis d'un assistant",
+      'Instructions vs prompts : méthode CAFÉ « double shot »',
+      'Choix du modèle et réglage de la température',
+      "Configuration complète d'un assistant projet",
+    ],
+  },
+];
+
+const objectives = [
+  {
+    title: 'Maîtriser le prompting professionnel',
+    body:
+      "connaître le fonctionnement des LLMs, gérer les biais et appliquer la méthode CAFÉ pour structurer des demandes efficaces et reproductibles.",
+  },
+  {
+    title: "Identifier les cas d'usage à fort impact",
+    body:
+      "évaluer et prioriser les opportunités d'intégration de l'IA dans le quotidien professionnel, en évitant les pièges des scopes trop ambitieux.",
+  },
+  {
+    title: 'Construire une base de connaissances opérationnelle',
+    body:
+      "maîtriser les principes du RAG pour connecter l'IA aux documents internes et transformer l'intelligence conversationnelle en levier de productivité.",
+  },
+  {
+    title: 'Créer un assistant IA personnalisé',
+    body:
+      "configurer un assistant métier fonctionnel avec des instructions précises, adapté aux besoins spécifiques de son équipe.",
+  },
+];
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: "Les Fondamentaux de l'IA — Formation sur mesure en entreprise",
+  description:
+    "Formation IA générative sur mesure pour les équipes Produit, Design, Marketing et RH : 1 journée immersive dans vos locaux, sur vos outils. Éligible aux financements OPCO (organisme certifié Qualiopi).",
+  url: 'https://www.aidiscipline.com/formation-ia/fondamentaux',
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: objectives.map((o) => o.title),
+  coursePrerequisites: 'Aucun pré-requis technique',
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 6000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    courseWorkload: 'PT7H',
+  },
+};
+---
+
+<TrainingDayLayout
+  seoTitle="Formations sur mesure — AI Discipline"
+  seoDescription="Formations IA générative sur mesure pour vos équipes Produit, Design, Marketing et RH. 1 journée immersive, dans vos locaux, sur vos outils."
+  heading="Les Fondamentaux de l'IA - Programme de la journée"
+  headingNoWrap
+  modules={modules}
+  objectives={objectives}
+  indicatorsHeading="Une formation plébiscitée par les équipes"
+  courseSchema={courseSchema}
+/>
