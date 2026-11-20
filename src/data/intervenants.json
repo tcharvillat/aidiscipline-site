@@ -84,8 +84,8 @@
           "attachment": true
         },
         {
-          "label": "Formations AI Discipline visées et expérience correspondante",
-          "detail": "Pour chaque formation qui vous intéresse, une ou deux lignes sur votre expérience du sujet et de l'animation.",
+          "label": "Expérience en lien avec nos formations",
+          "detail": "Une ou deux lignes par sujet sur votre expérience du sujet et de l'animation.",
           "required": true,
           "attachment": false
         },
@@ -156,7 +156,7 @@
     },
     {
       "title": "Formations animées",
-      "body": "Vous nous dites ce qui vous intéresse ; nous validons les formations que vous animez. Les deux peuvent différer, et c'est normal."
+      "body": "Nous validons les formations que vous animez, à partir de votre expérience. Cette liste peut évoluer au fil de nos missions communes."
     },
     {
       "title": "Debrief",
