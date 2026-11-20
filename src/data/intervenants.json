@@ -50,9 +50,13 @@
         },
         {
           "label": "Numéro de déclaration d'activité (NDA)",
-          "detail": "Obligatoire pour animer une formation en sous-traitance, même pour une seule journée (article L6351-1 du Code du travail). Si vous n'en avez pas encore, indiquez la date de dépôt de votre déclaration (voir plus bas).",
+          "detail": "Obligatoire pour animer une formation en sous-traitance, même pour une seule journée (article L6351-1 du Code du travail). Si vous n'en avez pas encore, indiquez la date de dépôt de votre déclaration.",
           "required": true,
-          "attachment": false
+          "attachment": false,
+          "link": {
+            "label": "Comment obtenir votre NDA",
+            "href": "#obtenir-nda"
+          }
         },
         {
           "label": "Attestation de vigilance URSSAF de moins de 6 mois",
@@ -130,7 +134,7 @@
     }
   ],
   "nda": {
-    "title": "Obtenir votre numéro de déclaration d'activité",
+    "title": "Obtenir votre numéro de déclaration d'activité (NDA)",
     "intro": "La démarche est gratuite et se fait en ligne auprès de la DREETS de votre région. Il s'agit d'un enregistrement, pas d'un agrément.",
     "steps": [
       "Créez votre compte sur Mon Activité Formation.",
