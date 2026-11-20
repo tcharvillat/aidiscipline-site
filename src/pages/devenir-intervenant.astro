@@ -173,6 +173,47 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
       </div>
     </section>
 
+    <!-- À faire dans les prochains jours -->
+    <section aria-labelledby="todo-title" class="bg-surface-secondary">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
+        <h2 id="todo-title" class="text-display-lg font-bold text-ink">{data.todo.title}</h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">{data.todo.why}</p>
+
+        <div class="mt-8 rounded-2xl bg-white p-6 shadow-card md:p-8">
+          <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div class="flex items-start gap-4">
+              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700" aria-hidden="true">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10 12 5 2 10l10 5 10-5z" />
+                  <path d="M6 12v5c3 2 9 2 12 0v-5" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-500">{data.todo.course.label}</p>
+                <h3 class="mt-1 text-lg font-semibold text-ink">{data.todo.course.title}</h3>
+              </div>
+            </div>
+            <div class="shrink-0">
+              <Button href={data.todo.course.url} withArrow ariaLabel={`${data.todo.course.ctaLabel} (nouvel onglet)`}>
+                {data.todo.course.ctaLabel}
+              </Button>
+            </div>
+          </div>
+
+          <ol class="mt-8 space-y-4 border-t border-gray-100 pt-6">
+            {
+              data.todo.steps.map((step) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 h-5 w-5 shrink-0 rounded-md border-2 border-brand-300" aria-hidden="true" />
+                  <p class="leading-relaxed text-ink">{step}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- f. Nos engagements réciproques -->
     <section aria-labelledby="engagements-title">
       <div class="mx-auto max-w-6xl px-6 py-16 md:px-8 md:py-24 lg:px-12">

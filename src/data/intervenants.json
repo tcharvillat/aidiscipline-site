@@ -149,6 +149,21 @@
     "backLabel": "Revenir à la liste des éléments",
     "backHref": "#element-nda"
   },
+  "todo": {
+    "title": "À faire dans les prochains jours",
+    "why": "Nous devons pouvoir accueillir et accompagner les participants en situation de handicap (Qualiopi, indicateur 26). Ce programme en ligne de l'Agefiph vous donne les bons réflexes.",
+    "course": {
+      "label": "Programme Agefiph",
+      "title": "Adapter la formation à chacun",
+      "url": "https://appuipro.agefiph.fr/learn/courses/836/adapter-la-formation-a-chacun",
+      "ctaLabel": "Suivre le programme"
+    },
+    "steps": [
+      "Suivez le programme « Adapter la formation à chacun » en entier.",
+      "Téléchargez votre attestation à la fin du programme.",
+      "Envoyez-nous l'attestation par email, avec votre dossier ou dès que vous l'avez."
+    ]
+  },
   "engagements": [
     {
       "title": "Rémunération",
