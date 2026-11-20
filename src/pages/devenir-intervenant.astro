@@ -156,27 +156,6 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
       </div>
     </section>
 
-    <!-- e. Ce que nous ne vous demandons pas -->
-    <section aria-labelledby="not-asked-title" class="bg-surface-secondary">
-      <div class="mx-auto max-w-4xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
-        <h2 id="not-asked-title" class="text-display-md font-bold text-ink">
-          Ce que nous ne vous demandons pas dans le dossier
-        </h2>
-        <ul class="mt-6 space-y-4">
-          {
-            data.notAsked.map((item) => (
-              <li class="flex gap-3">
-                <span aria-hidden="true" class="mt-1 text-ink-light">—</span>
-                <p class="leading-relaxed text-ink-muted">
-                  <strong class="font-semibold text-ink">{item.label}.</strong> {item.detail}
-                </p>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-
     <!-- f. Nos engagements réciproques -->
     <section aria-labelledby="engagements-title">
       <div class="mx-auto max-w-6xl px-6 py-16 md:px-8 md:py-24 lg:px-12">

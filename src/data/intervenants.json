@@ -118,16 +118,6 @@
     "ctaLabel": "Accéder à Mon Activité Formation",
     "ctaUrl": "https://www.monactiviteformation.emploi.gouv.fr"
   },
-  "notAsked": [
-    {
-      "label": "Vos conditions de rémunération",
-      "detail": "Elles sont fixées dans le contrat de sous-traitance signé pour chaque mission."
-    },
-    {
-      "label": "La charte et le contrat",
-      "detail": "Nous vous les envoyons à signer séparément, avant chaque mission."
-    }
-  ],
   "engagements": [
     {
       "title": "Rémunération",
