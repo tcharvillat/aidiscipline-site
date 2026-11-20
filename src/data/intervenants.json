@@ -50,13 +50,14 @@
         },
         {
           "label": "Numéro de déclaration d'activité (NDA)",
-          "detail": "Obligatoire pour animer une formation en sous-traitance, même pour une seule journée (article L6351-1 du Code du travail). Si vous n'en avez pas encore, indiquez la date de dépôt de votre déclaration.",
+          "detail": "Obligatoire pour animer une formation en sous-traitance, même pour une seule journée (article L6351-1 du Code du travail). Pas encore de NDA ? Vous pouvez quand même réaliser votre première mission : vous avez 3 mois pour déposer votre déclaration. Indiquez-nous alors la date de dépôt.",
           "required": true,
           "attachment": false,
           "link": {
             "label": "Comment obtenir votre NDA",
             "href": "#obtenir-nda"
-          }
+          },
+          "anchor": "element-nda"
         },
         {
           "label": "Attestation de vigilance URSSAF de moins de 6 mois",
@@ -144,7 +145,9 @@
     ],
     "deadline": "Vous avez 3 mois à compter de la signature de votre premier contrat pour déposer votre déclaration. Vous pouvez donc réaliser votre première mission avec AI Discipline pendant que votre dossier est instruit.",
     "ctaLabel": "Accéder à Mon Activité Formation",
-    "ctaUrl": "https://www.monactiviteformation.emploi.gouv.fr"
+    "ctaUrl": "https://www.monactiviteformation.emploi.gouv.fr",
+    "backLabel": "Revenir à la liste des éléments",
+    "backHref": "#element-nda"
   },
   "engagements": [
     {

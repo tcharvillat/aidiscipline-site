@@ -93,7 +93,10 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
                 <p class="mt-2 text-sm leading-relaxed text-ink-muted">{cat.why}</p>
                 <ul class="mt-6 space-y-4">
                   {cat.items.map((item) => (
-                    <li class="rounded-2xl bg-white p-5 shadow-card md:p-6">
+                    <li
+                      id={'anchor' in item ? item.anchor : undefined}
+                      class="scroll-mt-24 rounded-2xl bg-white p-5 shadow-card md:p-6"
+                    >
                       <div class="flex flex-wrap items-start justify-between gap-3">
                         <p class="flex items-start gap-2 font-semibold text-ink">
                           {item.attachment && (
@@ -160,6 +163,12 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
             <strong class="font-semibold">Délai :</strong>
             {data.nda.deadline}
           </p>
+          <a
+            href={data.nda.backHref}
+            class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand-700 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+          >
+            <span aria-hidden="true">↑</span> {data.nda.backLabel}
+          </a>
         </div>
       </div>
     </section>
