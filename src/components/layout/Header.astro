@@ -1,5 +1,4 @@
 ---
-import Button from '../ui/Button.astro';
 
 export interface Props {
   /** En-tête réduit au logo : sans liens de navigation ni bouton. */
@@ -17,8 +16,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isCurrent = (href: string) =>
   (href === '/' && currentPath === '/') ||
   (href !== '/' && currentPath.startsWith(href));
-
-const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
 ---
 
 <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
@@ -57,18 +54,6 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
             </a>
           ))}
         </nav>
-
-        <div class="hidden md:block">
-          <Button
-            href={TYPEFORM_URL}
-            variant="primary"
-            size="md"
-            external
-            withArrow
-          >
-            Rejoindre la communauté
-          </Button>
-        </div>
 
         <button
           type="button"
@@ -120,18 +105,6 @@ const TYPEFORM_URL = 'https://discovery-discipline.typeform.com/aidiscipline';
             {link.label}
           </a>
         ))}
-        <div class="mt-2">
-          <Button
-            href={TYPEFORM_URL}
-            variant="primary"
-            size="md"
-            external
-            withArrow
-            class="w-full"
-          >
-            Rejoindre la communauté
-          </Button>
-        </div>
       </nav>
     </div>
   )}
