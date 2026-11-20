@@ -181,8 +181,9 @@
   "cta": {
     "title": "Votre dossier est prêt ?",
     "body": "Envoyez-nous tous les éléments listés ci-dessus en un seul email, pièces jointes comprises.",
-    "button": "Envoyer mon dossier par email",
-    "contactText": "Une question avant de commencer ? Écrivez-nous à"
+    "emailLabel": "Adresse d'envoi du dossier",
+    "subjectLabel": "Objet de l'email :",
+    "contactText": "Une question avant de commencer ? Écrivez-nous à la même adresse."
   },
   "rgpd": {
     "title": "Vos données personnelles",
