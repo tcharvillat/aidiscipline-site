@@ -136,45 +136,8 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
       </div>
     </section>
 
-    <!-- d. Numéro de déclaration d'activité -->
-    <section id="obtenir-nda" aria-labelledby="nda-title" class="scroll-mt-24">
-      <div class="mx-auto max-w-4xl px-6 py-16 md:px-8 md:py-24 lg:px-12">
-        <div class="rounded-2xl border-2 border-brand-200 bg-white p-6 md:p-10">
-          <h2 id="nda-title" class="text-display-md font-bold text-ink">{data.nda.title}</h2>
-          <p class="mt-4 leading-relaxed text-ink-muted">{data.nda.intro}</p>
-          <ol class="mt-8 space-y-5">
-            {
-              data.nda.steps.map((step, i) => (
-                <li class="flex gap-4">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
-                    {i + 1}
-                  </span>
-                  <p class="pt-1 leading-relaxed text-ink">{step}</p>
-                </li>
-              ))
-            }
-          </ol>
-          <div class="mt-8">
-            <Button href={data.nda.ctaUrl} withArrow ariaLabel={`${data.nda.ctaLabel} (nouvel onglet)`}>
-              {data.nda.ctaLabel}
-            </Button>
-          </div>
-          <p class="mt-8 rounded-xl bg-surface-secondary p-5 text-sm leading-relaxed text-ink">
-            <strong class="font-semibold">Délai :</strong>
-            {data.nda.deadline}
-          </p>
-          <a
-            href={data.nda.backHref}
-            class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand-700 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-          >
-            <span aria-hidden="true">↑</span> {data.nda.backLabel}
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- À faire dans les prochains jours -->
-    <section aria-labelledby="todo-title" class="bg-surface-secondary">
+    <section aria-labelledby="todo-title">
       <div class="mx-auto max-w-4xl px-6 py-16 md:px-8 md:py-20 lg:px-12">
         <h2 id="todo-title" class="text-display-lg font-bold text-ink">{data.todo.title}</h2>
         <p class="mt-4 leading-relaxed text-ink-muted">{data.todo.why}</p>
@@ -215,7 +178,7 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
     </section>
 
     <!-- f. Nos engagements réciproques -->
-    <section aria-labelledby="engagements-title">
+    <section aria-labelledby="engagements-title" class="bg-surface-secondary">
       <div class="mx-auto max-w-6xl px-6 py-16 md:px-8 md:py-24 lg:px-12">
         <h2 id="engagements-title" class="text-display-lg font-bold text-ink">
           Nos engagements réciproques
@@ -229,6 +192,43 @@ const mailtoContact = `mailto:${data.dossierEmail}`;
               </article>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <!-- d. Numéro de déclaration d'activité -->
+    <section id="obtenir-nda" aria-labelledby="nda-title" class="scroll-mt-24">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:px-8 md:py-24 lg:px-12">
+        <div class="rounded-2xl border-2 border-brand-200 bg-white p-6 md:p-10">
+          <h2 id="nda-title" class="text-display-md font-bold text-ink">{data.nda.title}</h2>
+          <p class="mt-4 leading-relaxed text-ink-muted">{data.nda.intro}</p>
+          <ol class="mt-8 space-y-5">
+            {
+              data.nda.steps.map((step, i) => (
+                <li class="flex gap-4">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
+                    {i + 1}
+                  </span>
+                  <p class="pt-1 leading-relaxed text-ink">{step}</p>
+                </li>
+              ))
+            }
+          </ol>
+          <div class="mt-8">
+            <Button href={data.nda.ctaUrl} withArrow ariaLabel={`${data.nda.ctaLabel} (nouvel onglet)`}>
+              {data.nda.ctaLabel}
+            </Button>
+          </div>
+          <p class="mt-8 rounded-xl bg-surface-secondary p-5 text-sm leading-relaxed text-ink">
+            <strong class="font-semibold">Délai :</strong>
+            {data.nda.deadline}
+          </p>
+          <a
+            href={data.nda.backHref}
+            class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand-700 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+          >
+            <span aria-hidden="true">↑</span> {data.nda.backLabel}
+          </a>
         </div>
       </div>
     </section>
