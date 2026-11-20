@@ -56,7 +56,13 @@
         },
         {
           "label": "Attestation de vigilance URSSAF de moins de 6 mois",
-          "detail": "Téléchargeable depuis votre espace URSSAF. Obligation légale dès 5 000 € HT de prestations par an.",
+          "detail": "Téléchargeable depuis votre espace URSSAF. Obligation légale dès 5 000 € HT de prestations par an. L'attestation n'est valable que 6 mois : nous vous en demanderons une nouvelle tous les 6 mois, tant que vous intervenez pour AI Discipline.",
+          "required": true,
+          "attachment": true
+        },
+        {
+          "label": "RIB",
+          "detail": "Au nom de votre entreprise, pour le règlement de vos factures.",
           "required": true,
           "attachment": true
         }
@@ -87,6 +93,24 @@
         {
           "label": "Formations suivies ou veille menée ces 12 derniers mois",
           "detail": "Quelques lignes suffisent. Nous devons montrer que les compétences de nos intervenants sont entretenues (Qualiopi, indicateur 22).",
+          "required": true,
+          "attachment": false
+        }
+      ]
+    },
+    {
+      "title": "Votre présentation aux clients",
+      "why": "Avant chaque formation, nous présentons l'intervenant au client et aux participants.",
+      "items": [
+        {
+          "label": "Photo",
+          "detail": "Un portrait professionnel, net et bien éclairé, en JPG ou PNG.",
+          "required": true,
+          "attachment": true
+        },
+        {
+          "label": "Mini bio",
+          "detail": "Quelques lignes à la troisième personne : votre parcours et votre expertise en lien avec les formations que vous animez.",
           "required": true,
           "attachment": false
         }
@@ -137,5 +161,15 @@
     "body": "Envoyez-nous tous les éléments listés ci-dessus en un seul email, pièces jointes comprises.",
     "button": "Envoyer mon dossier par email",
     "contactText": "Une question avant de commencer ? Écrivez-nous à"
+  },
+  "rgpd": {
+    "title": "Vos données personnelles",
+    "paragraphs": [
+      "Les informations et pièces de votre dossier sont traitées par Discovery Discipline SAS (AI Discipline), responsable de traitement. Elles servent à gérer notre collaboration (contrats, factures, missions) et à respecter nos obligations légales et Qualiopi. Votre photo et votre mini bio sont transmises aux clients des formations que vous animez.",
+      "Elles sont conservées pendant toute la durée de notre collaboration, puis pendant les durées de conservation légales, notamment 10 ans pour les pièces comptables. Elles ne sont ni vendues ni cédées à des tiers.",
+      "Vous pouvez accéder à vos données, les faire rectifier ou supprimer, et vous opposer à leur traitement en écrivant à"
+    ],
+    "email": "contact@discovery-discipline.com",
+    "cnil": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (cnil.fr)."
   }
 }
