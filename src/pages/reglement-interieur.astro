@@ -6,6 +6,8 @@ const RGPD_EMAIL = 'contact@discovery-discipline.com';
 interface Block {
   /** Paragraphe simple. */
   p?: string;
+  /** Paragraphe contenant des liens (HTML de confiance, rédigé ici). */
+  html?: string;
   /** Liste à puces. */
   list?: string[];
   /** Sous-article (ex. « Article 9.1 — Horaires de formation »). */
@@ -135,6 +137,9 @@ const articles: { number: number; title: string; blocks: Block[] }[] = [
       {
         p: 'Les stagiaires doivent adopter un comportement respectueux des règles de savoir-vivre et des autres participants pour garantir le bon déroulement des formations.',
       },
+      {
+        html: 'Les règles relatives aux violences, au harcèlement et aux discriminations figurent à l\'<a href="#article-17">article 17</a>.',
+      },
     ],
   },
   {
@@ -196,6 +201,41 @@ const articles: { number: number; title: string; blocks: Block[] }[] = [
       },
     ],
   },
+  {
+    number: 17,
+    title: 'Prévention et traitement des violences, du harcèlement et des discriminations',
+    blocks: [
+      { sub: 'Article 17.1 — Principe' },
+      {
+        p: "Discovery Discipline SAS ne tolère aucune violence physique ou verbale, aucun agissement sexiste, aucune violence sexiste ou sexuelle, aucun harcèlement moral ou sexuel et aucune discrimination. Cette règle vaut pendant toute la formation, en présentiel comme à distance, y compris pendant les pauses, les repas et dans les échanges écrits. Elle s'applique aux stagiaires, aux formateurs, aux salariés et aux intervenants de l'organisme.",
+      },
+      { sub: 'Article 17.2 — Signalement' },
+      {
+        html: 'Toute personne qui s\'estime victime ou qui est témoin de tels faits peut les signaler à tout moment, pendant ou après la formation, oralement ou par écrit : au formateur présent, ou au référent des signalements, Tristan Charvillat (<a href="mailto:tristan@discovery-discipline.com">tristan@discovery-discipline.com</a>). Si le signalement concerne le référent, il s\'adresse à Rémi Guyot, cofondateur de Discovery Discipline SAS. En formation intra-entreprise, le stagiaire peut aussi s\'adresser à son employeur.',
+      },
+      { sub: 'Article 17.3 — Traitement' },
+      {
+        html: 'Le référent accuse réception du signalement sous deux jours ouvrés. Il prend sans délai les mesures de protection nécessaires, qui peuvent aller jusqu\'à l\'interruption de la séance ou l\'éloignement de la personne mise en cause. Il entend la personne qui signale, puis la personne mise en cause, et informe l\'auteur du signalement des suites données sous quinze jours. Les faits établis exposent leur auteur aux sanctions prévues à l\'<a href="#article-14">article 14</a>, sans préjudice d\'éventuelles poursuites.',
+      },
+      { sub: 'Article 17.4 — Confidentialité et protection' },
+      {
+        p: 'Le signalement et son traitement sont confidentiels. Ils sont consignés dans un registre tenu par le référent. Nul ne peut être sanctionné ou défavorisé pour avoir signalé de bonne foi ou témoigné.',
+      },
+      { sub: 'Article 17.5 — Urgence et recours extérieurs' },
+      {
+        html: 'En cas de danger immédiat : <a href="tel:17">17</a> ou <a href="tel:112">112</a> (114 par SMS). Violences sexistes et sexuelles : <a href="tel:3919">3919</a>, gratuit et anonyme. Discriminations : Défenseur des droits, <a href="tel:3928">39 28</a> ou <a href="https://www.antidiscriminations.fr" target="_blank" rel="noopener">antidiscriminations.fr</a>.',
+      },
+    ],
+  },
+  {
+    number: 18,
+    title: 'Réclamations',
+    blocks: [
+      {
+        html: 'Tout stagiaire, client ou financeur peut adresser une réclamation à Discovery Discipline SAS par le <a href="https://discovery-discipline.typeform.com/to/wcETnxhe" target="_blank" rel="noopener">formulaire en ligne</a> ou par email à <a href="mailto:contact@aidiscipline.com">contact@aidiscipline.com</a>. L\'organisme en accuse réception sous cinq jours ouvrés et y répond par écrit sous trente jours. Chaque réclamation est consignée dans un tableau de suivi.',
+      },
+    ],
+  },
 ];
 ---
 
@@ -206,7 +246,7 @@ const articles: { number: number; title: string; blocks: Block[] }[] = [
   subtitle="Conformément aux articles L6352-3, L6352-4 et R6352-1 à R6352-15 du Code du travail."
   meta={[
     { label: 'Organisme de formation', value: 'Discovery Discipline SAS' },
-    { label: 'Version', value: '18 novembre 2026' },
+    { label: 'Version', value: '21 novembre 2026' },
     { label: 'Siège', value: '18 boulevard Arago, 75013 Paris' },
     { label: "Déclaration d'activité", value: 'NDA 11756928875' },
   ]}
@@ -245,6 +285,8 @@ const articles: { number: number; title: string; blocks: Block[] }[] = [
           <ul>
             {b.list.map((item) => <li>{item}</li>)}
           </ul>
+        ) : b.html ? (
+          <p set:html={b.html} />
         ) : (
           <p>{b.p}</p>
         ),
