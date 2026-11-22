@@ -58,9 +58,9 @@
     },
     {
       "id": "claude-code-environnement-pm",
-      "slug": "claude-code-environnement-pm",
       "category": "produit",
       "title": "Faire de Claude Code son environnement de travail de PM",
+      "href": "/formation-ia/claude-code-environnement-pm",
       "objectives": [
         "Installer Claude Code et le configurer : commandes, modes, sécurité, fichier CLAUDE.md, gestion du contexte.",
         "Connecter Claude Code à sa stack produit via MCP : Notion, Jira, Figma.",
