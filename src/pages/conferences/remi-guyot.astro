@@ -56,6 +56,23 @@ const formats = [
   { name: 'Masterclass', detail: '3 h, les mains sur l’outil' },
 ];
 
+const videos = [
+  {
+    id: 'R_Q3WRkIcQw',
+    kind: 'Keynote',
+    title: 'L’IA au service de l’humain',
+    source: 'eXalt · VISI[ON]S 2025',
+    thumb: '/images/conferences/video-keynote-exalt.jpg',
+  },
+  {
+    id: 'uuHs5wruwkk',
+    kind: 'Podcast',
+    title: 'Quand l’IA fait le produit, que manage-t-on encore ?',
+    source: 'Le podcast Incenteev',
+    thumb: '/images/conferences/video-podcast-incenteev.jpg',
+  },
+];
+
 // Logos des scènes récentes. `ratio` = largeur / hauteur du logo recadré :
 // la hauteur affichée en dépend, pour que chaque logo ait à peu près le même poids visuel.
 const scenes = [
@@ -138,7 +155,7 @@ const personSchema = {
       <!-- Contenu -->
       <div class="min-w-0 space-y-6">
         <nav aria-label="Sections de la page" class="flex flex-wrap gap-2">
-          {[['#bio', 'Biographie'], ['#themes', 'Thèmes'], ['#formats', 'Formats'], ['#scenes', 'Références']].map(([href, label]) => (
+          {[['#bio', 'Biographie'], ['#themes', 'Thèmes'], ['#formats', 'Formats'], ['#scenes', 'Références'], ['#videos', 'Vidéos']].map(([href, label]) => (
             <a href={href} class="rounded-pill bg-white px-4 py-2 text-sm font-medium text-ink shadow-card transition-colors hover:text-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">{label}</a>
           ))}
         </nav>
@@ -217,7 +234,70 @@ const personSchema = {
         </section>
       </div>
     </div>
+
+    <!-- Vidéos : grand lecteur + mini-playlist. L'iframe YouTube n'est créée qu'au clic. -->
+    <section id="videos" class="scroll-mt-20 bg-ink text-white" aria-labelledby="videos-title">
+      <div class="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-10 lg:px-12 lg:py-20">
+        <div class="min-w-0">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-500">Le voir en action</p>
+          <h2 id="videos-title" class="mt-2 text-display-md font-bold">Rémi en vidéo</h2>
+          <div class="video-player group relative mt-6 aspect-video overflow-hidden rounded-2xl bg-black" data-id={videos[0].id} data-title={videos[0].title}>
+            <img src={videos[0].thumb} alt="" width="960" height="540" class="video-thumb absolute inset-0 h-full w-full object-cover opacity-85" loading="lazy" />
+            <button type="button" class="video-play absolute inset-0 flex items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-brand-500" aria-label={`Lire la vidéo : ${videos[0].title}`}>
+              <span class="flex h-20 w-20 items-center justify-center rounded-full bg-brand-500 text-white shadow-card-hover transition-transform group-hover:scale-110 motion-reduce:transition-none">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="min-w-0 lg:pt-[4.5rem]">
+          <ul class="space-y-3" aria-label="Choisir une vidéo">
+            {videos.map((v, i) => (
+              <li>
+                <button
+                  type="button"
+                  class="video-item flex w-full items-center gap-4 rounded-2xl p-3 text-left transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 aria-pressed:bg-white/10"
+                  aria-pressed={i === 0 ? 'true' : 'false'}
+                  data-id={v.id}
+                  data-title={v.title}
+                >
+                  <img src={v.thumb} alt="" width="960" height="540" class="aspect-video w-28 shrink-0 rounded-lg object-cover sm:w-32" loading="lazy" />
+                  <span class="min-w-0">
+                    <span class="block text-[11px] font-semibold uppercase tracking-widest text-brand-400">{v.kind}</span>
+                    <span class="mt-1 block text-sm font-semibold leading-snug">{v.title}</span>
+                    <span class="mt-1 block text-xs text-white/60">{v.source}</span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<script>
+  // Lecteur « léger » : on affiche une image, et l'iframe YouTube (sans cookie) n'est créée qu'au clic.
+  const player = document.querySelector<HTMLElement>('.video-player');
+  const play = (id: string, title: string) => {
+    if (!player) return;
+    player.dataset.id = id;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    iframe.title = title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.className = 'absolute inset-0 h-full w-full';
+    player.replaceChildren(iframe);
+  };
+  player?.querySelector('.video-play')?.addEventListener('click', () => play(player.dataset.id!, player.dataset.title!));
+  document.querySelectorAll<HTMLButtonElement>('.video-item').forEach((item) =>
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.video-item').forEach((i) => i.setAttribute('aria-pressed', String(i === item)));
+      play(item.dataset.id!, item.dataset.title!);
+    }),
+  );
+</script>
