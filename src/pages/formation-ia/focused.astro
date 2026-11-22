@@ -12,100 +12,6 @@ import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
 
 const TITLE = 'Product Discovery — FOCUSED';
 
-const modules = [
-  {
-    number: '00',
-    title: 'Introduction : la méthode et votre projet',
-    intro:
-      'Découvrez la genèse de FOCUSED, ses sept étapes et ses livrables, puis choisissez le projet réel qui servira de fil conducteur à votre journée.',
-    points: [
-      'Genèse de la méthode FOCUSED et du livre Discovery Discipline',
-      'Jeu « QUI EST-CE ? » pour poser un vocabulaire commun',
-      'Étapes, livrables et activités de la méthode',
-      'Choix du projet fil conducteur par chaque participant',
-    ],
-  },
-  {
-    number: '01',
-    title: 'F — Frame : cadrer l’ambition',
-    intro:
-      "Fixez l'ambition du projet avant de chercher des solutions : quel impact viser, quel risque accepter, avec quelles contraintes.",
-    points: [
-      "Ordre de grandeur de l'impact attendu",
-      'Part de risque acceptée',
-      'Contrainte majeure du projet',
-      'Temps alloué à la discovery',
-    ],
-  },
-  {
-    number: '02',
-    title: 'O — Observe : choisir le cas d’usage',
-    intro:
-      "Concentrez l'équipe sur un utilisateur et un scénario précis, plutôt que sur une liste de fonctionnalités.",
-    points: [
-      'Utilisateur cible',
-      "Scénario d'usage",
-      'Besoin à adresser',
-      'Repérer les « contournements » des utilisateurs',
-    ],
-  },
-  {
-    number: '03',
-    title: 'C — Claim : affirmer un positionnement',
-    intro:
-      'Formulez tôt ce que la solution promet, pour tester une proposition claire plutôt qu’une idée floue.',
-    points: [
-      'Proposition de valeur',
-      'Bénéfices utilisateur',
-      'Raison de croire',
-    ],
-  },
-  {
-    number: '04',
-    title: 'U — Unfold : dérouler l’expérience',
-    intro:
-      "Dépliez l'expérience utilisateur de bout en bout pour voir la solution dans son ensemble avant de la concevoir écran par écran.",
-    points: [
-      'Parcours utilisateur de bout en bout',
-      'Architecture des écrans',
-      'Points de contact',
-    ],
-  },
-  {
-    number: '05',
-    title: 'S — Steal : réutiliser les standards',
-    intro:
-      "Appuyez-vous sur les modèles que vos utilisateurs connaissent déjà, et réservez l'innovation là où elle crée de la valeur.",
-    points: [
-      'Charge cognitive et modèles standards',
-      'Culture de la standardisation',
-      "Méthodes d'identification des patterns",
-    ],
-  },
-  {
-    number: '06',
-    title: 'E — Execute : prototyper le parcours de réussite',
-    intro:
-      'Construisez en équipe le prototype du parcours qui doit absolument fonctionner, et rendez vos hypothèses testables.',
-    points: [
-      'Hypothèses à valider',
-      'Processus de conception',
-      'Pratiques collaboratives en équipe pluridisciplinaire',
-    ],
-  },
-  {
-    number: '07',
-    title: 'D — Decide : finaliser ou itérer',
-    intro:
-      "Évaluez la solution au regard de l'ambition fixée au départ et décidez, ensemble, de la suite.",
-    points: [
-      'Évaluation de la solution',
-      'Méthodes itératives',
-      'Prise de décision en équipe',
-    ],
-  },
-];
-
 const objectives = [
   {
     title: 'Identifier les bons problèmes à résoudre',
@@ -114,19 +20,27 @@ const objectives = [
   },
   {
     title: 'Savoir dérisquer ses décisions produit',
-    body: 'anticiper, identifier et atténuer les risques associés aux choix de produit.',
+    body:
+      "anticiper, identifier et atténuer les risques associés aux choix de produit, afin d'augmenter les chances de succès sur le marché.",
   },
   {
     title: 'Maîtriser les livrables de la méthode FOCUSED',
     body:
-      'créer et utiliser les livrables qui guident la prise de décision et la progression du projet.',
+      'créer et utiliser les livrables spécifiques à FOCUSED, qui guident la prise de décision et la progression du projet.',
   },
   {
     title: 'Intégrer des équipes pluridisciplinaires dans le process de Discovery',
     body:
-      "favoriser une meilleure collaboration et compréhension au sein de l'équipe en adoptant un vocabulaire partagé.",
+      "favoriser une meilleure collaboration et compréhension au sein de l'équipe en adoptant un vocabulaire partagé, essentiel pour une communication efficace et un alignement stratégique.",
   },
 ];
+
+/** Le programme reprend les quatre objectifs, un bloc par objectif. */
+const modules = objectives.map((o, i) => ({
+  number: String(i + 1).padStart(2, '0'),
+  title: o.title,
+  intro: o.body.charAt(0).toUpperCase() + o.body.slice(1),
+}));
 
 const modalities = [
   { label: 'Durée', value: '1 journée (7 heures)' },
