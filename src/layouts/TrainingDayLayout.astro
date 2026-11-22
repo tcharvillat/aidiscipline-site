@@ -32,6 +32,8 @@ export interface Props {
   seoDescription: string;
   /** Titre principal (h1) du bloc programme. */
   heading: string;
+  /** Complément du h1 affiché en dessous, en plus petit et plus clair (facultatif). */
+  subheading?: string;
   /** Garde le h1 sur une ligne en desktop (titres courts uniquement). */
   headingNoWrap?: boolean;
   modules: Module[];
@@ -78,6 +80,7 @@ const {
   seoTitle,
   seoDescription,
   heading,
+  subheading,
   headingNoWrap = false,
   modules,
   objectives,
@@ -216,6 +219,11 @@ const {
             ]}
           >
             {heading}
+            {subheading && (
+              <span class="mt-3 block text-xl font-light text-ink-muted md:text-2xl lg:whitespace-normal">
+                {subheading}
+              </span>
+            )}
           </h1>
           {lead && (
             <p class="mt-6 text-base leading-relaxed text-ink-muted md:text-lg">
