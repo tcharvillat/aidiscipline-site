@@ -1,0 +1,167 @@
+---
+/**
+ * Fiche de la formation « Product Discovery — FOCUSED » (/formation-ia/focused).
+ * Source : fiche Qualiopi v0.3 du 2026-11-22
+ * (40 Catalogue des formations / Product Discovery — FOCUSED / FICHE-FORMATION.md).
+ *
+ * Page pas encore reliée au site : aucun lien ne pointe vers elle, elle est en
+ * noindex et exclue du sitemap (astro.config.mjs). À la mise en ligne : retirer
+ * `noindex`, le filtre du sitemap, et ajouter la formation au catalogue.
+ */
+import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
+
+const TITLE = 'Product Discovery — FOCUSED';
+
+const objectives = [
+  {
+    title: 'Identifier les bons problèmes à résoudre',
+    body:
+      "cibler les défis stratégiques et les besoins utilisateurs essentiels qui méritent l'attention et les ressources de l'équipe.",
+  },
+  {
+    title: 'Savoir dérisquer ses décisions produit',
+    body:
+      "anticiper, identifier et atténuer les risques associés aux choix de produit, afin d'augmenter les chances de succès sur le marché.",
+  },
+  {
+    title: 'Maîtriser les livrables de la méthode FOCUSED',
+    body:
+      'créer et utiliser les livrables spécifiques à FOCUSED, qui guident la prise de décision et la progression du projet.',
+  },
+  {
+    title: 'Intégrer des équipes pluridisciplinaires dans le process de Discovery',
+    body:
+      "favoriser une meilleure collaboration et compréhension au sein de l'équipe en adoptant un vocabulaire partagé, essentiel pour une communication efficace et un alignement stratégique.",
+  },
+];
+
+/**
+ * Apprentissages de chaque module, tirés du déroulé de la fiche Qualiopi
+ * (étapes FRAME à DECIDE rattachées à chaque objectif).
+ */
+const modulePoints = [
+  [
+    "Cadrer l'ambition du projet : ordre de grandeur de l'impact, contrainte majeure, temps alloué",
+    "Choisir l'utilisateur cible et le scénario d'usage sur lesquels concentrer l'équipe",
+    'Révéler le besoin réel en repérant les « contournements » des utilisateurs',
+    'Formuler une proposition de valeur, ses bénéfices utilisateur et sa raison de croire',
+  ],
+  [
+    'Fixer dès le départ la part de risque acceptée pour le projet',
+    "S'appuyer sur les modèles standards pour réduire la charge cognitive",
+    'Expliciter les hypothèses à valider et prototyper le parcours de réussite',
+    'Évaluer la solution et décider : finaliser ou itérer',
+  ],
+  [
+    'Les sept étapes de FOCUSED, leurs livrables et leurs activités',
+    'Dérouler le parcours de bout en bout : architecture des écrans et points de contact',
+    'Identifier les patterns réutilisables et installer une culture de la standardisation',
+    'Appliquer chaque livrable à un projet réel, fil conducteur de la journée',
+  ],
+  [
+    'Réflexions sur les rôles et responsabilités de chaque équipe au cours du process',
+    'Une méthode partagée par Product, Design, Product Marketing et Tech',
+    'Pratiques collaboratives pour concevoir en équipe pluridisciplinaire',
+    'Méthodes itératives et prise de décision collective',
+  ],
+];
+
+/** Le programme reprend les quatre objectifs, un bloc par objectif. */
+const modules = objectives.map((o, i) => ({
+  number: String(i + 1).padStart(2, '0'),
+  title: o.title,
+  intro: o.body.charAt(0).toUpperCase() + o.body.slice(1),
+  points: modulePoints[i],
+}));
+
+const modalities = [
+  { label: 'Durée', value: '1 journée (7 heures)' },
+  { label: 'Format', value: 'Présentiel dans vos locaux, de 6 à 12 participants' },
+  {
+    label: 'Public',
+    value:
+      'Product Managers, Product Designers, Product Marketing Managers, développeurs, coachs agiles, équipes de management et de direction',
+  },
+  {
+    label: 'Pré-requis',
+    value: 'Aucun pré-requis. Un test de positionnement mesure en amont votre pratique de la discovery.',
+  },
+  {
+    label: 'Intervenants',
+    value: 'Tristan Charvillat et Rémi Guyot, auteurs de la méthode FOCUSED et du livre Discovery Discipline',
+  },
+  {
+    label: 'Accessibilité',
+    value:
+      'Formation accessible aux personnes en situation de handicap. Contacter en amont le référent handicap, Tristan Charvillat (tristan@discovery-discipline.com).',
+  },
+  { label: 'Tarif', value: '8 000 € HT en intra, de 6 à 12 participants' },
+  {
+    label: "Délai d'accès",
+    value: 'Inscription par e-mail et appel préalable, au minimum 15 jours avant la session.',
+  },
+];
+
+const pedagogy = [
+  "Alternance d'apports méthodologiques et de mises en pratique, à chacune des sept étapes de la méthode.",
+  'Projet fil conducteur : chaque participant applique FOCUSED à un projet réel de son équipe tout au long de la journée.',
+  "Tour de table en début de journée pour recueillir les attentes et adapter les exemples au niveau de pratique de l'équipe.",
+  'Livrables de la méthode imprimés et distribués à chaque étape, et un exemplaire du livre Discovery Discipline remis à chaque participant.',
+];
+
+const evaluation = [
+  "La réussite du test donne lieu à la certification FOCUSED Practitioner, délivrée par AI Discipline ; cette certification n'est enregistrée ni au RNCP ni au Répertoire spécifique.",
+];
+
+const audienceText =
+  "FOCUSED s'adresse aux équipes de conception digitale et à leurs partenaires qui veulent progresser dans leur pratique de la Product Discovery. La méthode donne à tous — Product, Design, Product Marketing, Tech, coachs agiles et managers — les mêmes étapes, les mêmes livrables et le même vocabulaire. Le format est intra-entreprise : la journée s'appuie sur les projets réels de vos équipes, pour que la méthode soit appliquée dès le lendemain.";
+
+const seoDescription =
+  'Formation Product Discovery FOCUSED : 1 journée dans vos locaux pour identifier les bons problèmes, dérisquer vos décisions produit et aligner vos équipes. Par les auteurs de Discovery Discipline. Éligible OPCO (Qualiopi).';
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${TITLE} — Formation en entreprise`,
+  description: seoDescription,
+  url: 'https://www.aidiscipline.com/formation-ia/focused',
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: objectives.map((o) => o.title),
+  coursePrerequisites: 'Aucun pré-requis',
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 8000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    courseWorkload: 'PT7H',
+  },
+};
+---
+
+<TrainingDayLayout
+  seoTitle="Formation Product Discovery FOCUSED — AI Discipline"
+  seoDescription={seoDescription}
+  heading={TITLE}
+  subheading="Programme de la journée"
+  lead="Maîtrisez le framework F.O.C.U.S.E.D. pour identifier et implémenter rapidement les solutions à fort impact. Une journée animée par Tristan Charvillat et Rémi Guyot, auteurs de la méthode et du livre Discovery Discipline, sur un projet réel de votre équipe."
+  modules={modules}
+  objectives={objectives}
+  courseSchema={courseSchema}
+  noindex
+  audienceHeading="Quelles équipes former ?"
+  audienceText={audienceText}
+  indicators={[]}
+  testimonials={[]}
+  modalities={modalities}
+  pedagogy={pedagogy}
+  evaluation={evaluation}
+/>

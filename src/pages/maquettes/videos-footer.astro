@@ -1,0 +1,73 @@
+---
+// Maquettes temporaires : comment séparer la bande vidéo du footer noir. Non publiées.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Cinema from './_Cinema.astro';
+
+const options = [
+  { n: 1, theme: 'rose' as const, name: 'Rose plein', idea: 'La bande passe au rose de la marque. Le footer noir se détache net, et la vidéo devient le moment fort de la page. Le bouton lecture passe en blanc.' },
+  { n: 2, theme: 'clair' as const, name: 'Écran sur fond clair', idea: 'La bande reprend le fond rose pâle de la page ; le lecteur et la liste sont posés dans un grand « écran » noir aux coins arrondis. On garde l’effet cinéma, et une respiration claire sépare l’écran du footer.' },
+  { n: 3, theme: 'bordeaux' as const, name: 'Projecteur bordeaux', idea: 'Fond sombre mais teinté : un halo bordeaux (le rose de la marque très foncé) derrière le lecteur, comme un projecteur, et un filet rose en bas pour marquer la fin de la bande avant le footer.' },
+  { n: 4, theme: 'noir' as const, name: 'Noir + bandeau d’appel rose', idea: 'On garde la bande noire, mais on glisse entre elle et le footer un bandeau rose « Inviter Rémi à votre événement » qui ouvre le Calendly. Ça sépare les deux noirs et ça redonne un appel à l’action en fin de page.' },
+];
+---
+
+<BaseLayout title="Maquettes bande vidéo · Rémi Guyot" description="Maquettes" noindex={true}>
+  <Header />
+  <main>
+    <div class="bg-surface-secondary">
+      <div class="mx-auto max-w-7xl px-6 py-12 md:px-8 lg:px-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">Maquettes · non publiées</p>
+        <h1 class="mt-3 text-display-lg font-bold text-ink">Séparer la bande vidéo du footer</h1>
+        <p class="mt-4 max-w-3xl text-ink-muted">Chaque option est suivie du vrai footer du site, pour juger la jonction.</p>
+        <nav class="mt-6 flex flex-wrap gap-2" aria-label="Options">
+          {options.map((o) => <a href={`#option-${o.n}`} class="rounded-pill bg-white px-4 py-2 text-sm font-medium text-ink shadow-card hover:text-brand-600">{o.n} · {o.name}</a>)}
+        </nav>
+      </div>
+    </div>
+
+    {options.map((o) => (
+      <div id={`option-${o.n}`} class="scroll-mt-20">
+        <div class="border-t-8 border-white bg-white">
+          <div class="mx-auto max-w-7xl px-6 py-8 md:px-8 lg:px-12">
+            <p class="text-sm font-bold text-brand-600">Option {o.n}</p>
+            <h2 class="text-3xl font-bold text-ink">{o.name}</h2>
+            <p class="mt-2 max-w-3xl text-ink-muted">{o.idea}</p>
+          </div>
+        </div>
+        <!-- Fin de la grille de la page (fond rose pâle), pour le contexte -->
+        <div class="h-16 bg-surface-secondary"></div>
+        <Cinema theme={o.theme} uid={`o${o.n}`} />
+        {o.n === 4 && (
+          <section class="bg-brand-500 text-white">
+            <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-8 lg:px-12">
+              <div>
+                <h2 class="text-2xl font-bold md:text-3xl">Inviter Rémi à votre événement</h2>
+                <p class="mt-2 text-white/85">Keynote, fireside chat ou masterclass · présentiel ou distanciel · FR ou EN</p>
+              </div>
+              <a href="https://calendly.com/remi-guyot/30min" target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0 items-center gap-2 rounded-pill bg-white px-7 py-3.5 font-semibold text-brand-600 transition-colors hover:bg-ink hover:text-white">Prendre rendez-vous →</a>
+            </div>
+          </section>
+        )}
+        <Footer />
+      </div>
+    ))}
+  </main>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-cinema]').forEach((band) => {
+    const player = band.querySelector<HTMLElement>('.cin-player')!;
+    const play = (id: string) => {
+      player.innerHTML = `<iframe class="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Vidéo YouTube" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    };
+    band.querySelector('.cin-play')?.addEventListener('click', () => play(player.dataset.id!));
+    band.querySelectorAll<HTMLButtonElement>('.cin-item').forEach((item) =>
+      item.addEventListener('click', () => {
+        band.querySelectorAll('.cin-item').forEach((i) => i.setAttribute('aria-pressed', String(i === item)));
+        play(item.dataset.id!);
+      }),
+    );
+  });
+</script>

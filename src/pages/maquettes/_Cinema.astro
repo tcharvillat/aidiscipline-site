@@ -1,0 +1,51 @@
+---
+// Bande vidéo « Cinéma » paramétrable par thème (maquettes uniquement).
+export interface Props {
+  theme: 'rose' | 'clair' | 'bordeaux' | 'noir';
+  uid: string;
+}
+const { theme, uid } = Astro.props;
+
+const videos = [
+  { id: 'R_Q3WRkIcQw', kind: 'Keynote', title: 'L’IA au service de l’humain', source: 'eXalt · VISI[ON]S 2025', thumb: '/images/conferences/video-keynote-exalt.jpg' },
+  { id: 'uuHs5wruwkk', kind: 'Podcast', title: 'Quand l’IA fait le produit, que manage-t-on encore ?', source: 'Le podcast Incenteev', thumb: '/images/conferences/video-podcast-incenteev.jpg' },
+];
+
+const t = {
+  rose: { band: 'bg-brand-500 text-white', eyebrow: 'text-white/80', kind: 'text-white/80', muted: 'text-white/75', play: 'bg-white text-brand-600', item: 'hover:bg-white/10 aria-pressed:bg-white/15', inner: '' },
+  clair: { band: 'bg-surface-secondary text-ink', eyebrow: 'text-brand-600', kind: 'text-brand-400', muted: 'text-white/60', play: 'bg-brand-500 text-white', item: 'hover:bg-white/5 aria-pressed:bg-white/10', inner: 'rounded-[2rem] bg-ink p-5 text-white shadow-card-hover md:p-8' },
+  bordeaux: { band: 'bg-[radial-gradient(ellipse_at_30%_40%,#5F002F_0%,#2a0016_45%,#0F0F1A_100%)] text-white border-b-4 border-brand-500', eyebrow: 'text-brand-400', kind: 'text-brand-300', muted: 'text-white/60', play: 'bg-brand-500 text-white', item: 'hover:bg-white/5 aria-pressed:bg-white/10', inner: '' },
+  noir: { band: 'bg-ink text-white', eyebrow: 'text-brand-500', kind: 'text-brand-400', muted: 'text-white/60', play: 'bg-brand-500 text-white', item: 'hover:bg-white/5 aria-pressed:bg-white/10', inner: '' },
+}[theme];
+---
+
+<section class={t.band} data-cinema={uid}>
+  <div class="mx-auto max-w-7xl px-6 py-14 md:px-8 lg:px-12 lg:py-20">
+    <p class={`text-xs font-semibold uppercase tracking-widest ${t.eyebrow}`}>Le voir en action</p>
+    <h2 class="mt-2 text-display-md font-bold">Rémi en vidéo</h2>
+    <div class={`mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-10 ${t.inner}`}>
+      <div class="cin-player group relative aspect-video overflow-hidden rounded-2xl bg-black" data-id={videos[0].id}>
+        <img src={videos[0].thumb} alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" />
+        <button type="button" class="cin-play absolute inset-0 flex items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white" aria-label="Lire la vidéo">
+          <span class={`flex h-20 w-20 items-center justify-center rounded-full shadow-card-hover transition-transform group-hover:scale-110 ${t.play}`}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </button>
+      </div>
+      <ul class="space-y-3 self-center">
+        {videos.map((v, i) => (
+          <li>
+            <button type="button" class={`cin-item flex w-full items-center gap-4 rounded-2xl p-3 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${t.item}`} aria-pressed={i === 0 ? 'true' : 'false'} data-id={v.id}>
+              <img src={v.thumb} alt="" class="aspect-video w-28 shrink-0 rounded-lg object-cover sm:w-32" />
+              <span class="min-w-0">
+                <span class={`block text-[11px] font-semibold uppercase tracking-widest ${t.kind}`}>{v.kind}</span>
+                <span class="mt-1 block text-sm font-semibold leading-snug">{v.title}</span>
+                <span class={`mt-1 block text-xs ${t.muted}`}>{v.source}</span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

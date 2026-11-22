@@ -1,0 +1,187 @@
+---
+/**
+ * Fiche de la formation « Faire de Claude Code son environnement de travail de PM »
+ * (/formation-ia/claude-code-environnement-pm).
+ * Source : fiche formation v0.1 du 2026-11-22
+ * (40 Catalogue des formations / Faire de Claude Code son environnement de travail de PM / FICHE-FORMATION.md),
+ * établie à partir du transcript de la session de référence.
+ *
+ * Carte correspondante dans le catalogue : team-trainings.json (catégorie produit).
+ * Remplace la fiche générique générée par [slug].astro pour cette formation.
+ */
+import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
+
+const TITLE = 'Faire de Claude Code son environnement de travail de PM';
+const SLUG = 'claude-code-environnement-pm';
+
+const objectives = [
+  {
+    title: 'Configurer et piloter Claude Code',
+    body:
+      "régler les modes de permission, choisir le modèle et l'effort, gérer ses sessions et son contexte, rédiger son fichier CLAUDE.md et cadrer une tâche en mode plan.",
+  },
+  {
+    title: 'Connecter Claude Code à ses outils via MCP',
+    body:
+      "relier Notion, Jira, Figma ou d'autres outils en maîtrisant les droits de lecture et d'écriture, et produire des artefacts partageables.",
+  },
+  {
+    title: 'Créer et partager des skills',
+    body:
+      'capitaliser ses savoir-faire de PM dans des skills précises, reliées à ses sources de données, et les partager en équipe sous forme de plugin.',
+  },
+  {
+    title: 'Automatiser ses workflows avec des agents',
+    body:
+      'orchestrer des subagents par une commande personnalisée et la faire tourner en autonomie avec une routine.',
+  },
+];
+
+/** Programme : un bloc par objectif, dans l'ordre des trois séquences de la journée. */
+const modules = [
+  {
+    number: '01',
+    title: 'Configurer et piloter Claude Code',
+    intro:
+      "Prenez en main Claude Code sur une vraie base de code, en sécurité, et gardez la maîtrise de ce que fait l'IA.",
+    points: [
+      "Import du code open source d'Excalidraw sur son poste et lancement en local",
+      "Modèles, effort et modes de permission : quel réglage pour quelle tâche",
+      'Sessions et contexte : /rewind, /resume, /fork, /compact, /clear',
+      'Fichier CLAUDE.md et mode plan : cadrer avant de construire',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Connecter Claude Code à ses outils',
+    intro:
+      "Branchez Claude Code sur votre stack produit et partagez vos analyses sous une forme visuelle.",
+    points: [
+      'Connecteurs MCP natifs et personnalisés : Notion, Jira, Figma…',
+      "Permissions par outil : ce que l'agent peut lire, ce qu'il peut modifier",
+      'Travailler en fichiers locaux avant de publier dans ses outils',
+      'Artefacts : pages, documents et présentations partageables',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Créer et partager des skills',
+    intro:
+      "Transformez vos savoir-faire de PM en compétences réutilisables, que toute l'équipe peut appeler.",
+    points: [
+      "Anatomie d'une skill et rôle de sa description",
+      "Créer une skill à partir d'une conversation réussie",
+      "Priorisation RICE d'une feature request, avec un effort estimé depuis le code",
+      "Plugins et marketplaces : installer en sécurité, partager en équipe",
+    ],
+  },
+  {
+    number: '04',
+    title: 'Automatiser avec des agents',
+    intro:
+      "Confiez une partie du cycle de développement d'une fonctionnalité à des agents qui travaillent pendant que vous êtes en rendez-vous.",
+    points: [
+      'Subagents : des experts au contexte isolé, qui travaillent en parallèle',
+      'Commandes personnalisées : orchestrer une veille concurrentielle publiée dans Notion',
+      'Routines : planifiées ou déclenchées par un événement, ordinateur éteint',
+      "Gouvernance d'équipe : responsable du plugin, droits d'accès, consommation",
+    ],
+  },
+];
+
+const modalities = [
+  { label: 'Durée', value: '1 journée (7 heures)' },
+  { label: 'Format', value: "Présentiel dans vos locaux, jusqu'à 10 participants" },
+  {
+    label: 'Public',
+    value:
+      'Product Managers, Product Owners, Product Designers et rôles produit qui veulent gagner en autonomie sur la data, le design et le code',
+  },
+  {
+    label: 'Pré-requis',
+    value:
+      "Usage régulier d'un assistant IA conversationnel ; aucune compétence en développement requise. Licence Claude donnant accès à Claude Code, droits d'installation sur le poste, compte GitHub et connecteurs autorisés par votre DSI : nous les vérifions avec vous avant la session.",
+  },
+  {
+    label: 'Intervenants',
+    value: "Un praticien de Claude Code du réseau AI Discipline, avec Tristan Charvillat en co-animation",
+  },
+  {
+    label: 'Accessibilité',
+    value:
+      'Formation accessible aux personnes en situation de handicap. Contacter le référent handicap en amont.',
+  },
+  { label: 'Tarif', value: 'à partir de 6 000 € HT en intra' },
+  {
+    label: "Délai d'accès",
+    value:
+      'Inscription par e-mail et appel préalable, au minimum 15 jours avant la session, le temps de préparer les postes avec votre DSI.',
+  },
+];
+
+const pedagogy = [
+  "Fil conducteur : chaque participant se met dans la peau d'un PM de l'application open source Excalidraw, dont le code est importé sur son poste, avec ses vraies feature requests.",
+  'Trois séquences, chacune suivie d’un exercice : construire une fonctionnalité en mode plan, créer une skill reliée à ses outils, lancer une première routine.',
+  "Les exercices s'appliquent ensuite à votre propre produit et à vos propres outils, quand votre environnement le permet.",
+  'Un document de ressources (prompts, commandes, connecteurs) et un plugin de skills de discovery sont remis aux participants.',
+];
+
+const evaluation = [
+  'Un questionnaire de positionnement est envoyé avec la convocation pour mesurer le niveau de chacun sur Claude Code.',
+  'Mise en pratique au cours de la journée sous forme d’exercices accompagnés par le formateur.',
+  'Un test de validation des acquis (QCM en ligne de 20 questions, 15 minutes) est réalisé en fin de journée ; il est réussi à partir de 16/20, avec une seconde chance dans les 3 jours.',
+  "Chaque participant reçoit une attestation de compétences acquises et un certificat de réalisation ; une feuille d'émargement est signée matin et après-midi.",
+];
+
+const audienceText =
+  "Cette formation s'adresse aux équipes produit qui veulent faire de Claude Code leur environnement de travail quotidien : de la feature request au ticket, en passant par la priorisation, la spec, le prototype et le partage des résultats. Le PM y gagne en autonomie face aux goulots d'étranglement tech, design et data, puis apprend à confier une partie du cycle à des agents. Les participants repartent avec un Claude Code configuré, au moins une skill reliée à leurs outils et une première automatisation.";
+
+const seoDescription =
+  "Formation Claude Code pour Product Managers : 1 journée dans vos locaux pour configurer Claude Code, le connecter à Notion, Jira et Figma via MCP, créer des skills et automatiser vos workflows avec des agents. Éligible OPCO (Qualiopi).";
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${TITLE} — Formation en entreprise`,
+  description: seoDescription,
+  url: `https://www.aidiscipline.com/formation-ia/${SLUG}`,
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: objectives.map((o) => o.title),
+  coursePrerequisites:
+    "Usage régulier d'un assistant IA conversationnel ; licence Claude donnant accès à Claude Code",
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 6000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    courseWorkload: 'PT7H',
+  },
+};
+---
+
+<TrainingDayLayout
+  seoTitle="Formation Claude Code pour Product Managers — AI Discipline"
+  seoDescription={seoDescription}
+  heading={TITLE}
+  subheading="Programme de la journée"
+  lead="Pilotez tout le cycle de vie d'une fonctionnalité depuis Claude Code, puis confiez-en une partie à des agents. En une journée, vos PM configurent Claude Code, le connectent à leurs outils, capitalisent leurs savoir-faire dans des skills et lancent leurs premières automatisations."
+  modules={modules}
+  objectives={objectives}
+  courseSchema={courseSchema}
+  audienceHeading="Quelles équipes former ?"
+  audienceText={audienceText}
+  indicators={[]}
+  testimonials={[]}
+  modalities={modalities}
+  pedagogy={pedagogy}
+  evaluation={evaluation}
+/>

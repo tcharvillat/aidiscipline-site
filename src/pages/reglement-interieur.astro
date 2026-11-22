@@ -1,0 +1,296 @@
+---
+import DocumentLayout from '../layouts/DocumentLayout.astro';
+
+const RGPD_EMAIL = 'contact@aidiscipline.com';
+
+interface Block {
+  /** Paragraphe simple. */
+  p?: string;
+  /** Paragraphe contenant des liens (HTML de confiance, rédigé ici). */
+  html?: string;
+  /** Liste à puces. */
+  list?: string[];
+  /** Sous-article (ex. « Article 9.1 — Horaires de formation »). */
+  sub?: string;
+}
+
+const articles: { number: number; title: string; blocks: Block[] }[] = [
+  {
+    number: 1,
+    title: "Objet et champ d'application du règlement",
+    blocks: [
+      {
+        p: "Ce règlement s'applique à tous les participants d'une formation organisée par Discovery Discipline SAS. Il est indiqué dans la convocation reçue par chaque stagiaire un lien pour consulter ce règlement. Ce règlement précise les règles d'hygiène, de sécurité, les règles de discipline, ainsi que les sanctions applicables en cas de manquement et les garanties procédurales associées. Tous les participants doivent respecter ce règlement pendant toute la durée de leur formation.",
+      },
+      {
+        p: "Les stagiaires doivent également respecter le règlement intérieur de l'établissement d'accueil pour les formations en INTRA.",
+      },
+    ],
+  },
+  {
+    number: 2,
+    title: 'Principes généraux',
+    blocks: [
+      { p: 'La prévention des accidents et maladies est essentielle. Chacun doit respecter :' },
+      {
+        list: [
+          "Les prescriptions en matière d'hygiène et de sécurité sur les lieux de formation",
+          "Toute consigne de la direction ou des formateurs concernant l'utilisation du matériel",
+        ],
+      },
+      {
+        p: 'Les stagiaires doivent assurer leur propre sécurité et celle des autres en respectant les consignes spécifiques à leur formation. En cas de dysfonctionnement du système de sécurité, ils doivent alerter la direction immédiatement. Le non-respect de ces consignes peut entraîner des sanctions disciplinaires.',
+      },
+    ],
+  },
+  {
+    number: 3,
+    title: "Consignes d'incendie",
+    blocks: [
+      {
+        p: "Le personnel doit connaître et respecter les consignes de sécurité en cas d'incendie. Il doit veiller au libre accès aux moyens et matériels de lutte contre l'incendie ainsi qu'aux issues de secours. Les stagiaires s'interdisent de fumer dans l'enceinte de l'établissement sauf dans les locaux prévus explicitement à cet effet. En cas de début d'incendie, ils doivent appeler le 18 (téléphone fixe) ou le 112 (portable) et informer un représentant de l'organisme.",
+      },
+    ],
+  },
+  {
+    number: 4,
+    title: 'Boissons alcoolisées et drogues',
+    blocks: [
+      {
+        p: "L'introduction ou la consommation de drogues ou d'alcool est interdite. Les stagiaires ne doivent pas pénétrer ni rester dans les locaux en état d'ivresse ou sous l'emprise de drogue. Ils ont accès à des boissons non alcoolisées pendant les pauses.",
+      },
+    ],
+  },
+  {
+    number: 5,
+    title: 'Interdiction de fumer',
+    blocks: [
+      {
+        p: "Il est formellement interdit de fumer à l'intérieur de tous les locaux de l'établissement affectés à un usage collectif.",
+      },
+    ],
+  },
+  {
+    number: 6,
+    title: 'Accident',
+    blocks: [
+      {
+        p: "Le stagiaire victime d'un accident — survenu pendant la formation ou pendant le temps de trajet entre le lieu de formation et son domicile ou son lieu de travail — ou le témoin de cet accident avertit immédiatement la direction de Discovery Discipline SAS.",
+      },
+    ],
+  },
+  {
+    number: 7,
+    title: 'Protection des données — respect du RGPD',
+    blocks: [],
+  },
+  {
+    number: 8,
+    title: 'Risque Covid',
+    blocks: [
+      {
+        p: "Pour éviter la propagation du Covid-19, les mesures d'hygiène (lavage des mains, port du masque pour les plus vulnérables, etc.), l'aération et le nettoyage des locaux sont appliqués. Ces mesures sont détaillées dans les recommandations sanitaires générales du ministère de la Santé, que les stagiaires doivent respecter rigoureusement.",
+      },
+    ],
+  },
+  {
+    number: 9,
+    title: 'Assiduité du stagiaire en formation',
+    blocks: [
+      { sub: 'Article 9.1 — Horaires de formation' },
+      {
+        p: "Les stagiaires doivent respecter les horaires communiqués par l'organisme. Les absences en dehors des horaires de stage doivent être justifiées.",
+      },
+      { sub: 'Article 9.2 — Absences, retards ou départs anticipés' },
+      {
+        p: "Toute absence, retard ou départ anticipé doit être signalé et justifié auprès de l'organisme de formation.",
+      },
+      { sub: 'Article 9.3 — Suivi de la formation' },
+      {
+        p: "En présentiel, les stagiaires signent la feuille d'émargement tout au long de la formation. En formation à distance, l'assiduité est attestée par le rapport de connexion de la plateforme de classe virtuelle ; chaque stagiaire se connecte sous ses nom et prénom réels. Une attestation de présence sera envoyée à l'issue de la formation.",
+      },
+    ],
+  },
+  {
+    number: 10,
+    title: 'Accès aux locaux de formation',
+    blocks: [
+      { p: 'Sauf autorisation expresse, les stagiaires ne peuvent :' },
+      {
+        list: [
+          'Entrer ou rester dans les locaux pour des motifs autres que la formation',
+          'Introduire des personnes extérieures',
+          'Vendre des biens ou services',
+        ],
+      },
+    ],
+  },
+  {
+    number: 11,
+    title: 'Tenue',
+    blocks: [{ p: 'Les stagiaires doivent porter une tenue correcte.' }],
+  },
+  {
+    number: 12,
+    title: 'Comportement',
+    blocks: [
+      {
+        p: 'Les stagiaires doivent adopter un comportement respectueux des règles de savoir-vivre et des autres participants pour garantir le bon déroulement des formations.',
+      },
+      {
+        html: 'Les règles relatives aux violences, au harcèlement et aux discriminations figurent à l\'<a href="#article-17">article 17</a>.',
+      },
+    ],
+  },
+  {
+    number: 13,
+    title: 'Utilisation du matériel',
+    blocks: [
+      {
+        p: "L'utilisation du matériel de formation est réservée à l'activité de formation. Toute utilisation personnelle est interdite. Les stagiaires doivent en prendre soin et signaler toute anomalie au formateur.",
+      },
+      { p: 'En cas de formation à distance, il est formellement interdit aux stagiaires :' },
+      {
+        list: [
+          "De communiquer à autrui ses codes d'accès personnels à la plateforme de formation (identifiant et mot de passe)",
+          "D'utiliser le compte d'un autre stagiaire pour suivre une formation",
+          "De modifier, copier ou diffuser les supports de formation, et d'enregistrer ou de filmer les sessions de formation",
+        ],
+      },
+      {
+        p: "La documentation pédagogique remise lors des sessions de formation est protégée au titre des droits d'auteur et ne peut être réutilisée autrement que pour un strict usage personnel.",
+      },
+    ],
+  },
+  {
+    number: 14,
+    title: 'Sanctions disciplinaires',
+    blocks: [
+      {
+        p: "Tout manquement au règlement peut entraîner des sanctions par le responsable de Discovery Discipline SAS, allant du rappel à l'ordre à l'exclusion temporaire ou définitive de la formation. Les sanctions pécuniaires sont interdites. L'employeur ou le financeur de la formation sera informé de la sanction.",
+      },
+    ],
+  },
+  {
+    number: 15,
+    title: 'Garanties disciplinaires',
+    blocks: [
+      { sub: 'Article 15.1 — Information du stagiaire et de son employeur' },
+      {
+        p: "Aucune sanction ne peut être infligée sans information préalable du stagiaire sur les griefs retenus contre lui. En cas de mesure conservatoire d'exclusion temporaire, la procédure disciplinaire doit être respectée.",
+      },
+      { sub: 'Article 15.2 — Prononcé de la sanction' },
+      {
+        p: "La sanction doit être prononcée entre un jour et quinze jours après l'information au stagiaire et à son employeur, et doit être notifiée par écrit.",
+      },
+    ],
+  },
+  {
+    number: 16,
+    title: 'Organisation des élections',
+    blocks: [
+      {
+        p: "Dans les stages d'une durée supérieure à 200 heures, il est procédé simultanément à l'élection d'un délégué titulaire et d'un délégué suppléant au scrutin uninominal à deux tours, selon les modalités suivantes :",
+      },
+      {
+        list: [
+          'Tous les stagiaires sont électeurs et éligibles. Le scrutin a lieu, pendant les heures de la formation, au plus tôt vingt heures et au plus tard quarante heures après le début du stage.',
+          "Le responsable de l'organisme de formation a à sa charge l'organisation du scrutin, dont il assure le bon déroulement. Il adresse un procès-verbal de carence, transmis au préfet de région territorialement compétent, lorsque la représentation des stagiaires ne peut être assurée.",
+          'Les délégués sont élus pour la durée du stage. Leurs fonctions prennent fin lorsqu\'ils cessent, pour quelque cause que ce soit, de participer au stage. Si le délégué titulaire et le délégué suppléant ont cessé leurs fonctions avant la fin du stage, il est procédé à une nouvelle élection.',
+        ],
+      },
+    ],
+  },
+  {
+    number: 17,
+    title: 'Prévention et traitement des violences, du harcèlement et des discriminations',
+    blocks: [
+      { sub: 'Article 17.1 — Principe' },
+      {
+        p: "Discovery Discipline SAS ne tolère aucune violence physique ou verbale, aucun agissement sexiste, aucune violence sexiste ou sexuelle, aucun harcèlement moral ou sexuel et aucune discrimination. Cette règle vaut pendant toute la formation, en présentiel comme à distance, y compris pendant les pauses, les repas et dans les échanges écrits. Elle s'applique aux stagiaires, aux formateurs, aux salariés et aux intervenants de l'organisme.",
+      },
+      { sub: 'Article 17.2 — Signalement' },
+      {
+        html: 'Toute personne qui s\'estime victime ou qui est témoin de tels faits peut les signaler à tout moment, pendant ou après la formation, oralement ou par écrit : au formateur présent, ou au référent des signalements, Tristan Charvillat (<a href="mailto:tristan@discovery-discipline.com">tristan@discovery-discipline.com</a>). Si le signalement concerne le référent, il s\'adresse à Rémi Guyot, cofondateur de Discovery Discipline SAS. En formation intra-entreprise, le stagiaire peut aussi s\'adresser à son employeur.',
+      },
+      { sub: 'Article 17.3 — Traitement' },
+      {
+        html: 'Le référent accuse réception du signalement sous deux jours ouvrés. Il prend sans délai les mesures de protection nécessaires, qui peuvent aller jusqu\'à l\'interruption de la séance ou l\'éloignement de la personne mise en cause. Il entend la personne qui signale, puis la personne mise en cause, et informe l\'auteur du signalement des suites données sous quinze jours. Les faits établis exposent leur auteur aux sanctions prévues à l\'<a href="#article-14">article 14</a>, sans préjudice d\'éventuelles poursuites.',
+      },
+      { sub: 'Article 17.4 — Confidentialité et protection' },
+      {
+        p: 'Le signalement et son traitement sont confidentiels. Ils sont consignés dans un registre tenu par le référent. Nul ne peut être sanctionné ou défavorisé pour avoir signalé de bonne foi ou témoigné.',
+      },
+      { sub: 'Article 17.5 — Urgence et recours extérieurs' },
+      {
+        html: 'En cas de danger immédiat : <a href="tel:17">17</a> ou <a href="tel:112">112</a> (114 par SMS). Violences sexistes et sexuelles : <a href="tel:3919">3919</a>, gratuit et anonyme. Discriminations : Défenseur des droits, <a href="tel:3928">39 28</a> ou <a href="https://www.antidiscriminations.fr" target="_blank" rel="noopener">antidiscriminations.fr</a>.',
+      },
+    ],
+  },
+  {
+    number: 18,
+    title: 'Réclamations',
+    blocks: [
+      {
+        html: 'Tout stagiaire, client ou financeur peut adresser une réclamation à Discovery Discipline SAS par le <a href="https://discovery-discipline.typeform.com/to/wcETnxhe" target="_blank" rel="noopener">formulaire en ligne</a> ou par email à <a href="mailto:contact@aidiscipline.com">contact@aidiscipline.com</a>. L\'organisme en accuse réception sous cinq jours ouvrés et y répond par écrit sous trente jours. Chaque réclamation est consignée dans un tableau de suivi.',
+      },
+    ],
+  },
+];
+---
+
+<DocumentLayout
+  seoTitle="Règlement intérieur des formations — AI Discipline"
+  seoDescription="Règlement intérieur applicable aux stagiaires des formations AI Discipline (Discovery Discipline SAS) : hygiène, sécurité, assiduité, discipline et garanties."
+  title="Règlement intérieur"
+  subtitle="Conformément aux articles L6352-3, L6352-4 et R6352-1 à R6352-15 du Code du travail."
+  meta={[
+    { label: 'Organisme de formation', value: 'Discovery Discipline SAS' },
+    { label: 'Version', value: '21 novembre 2026' },
+    { label: 'Siège', value: '18 boulevard Arago, 75013 Paris' },
+    { label: "Déclaration d'activité", value: 'NDA 11756928875' },
+  ]}
+  pdfFileName="Reglement interieur - AI Discipline"
+>
+  <nav aria-label="Sommaire du règlement" class="rounded-2xl bg-surface-secondary p-6">
+    <p class="!text-sm font-semibold uppercase tracking-widest !text-brand-500">Sommaire</p>
+    <ol class="mt-3 grid gap-x-6 gap-y-1 sm:grid-cols-2">
+      {articles.map((a) => (
+        <li class="!text-sm">
+          <a href={`#article-${a.number}`} class="!text-ink-muted hover:!text-brand-500">
+            {a.number}. {a.title}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  {articles.map((a) => (
+    <article id={`article-${a.number}`} class="scroll-mt-24">
+      <h2>
+        <span class="mr-2 text-brand-500">Article {a.number}</span>
+        <span class="block sm:inline">{a.title}</span>
+      </h2>
+      {a.number === 7 && (
+        <p>
+          Conformément au RGPD, les stagiaires peuvent accéder, modifier,
+          s'opposer et supprimer leurs données personnelles en envoyant un mail
+          à <a href={`mailto:${RGPD_EMAIL}`}>{RGPD_EMAIL}</a>.
+        </p>
+      )}
+      {a.blocks.map((b) =>
+        b.sub ? (
+          <h3>{b.sub}</h3>
+        ) : b.list ? (
+          <ul>
+            {b.list.map((item) => <li>{item}</li>)}
+          </ul>
+        ) : b.html ? (
+          <p set:html={b.html} />
+        ) : (
+          <p>{b.p}</p>
+        ),
+      )}
+    </article>
+  ))}
+</DocumentLayout>
