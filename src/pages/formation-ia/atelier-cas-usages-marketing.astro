@@ -1,0 +1,178 @@
+---
+/**
+ * Fiche de l'« Atelier cas d'usages marketing » (/formation-ia/atelier-cas-usages-marketing).
+ * Source : programme de formation 1.6.9.26 (Google Doc), novembre 2026.
+ *
+ * Page pas encore reliée au site : aucun lien ne pointe vers elle, elle est en
+ * noindex et exclue du sitemap (astro.config.mjs). À la mise en ligne : retirer
+ * `noindex`, le filtre du sitemap, et ajouter l'atelier au catalogue.
+ */
+import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
+
+const TITLE = "Atelier cas d'usages marketing";
+const SLUG = 'atelier-cas-usages-marketing';
+
+const objectives = [
+  {
+    title: 'Cartographier un processus de travail',
+    body:
+      "à partir d'une situation concrète de son quotidien, décrire les étapes d'un processus de travail de son métier.",
+  },
+  {
+    title: "Identifier les cas d'usage de l'IA",
+    body:
+      "repérer dans ce processus les étapes où l'IA générative peut aider ou automatiser, et choisir un cas d'usage prioritaire.",
+  },
+  {
+    title: 'Construire et tester une première solution',
+    body:
+      "construire et tester une première solution d'IA générative sur le cas d'usage choisi, réutilisable dans son quotidien.",
+  },
+];
+
+/** Programme : les quatre temps de pratique du déroulé (temps 1 à 3). */
+const modules = [
+  {
+    number: '01',
+    title: 'Cartographier ses processus de travail',
+    intro:
+      "Partez d'une situation concrète de votre quotidien marketing et décrivez-en chaque étape.",
+    points: [
+      "Choix d'une situation concrète du quotidien marketing de chaque participant",
+      'Description du processus : étapes, acteurs, outils, entrées et sorties',
+      'Repérage des étapes répétitives, longues ou à faible valeur ajoutée',
+      'Mise en pratique et échanges',
+    ],
+  },
+  {
+    number: '02',
+    title: "Repérer où l'IA peut aider ou automatiser",
+    intro:
+      "Analysez chaque étape pour savoir ce que l'IA générative peut produire, accélérer ou automatiser.",
+    points: [
+      "Analyse de chaque étape : ce que l'IA générative peut produire, accélérer ou automatiser",
+      'Points de vigilance : qualité des données, confidentialité, contrôle humain',
+      "Choix d'un cas d'usage prioritaire par participant ou par binôme",
+      'Mise en pratique et échanges',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Construire une première solution',
+    intro:
+      "Traduisez votre cas d'usage en une solution concrète, seul ou en binôme, accompagné par l'intervenant.",
+    points: [
+      "Traduction du cas d'usage en demande structurée (méthode CAFÉ)",
+      'Construction de la solution : prompt, base de connaissances ou assistant',
+      "Travail sur les outils d'IA mis à disposition pour la formation",
+      "Accompagnement individuel par l'intervenant",
+    ],
+  },
+  {
+    number: '04',
+    title: 'Tester et ajuster',
+    intro:
+      "Éprouvez votre solution sur un cas réel et repartez avec un outil prêt à réutiliser dès le lendemain.",
+    points: [
+      'Test de la solution sur un cas réel',
+      'Analyse des résultats et ajustements',
+      "Mise en forme de la solution pour la réutiliser et la partager avec l'équipe",
+      'Mise en pratique et échanges',
+    ],
+  },
+];
+
+const modalities = [
+  { label: 'Durée', value: '1 demi-journée' },
+  { label: 'Format', value: "Présentiel dans vos locaux, jusqu'à 12 participants" },
+  {
+    label: 'Public',
+    value:
+      'Équipes marketing : marketing digital et contenu, CRM et relation client, données et expérience client, développement et partenariats',
+  },
+  {
+    label: 'Pré-requis',
+    value:
+      "Avoir suivi la formation GenAI - Les Fondamentaux. L'atelier a lieu dans les semaines qui suivent cette journée.",
+  },
+  {
+    label: 'Intervenants',
+    value:
+      "Un expert marketing du réseau AI Discipline, avec Tristan Charvillat en observation ou en co-animation pour assurer la continuité avec les Fondamentaux",
+  },
+  {
+    label: 'Accessibilité',
+    value:
+      'Formation accessible aux personnes en situation de handicap. Un entretien préalable permet d’aménager la formation.',
+  },
+  { label: 'Tarif', value: '3 000 € HT en intra, 12 participants maximum' },
+  {
+    label: "Délai d'accès",
+    value: 'Inscription par e-mail et appel préalable, au minimum 7 jours avant la session.',
+  },
+];
+
+const pedagogy = [
+  "L'atelier est consacré à la pratique : chaque participant travaille, seul ou en binôme, sur un cas d'usage réel de son quotidien.",
+  "L'intervenant, expert du métier, adapte ses apports et ses exemples aux cas d'usage apportés par les participants.",
+  "Un questionnaire envoyé avant l'atelier (cas d'usage envisagé, progrès, points bloquants) sert à préparer la séance.",
+  "L'espace de travail ouvert sur la plateforme Dust pour les Fondamentaux reste disponible pendant l'atelier.",
+];
+
+const evaluation = [
+  'Mise en pratique au cours de l’atelier sous forme d’exercices accompagnés par le formateur.',
+  "Un QCM en ligne de 6 questions (5 minutes) est réalisé en fin d'atelier ; il est réussi à partir de 5 bonnes réponses sur 6, avec une seconde chance dans les 3 jours.",
+  'Chaque participant reçoit une attestation de compétences acquises et un certificat de réalisation.',
+  "Une feuille d'émargement est signée par chaque participant et une évaluation à chaud est réalisée en fin de formation.",
+];
+
+const audienceText =
+  "Cet atelier s'adresse aux équipes marketing qui ont suivi la formation GenAI - Les Fondamentaux et veulent appliquer l'IA générative à leurs propres cas d'usage. Chaque participant vient avec ses progrès, ses questions et ses points bloquants, et repart avec une solution concrète, réutilisable dans son quotidien dès le lendemain.";
+
+const seoDescription =
+  "Atelier cas d'usages marketing : une demi-journée dans vos locaux pour cartographier vos processus, repérer où l'IA générative aide et construire votre première solution. Suite de la formation GenAI - Les Fondamentaux. Éligible OPCO (Qualiopi).";
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${TITLE} — Formation en entreprise`,
+  description: seoDescription,
+  url: `https://www.aidiscipline.com/formation-ia/${SLUG}`,
+  provider: {
+    '@type': 'Organization',
+    name: 'AI Discipline',
+    sameAs: 'https://www.aidiscipline.com',
+  },
+  teaches: objectives.map((o) => o.title),
+  coursePrerequisites: 'Avoir suivi la formation GenAI - Les Fondamentaux',
+  availableLanguage: 'fr',
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: 3000,
+    priceCurrency: 'EUR',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+  },
+};
+---
+
+<TrainingDayLayout
+  seoTitle="Atelier cas d'usages marketing — AI Discipline"
+  seoDescription={seoDescription}
+  heading={`${TITLE} - Programme de l'atelier`}
+  lead="Passez des fondamentaux à la pratique : repartez avec une solution d'IA concrète pour votre quotidien. En une demi-journée, un expert marketing du réseau AI Discipline aide chaque participant à identifier ses cas d'usage de l'IA générative et à construire une première solution, dans le prolongement de la formation GenAI - Les Fondamentaux."
+  modules={modules}
+  objectives={objectives}
+  courseSchema={courseSchema}
+  noindex
+  audienceHeading="Quelles équipes former ?"
+  audienceText={audienceText}
+  indicators={[]}
+  testimonials={[]}
+  modalities={modalities}
+  pedagogy={pedagogy}
+  evaluation={evaluation}
+/>
