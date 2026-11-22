@@ -81,7 +81,7 @@ const modules = [
 ];
 
 const modalities = [
-  { label: 'Durée', value: '1 demi-journée' },
+  { label: 'Durée', value: '1 demi-journée (3 heures 30)' },
   { label: 'Format', value: "Présentiel dans vos locaux, jusqu'à 12 participants" },
   {
     label: 'Public',
@@ -153,6 +153,7 @@ const courseSchema = {
   hasCourseInstance: {
     '@type': 'CourseInstance',
     courseMode: 'Onsite',
+    courseWorkload: 'PT3H30M',
   },
 };
 ---
