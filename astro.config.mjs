@@ -11,8 +11,7 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/test-design') &&
         !page.includes('/maquettes/') &&
-        !page.includes('/formation-ia/focused') &&
-        !page.includes('/formation-ia/outiller-cas-usage-marketing'),
+        !page.includes('/formation-ia/focused'),
     }),
   ],
   vite: {

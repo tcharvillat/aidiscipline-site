@@ -3,9 +3,7 @@
  * Fiche de la formation « Identifier et outiller ses premiers cas d'usage marketing avec l'IA » (/formation-ia/outiller-cas-usage-marketing).
  * Source : programme de formation 1.6.9.26 (Google Doc), novembre 2026.
  *
- * Page pas encore reliée au site : aucun lien ne pointe vers elle, elle est en
- * noindex et exclue du sitemap (astro.config.mjs). À la mise en ligne : retirer
- * `noindex`, le filtre du sitemap, et ajouter la formation au catalogue.
+ * Carte correspondante dans le catalogue : team-trainings.json (catégorie marketing).
  */
 import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
 
@@ -168,7 +166,6 @@ const courseSchema = {
   modules={modules}
   objectives={objectives}
   courseSchema={courseSchema}
-  noindex
   audienceHeading="Quelles équipes former ?"
   audienceText={audienceText}
   indicators={[]}

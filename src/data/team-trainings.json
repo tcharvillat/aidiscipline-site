@@ -162,6 +162,17 @@
       ]
     },
     {
+      "id": "outiller-cas-usage-marketing",
+      "category": "marketing",
+      "title": "Identifier et outiller ses premiers cas d'usage marketing avec l'IA",
+      "href": "/formation-ia/outiller-cas-usage-marketing",
+      "objectives": [
+        "Cartographier un processus de travail marketing à partir d'une situation concrète de son quotidien.",
+        "Repérer les étapes où l'IA générative peut aider ou automatiser, et choisir un cas d'usage prioritaire.",
+        "Construire et tester une première solution d'IA, réutilisable dès le lendemain."
+      ]
+    },
+    {
       "id": "contenus-de-marque-multicanal",
       "slug": "contenus-marque-multicanal",
       "category": "marketing",
