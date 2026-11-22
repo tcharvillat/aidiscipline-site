@@ -9,7 +9,9 @@ export default defineConfig({
     sitemap({
       // Pages internes ou pas encore publiées : exclues du sitemap (et en noindex).
       filter: (page) =>
-        !page.includes('/test-design') && !page.includes('/formation-ia/focused'),
+        !page.includes('/test-design') &&
+        !page.includes('/maquettes/') &&
+        !page.includes('/formation-ia/focused'),
     }),
   ],
   vite: {
