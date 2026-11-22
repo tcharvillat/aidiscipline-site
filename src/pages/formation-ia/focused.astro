@@ -35,11 +35,43 @@ const objectives = [
   },
 ];
 
+/**
+ * Apprentissages de chaque module, tirés du déroulé de la fiche Qualiopi
+ * (étapes FRAME à DECIDE rattachées à chaque objectif).
+ */
+const modulePoints = [
+  [
+    "Cadrer l'ambition du projet : ordre de grandeur de l'impact, contrainte majeure, temps alloué",
+    "Choisir l'utilisateur cible et le scénario d'usage sur lesquels concentrer l'équipe",
+    'Révéler le besoin réel en repérant les « contournements » des utilisateurs',
+    'Formuler une proposition de valeur, ses bénéfices utilisateur et sa raison de croire',
+  ],
+  [
+    'Fixer dès le départ la part de risque acceptée pour le projet',
+    "S'appuyer sur les modèles standards pour réduire la charge cognitive",
+    'Expliciter les hypothèses à valider et prototyper le parcours de réussite',
+    'Évaluer la solution et décider : finaliser ou itérer',
+  ],
+  [
+    'Les sept étapes de FOCUSED, leurs livrables et leurs activités',
+    'Dérouler le parcours de bout en bout : architecture des écrans et points de contact',
+    'Identifier les patterns réutilisables et installer une culture de la standardisation',
+    'Appliquer chaque livrable à un projet réel, fil conducteur de la journée',
+  ],
+  [
+    'Jeu « QUI EST-CE ? » pour poser un vocabulaire commun',
+    'Une méthode partagée par Product, Design, Product Marketing et Tech',
+    'Pratiques collaboratives pour concevoir en équipe pluridisciplinaire',
+    'Méthodes itératives et prise de décision collective',
+  ],
+];
+
 /** Le programme reprend les quatre objectifs, un bloc par objectif. */
 const modules = objectives.map((o, i) => ({
   number: String(i + 1).padStart(2, '0'),
   title: o.title,
   intro: o.body.charAt(0).toUpperCase() + o.body.slice(1),
+  points: modulePoints[i],
 }));
 
 const modalities = [
