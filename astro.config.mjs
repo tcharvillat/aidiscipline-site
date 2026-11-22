@@ -12,7 +12,7 @@ export default defineConfig({
         !page.includes('/test-design') &&
         !page.includes('/maquettes/') &&
         !page.includes('/formation-ia/focused') &&
-        !page.includes('/formation-ia/atelier-cas-usages-marketing'),
+        !page.includes('/formation-ia/outiller-cas-usage-marketing'),
     }),
   ],
   vite: {

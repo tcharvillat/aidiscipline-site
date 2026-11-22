@@ -1,16 +1,16 @@
 ---
 /**
- * Fiche de l'« Atelier cas d'usages marketing » (/formation-ia/atelier-cas-usages-marketing).
+ * Fiche de la formation « Identifier et outiller ses premiers cas d'usage marketing avec l'IA » (/formation-ia/outiller-cas-usage-marketing).
  * Source : programme de formation 1.6.9.26 (Google Doc), novembre 2026.
  *
  * Page pas encore reliée au site : aucun lien ne pointe vers elle, elle est en
  * noindex et exclue du sitemap (astro.config.mjs). À la mise en ligne : retirer
- * `noindex`, le filtre du sitemap, et ajouter l'atelier au catalogue.
+ * `noindex`, le filtre du sitemap, et ajouter la formation au catalogue.
  */
 import TrainingDayLayout from '../../layouts/TrainingDayLayout.astro';
 
-const TITLE = "Atelier cas d'usages marketing";
-const SLUG = 'atelier-cas-usages-marketing';
+const TITLE = "Identifier et outiller ses premiers cas d'usage marketing avec l'IA";
+const SLUG = 'outiller-cas-usage-marketing';
 
 const objectives = [
   {
@@ -93,7 +93,7 @@ const modalities = [
   {
     label: 'Pré-requis',
     value:
-      "Avoir suivi la formation GenAI - Les Fondamentaux. L'atelier a lieu dans les semaines qui suivent cette journée.",
+      "Avoir suivi la formation GenAI - Les Fondamentaux. La formation a lieu dans les semaines qui suivent cette journée.",
   },
   {
     label: 'Intervenants',
@@ -113,24 +113,24 @@ const modalities = [
 ];
 
 const pedagogy = [
-  "L'atelier est consacré à la pratique : chaque participant travaille, seul ou en binôme, sur un cas d'usage réel de son quotidien.",
+  "La formation est consacrée à la pratique : chaque participant travaille, seul ou en binôme, sur un cas d'usage réel de son quotidien.",
   "L'intervenant, expert du métier, adapte ses apports et ses exemples aux cas d'usage apportés par les participants.",
-  "Un questionnaire envoyé avant l'atelier (cas d'usage envisagé, progrès, points bloquants) sert à préparer la séance.",
-  "L'espace de travail ouvert sur la plateforme Dust pour les Fondamentaux reste disponible pendant l'atelier.",
+  "Un questionnaire envoyé avant la formation (cas d'usage envisagé, progrès, points bloquants) sert à préparer la séance.",
+  "L'espace de travail ouvert sur la plateforme Dust pour les Fondamentaux reste disponible pendant la formation.",
 ];
 
 const evaluation = [
-  'Mise en pratique au cours de l’atelier sous forme d’exercices accompagnés par le formateur.',
-  "Un QCM en ligne de 6 questions (5 minutes) est réalisé en fin d'atelier ; il est réussi à partir de 5 bonnes réponses sur 6, avec une seconde chance dans les 3 jours.",
+  'Mise en pratique au cours de la formation sous forme d’exercices accompagnés par le formateur.',
+  "Un QCM en ligne de 6 questions (5 minutes) est réalisé en fin de formation ; il est réussi à partir de 5 bonnes réponses sur 6, avec une seconde chance dans les 3 jours.",
   'Chaque participant reçoit une attestation de compétences acquises et un certificat de réalisation.',
   "Une feuille d'émargement est signée par chaque participant et une évaluation à chaud est réalisée en fin de formation.",
 ];
 
 const audienceText =
-  "Cet atelier s'adresse aux équipes marketing qui ont suivi la formation GenAI - Les Fondamentaux et veulent appliquer l'IA générative à leurs propres cas d'usage. Chaque participant vient avec ses progrès, ses questions et ses points bloquants, et repart avec une solution concrète, réutilisable dans son quotidien dès le lendemain.";
+  "Cette formation s'adresse aux équipes marketing qui ont suivi la formation GenAI - Les Fondamentaux et veulent appliquer l'IA générative à leurs propres cas d'usage. Chaque participant vient avec ses progrès, ses questions et ses points bloquants, et repart avec une solution concrète, réutilisable dans son quotidien dès le lendemain.";
 
 const seoDescription =
-  "Atelier cas d'usages marketing : une demi-journée dans vos locaux pour cartographier vos processus, repérer où l'IA générative aide et construire votre première solution. Suite de la formation GenAI - Les Fondamentaux. Éligible OPCO (Qualiopi).";
+  "Formation IA pour les équipes marketing : une demi-journée dans vos locaux pour cartographier vos processus, repérer où l'IA générative aide et construire votre première solution. Suite de la formation GenAI - Les Fondamentaux. Éligible OPCO (Qualiopi).";
 
 const courseSchema = {
   '@context': 'https://schema.org',
@@ -160,9 +160,9 @@ const courseSchema = {
 ---
 
 <TrainingDayLayout
-  seoTitle="Atelier cas d'usages marketing — AI Discipline"
+  seoTitle="Identifier et outiller ses cas d'usage marketing avec l'IA — AI Discipline"
   seoDescription={seoDescription}
-  heading={`${TITLE} - Programme de l'atelier`}
+  heading={`${TITLE} - Programme de la demi-journée`}
   lead="Passez des fondamentaux à la pratique : repartez avec une solution d'IA concrète pour votre quotidien. En une demi-journée, un expert marketing du réseau AI Discipline aide chaque participant à identifier ses cas d'usage de l'IA générative et à construire une première solution, dans le prolongement de la formation GenAI - Les Fondamentaux."
   modules={modules}
   objectives={objectives}
